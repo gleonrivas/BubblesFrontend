@@ -1,0 +1,113 @@
+@media (min-device-width: 1201px) {
+
+  .btnPrincipal{
+    text-align: center;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    border: solid .2rem rgb(255, 255, 255);
+    text-decoration: none;
+  }
+  .btnSecondary{
+    text-align: center;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    padding: .5rem 1rem;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    text-decoration: none;
+  }
+  .inputfield{
+    font-family: 'Varela Round', sans-serif;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    border-radius: 15px;
+    width: 20rem;
+    margin: auto;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    border: solid .2rem rgba(255, 255, 255, 0);
+
+  }
+  .inputfield:focus-visible{
+    border: solid .2rem white;
+  }
+
+  .n1buton{
+    width: 5rem;
+    font-size: 1rem;
+    text-align: center;
+    padding: .7rem 1.2rem;
+    margin: auto;
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: white;
+    color: black;
+  }
+  .n1link{
+    width:auto;
+    text-align: center;
+    padding: .5rem 1rem;
+    margin: auto;
+    text-decoration: none;
+    border-radius: 15px;
+    color: white;
+  }
+
+  .p05-1{
+    padding: .5rem 1rem;
+    text-decoration: underline;
+  }
+
+  .wAuto{
+    width: auto;
+    text-align: center;
+  }
+
+  .homeImg{
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../assets/bubble.v4.logo.v6.png");
+  }
+  .homeLogo{
+    margin: 5rem auto;
+    font-size: 10rem;
+    font-family: 'Righteous', cursive;
+    text-align: center;
+  }
+  .logoImg{
+    width: auto;
+    object-fit: cover;
+  }
+
+  .aniScale{
+    opacity: .7;
+    transition: all .25s ease;
+  }
+  .aniScale:hover{
+    opacity: 1;
+    transform: scale(1.03);
+  }
+  .mouseOnBorder{
+    border: solid .2rem rgba(255, 255, 255, 0);
+    transition: all .25s ease;
+  }
+  .mouseOnBorder:hover{
+    border: solid .2rem rgb(255, 255, 255);
+  }
+  .animated{
+    transition: all .25s ease;
+  }
+
+
+
+}

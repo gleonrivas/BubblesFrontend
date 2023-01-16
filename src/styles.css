@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "app/app.component.default.css";
+@import "app/app.component.desktop.css";
+@import "app/app.component.mobile.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Varela+Round&display=swap');
