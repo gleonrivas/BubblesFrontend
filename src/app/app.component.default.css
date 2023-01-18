@@ -71,7 +71,7 @@ body{
   display: flex;
   flex-direction: column;
   margin: auto;
-  gap: 2rem;
+  gap: 1rem;
 }
 .toHomePosition{
   margin: 0 auto 0 auto;

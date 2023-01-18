@@ -1,89 +1,8 @@
 @media (max-device-width: 1200px) {
 
-  body::-webkit-scrollbar{
-    display: none;
-  }
-  html{
-    background-color: rgb(34,6,69);
-  }
-
-  .initial{
-    margin: 0;
-    padding: 0;
-  }
-  .absolute{
-    position: absolute;
-  }
-  body{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    border: none;
-    overflow: hidden;
-    font-family: 'Varela Round', sans-serif;
-  }
-
-  .purple{
-    background-color: rgb(34,6,69);
-  }
-
-  .white{
-    color: white;
-  }
-  .clear{
-    background-color: white;
-    color: black;
-  }
-
-  .cover{
-    width: auto;
-    height: 100vh;
-    object-fit: cover;
-  }
-
-  .fStack{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-  }
-
-  .hStack{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-  }
-  .vStack{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-  }
-
-  .cStack{
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-  }
-  .toHomePosition{
-    margin: 0 auto 0 auto;
-  }
-
-  .jCenter{
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
   .btnPrincipal{
-    border-radius: 15px;
+    border-radius: 50px;
+    text-align: center;
     font-size: 1rem;
     padding: .5rem 1rem;
     color: black;
@@ -92,9 +11,11 @@
     -webkit-backdrop-filter: blur(50px);
     border: solid .2rem rgb(255, 255, 255);
     text-decoration: none;
-  }
+  }::placeholder{
+      color: rgba(255, 255, 255, 0.5);
+     }
   .btnSecondary{
-    border-radius: 15px;
+    border-radius: 50px;
     font-size: 1rem;
     padding: .5rem 1rem;
     color: white;
@@ -131,6 +52,69 @@
   .logoImg{
     width: auto;
     object-fit: cover;
+  }
+
+  .mouseOnBorder{
+    border: solid .2rem rgba(255, 255, 255, 0);
+    transition: all .25s ease;
+  }
+  .mouseOnBorder:hover{
+    border: solid .2rem rgb(255, 255, 255);
+  }
+  .animated{
+    transition: all .25s ease;
+  }
+
+  .inputfield{
+    font-family: 'Varela Round', sans-serif;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    border-radius: 15px;
+    width: 15rem;
+    margin: auto;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    border: solid .2rem rgba(255, 255, 255, 0);
+
+  }
+  .inputfield:focus-visible{
+    border: solid .2rem white;
+  }
+
+  .n1buton{
+    width: 5rem;
+    font-size: 1rem;
+    text-align: center;
+    padding: .7rem 1.2rem;
+    margin: auto;
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: white;
+    color: black;
+  }
+  .n1link{
+    width:auto;
+    text-align: center;
+    padding: .5rem 1rem;
+    margin: auto;
+    text-decoration: none;
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem auto;
+    gap: .5rem;
+  }
+  .smallTitle{
+    width: auto;
+    margin: 1rem auto;
+    font-family: 'Righteous', cursive;
+    font-size: 3.5rem;
+    color: white;
   }
 
 }
