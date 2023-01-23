@@ -7,12 +7,14 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import {RegistroComponent} from "./registro/registro.component";
+import {PerfilComponent} from "./perfil/perfil.component";
 
 const appRoutes:Routes=[
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'registro', component: RegistroComponent}
+  {path: 'registro', component: RegistroComponent},
+  {path: 'pefil', component: PerfilComponent}
 ];
 
 @NgModule({
@@ -20,7 +22,8 @@ const appRoutes:Routes=[
     AppComponent,
     LoginComponent,
     HomeComponent,
-    RegistroComponent
+    RegistroComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
