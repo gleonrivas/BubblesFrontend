@@ -14,7 +14,7 @@
   }
 
   .circle::before {
-    background-color: rebeccapurple;
+    background-color: rgb(58,6,80);
     border-style: dashed;
     color: white;
     display: flex;
@@ -88,7 +88,7 @@
   }
 
   .circle::before {
-    background-color: rebeccapurple;
+    background-color: rgb(58,6,80);
     border-style: dashed;
     color: white;
     display: flex;
