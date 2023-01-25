@@ -44,7 +44,7 @@
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
     border-radius: 15px;
-    width: 18rem;
+    width: 17.5rem;
     font-size: 1rem;
     padding: .5rem 1rem;
     border: solid .2rem rgba(255, 255, 255, 0);
@@ -141,6 +141,105 @@
     font-size: 5rem;
     color: white;
   }
+  .profileImg{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+  }
 
+  .inBubble{
+    justify-content: center;
+    border-radius: 100%;
+    margin: 3rem auto 1rem auto;
+    padding: 1.5rem;
+    width: min-content;
+    height: min-content;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url("../assets/buble.v6.transparent.png");
+  }
 
+  .username{
+    width: auto;
+    text-align: center;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .nombre{
+    width: auto;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .userinfo{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    gap: 1rem;
+  }
+
+  .userBio{
+    margin: 0 auto;
+    width: 20rem;
+    text-align: justify;
+    font-size: .8rem;
+  }
+
+  .subInfoStack{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 20rem;
+    justify-content: space-between;
+    text-align: center
+  }
+  .cuantity>*{
+    display: flex;
+    flex-direction: column;
+    font-size: .8rem;
+    margin: 0;
+  }
+  .btnStack{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 25rem;
+    justify-content: space-evenly;
+  }
+
+  .editarPerfil{
+    margin: 1rem auto;
+    width: 23rem;
+    padding: .3rem;
+    font-weight: bold;
+    border-radius: 10px;
+    border:solid .2rem rgba(0, 0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  .profileBtn{
+    width: 7rem;
+    padding: .3rem;
+    font-weight: bold;
+    border-radius: 10px;
+    border:solid .2rem rgba(0, 0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .public{
+    margin: 2rem auto 5rem auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 35rem;
+    height: max-content;
+    border-radius: 30px;
+    justify-content: space-evenly;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
 }
