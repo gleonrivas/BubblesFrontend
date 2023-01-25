@@ -17,7 +17,6 @@ body{
   padding: 0;
   width: 100%;
   border: none;
-  overflow: hidden;
   font-family: 'Varela Round', sans-serif;
 }
 
@@ -28,6 +27,11 @@ body{
 .white{
   color: white;
 }
+
+.semiWhite{
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .clear{
   background-color: white;
   color: black;
