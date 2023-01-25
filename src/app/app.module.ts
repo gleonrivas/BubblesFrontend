@@ -7,6 +7,9 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import {RegistroComponent} from "./registro/registro.component";
 import {PerfilComponent} from "./perfil/perfil.component";
+import { HelloComponent } from './hello/hello.component';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes:Routes=[
   {path: '', component: HelloComponent},
@@ -14,7 +17,8 @@ const appRoutes:Routes=[
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
-  {path: 'perfil', component: PerfilComponent}
+  {path: 'perfil', component: ProfileComponent},
+  {path: 'editarperfil', component: PerfilComponent}
 ];
 
 @NgModule({
@@ -24,7 +28,7 @@ const appRoutes:Routes=[
     HomeComponent,
     RegistroComponent,
     HelloComponent,
-    ProfileComponent
+    ProfileComponent,
     RegistroComponent,
     PerfilComponent
   ],
