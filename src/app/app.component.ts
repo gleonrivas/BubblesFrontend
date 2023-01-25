@@ -40,7 +40,7 @@ export class AppComponent {
   }
 
   public cargarData(){
-    this.RestService.get<Publicacion[]>("http://127.0.0.1:8000/usuario/listar").subscribe((respuesta) =>{
+    this.RestService.get<Publicacion[]>("http://127.0.0.1:8000/publicacion/listar").subscribe((respuesta) =>{
       this.listadePublicacion = respuesta;
     })
   }
