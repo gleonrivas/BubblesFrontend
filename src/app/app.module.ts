@@ -10,6 +10,7 @@ import {PerfilComponent} from "./perfil/perfil.component";
 import { HelloComponent } from './hello/hello.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes:Routes=[
   {path: '', component: HelloComponent},
@@ -35,7 +36,8 @@ const appRoutes:Routes=[
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
