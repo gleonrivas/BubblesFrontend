@@ -3,14 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './views/pages/login/login.component';
 import { FormsModule } from '@angular/forms';
-import {RegistroComponent} from "./registro/registro.component";
-import {PerfilComponent} from "./perfil/perfil.component";
-import { HelloComponent } from './hello/hello.component';
-import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
+import {RegistroComponent} from "./views/pages/registro/registro.component";
+import {PerfilComponent} from "./views/pages/perfil/perfil.component";
+import { HelloComponent } from './views/pages/hello/hello.component';
+import { HomeComponent } from './views/pages/home/home.component';
+import { ProfileComponent } from './views/pages/profile/profile.component';
 import {HttpClientModule} from "@angular/common/http";
+import { PublicacionComponent } from './views/components/publicacion/publicacion.component';
+import {RestService} from "./shared/services/rest.service";
+import {UserService} from "./shared/services/user.service";
 
 const appRoutes:Routes=[
   {path: '', component: HelloComponent},
@@ -18,7 +21,7 @@ const appRoutes:Routes=[
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
-  {path: 'perfil', component: ProfileComponent},
+  {path: 'perfil/:id', component: ProfileComponent},
   {path: 'editarperfil', component: PerfilComponent}
 ];
 
@@ -31,7 +34,8 @@ const appRoutes:Routes=[
     HelloComponent,
     ProfileComponent,
     RegistroComponent,
-    PerfilComponent
+    PerfilComponent,
+    PublicacionComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,7 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [],
+  providers: [RestService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
