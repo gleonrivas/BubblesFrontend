@@ -19,6 +19,6 @@ export class HelloComponent {
     /*let hola = this.RestService.get('https://api.publicapis.org/entries').subscribe();
     console.log(hola);*/
 
-    this.RestService.get('https://api.publicapis.org/entries').subscribe(respuesta => {console.log(respuesta)});
+    this.RestService.get('https://127.0.0.1:8000/api/usuario/listar').subscribe(respuesta => {console.log(respuesta)});
   }
 }
