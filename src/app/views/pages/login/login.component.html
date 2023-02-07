@@ -9,10 +9,12 @@
 <form class="vStack">
   <div class="cStack">
     <div class="smallTitle">- Login -</div>
-    <input class="inputfield animated white" type="text" name="" placeholder="Nombre de usuario o email">
-    <input class="inputfield animated white" type="password" name="" placeholder="Contraseña">
+    <input class="inputfield animated white" type="text" name="" placeholder="Nombre de usuario o email" [value]="email"
+           (input)="onEmailInput($event)">
+    <input class="inputfield animated white" type="password" name="" placeholder="Contraseña" [value]="password"
+           (input)="onPasswordInput($event)">
     <div class="group">
-      <a class="n1buton aniScale" href="/perfil">Entrar</a>
+      <a class="n1buton aniScale" (click)="login()">Entrar</a>
       <a class="n1link animated" href="/registro">¿No tienes cuenta aún?</a>
     </div>
   </div>
