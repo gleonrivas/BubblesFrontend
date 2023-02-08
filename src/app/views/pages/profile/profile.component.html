@@ -6,25 +6,25 @@
 </head>
 <body class="fStack purple">
 
-<div class="vStack">
+<div class="vStack" *ngIf="perfil">
   <div class="inBubble">
-    <img class="profileImg" src="../../../../assets/appleportrait.jpg" /> <!--src="https://img.icons8.com/material-rounded/200/ffffff/user-male-circle.png"-->
+    <img class="profileImg" src="{{perfil.fotoPerfil}}" /> <!--src="https://img.icons8.com/material-rounded/200/ffffff/user-male-circle.png"-->
   </div>
   <div class="userinfo semiWhite">
-    <h3 class="nombre white">Emily Santana</h3>
-    <h3 class="username white">@hola_soy_emily</h3>
-    <p class="userBio">Como pasatiempo paso aquí mi tiempo. Intento vivir nuevas experiencias y compartirlo para que el mundo vea mas allá de sus propias murallas.</p>
+    <h3 class="nombre white">{{perfil.username}}</h3>
+    <h3 class="username white">{{perfil.username}}</h3>
+    <p class="userBio">{{perfil.descripcion}}</p>
     <div class="subInfoStack white">
       <div class="cuantity">
         <h3>Bubbles</h3>
         <h3>462</h3>
       </div>
       <div class="cuantity">
-        <h3>Segidos</h3>
+        <h3>Seguidos</h3>
         <h3>194</h3>
       </div>
       <div class="cuantity">
-        <h3>Segidores</h3>
+        <h3>Seguidores</h3>
         <h3>4.589</h3>
       </div>
     </div>
@@ -37,9 +37,9 @@
     </div>
   </div>
 
-  <div class="public white">
+  <div class="public white" id = "listaPublicaciones">
       <div *ngFor="let publicacion of publicaciones">
-        <p>{{publicacion.texto}} [Temática: {{publicacion.tematica}}]</p>
+        <app-publicacion [publicacion]="publicacion"></app-publicacion>
       </div>
   </div>
 

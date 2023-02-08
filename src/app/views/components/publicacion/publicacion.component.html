@@ -1,5 +1,6 @@
-
-<div class="inBubble">
-  <img class="profileImg" src={{}} />
-  <p>{{publicacion.texto}} [Temática: {{publicacion.tematica}}]</p>
+<div *ngIf="publicacion">
+<div class="inBubble" >
+  <img class="profileImg" src="{{publicacion.imagen}}" />
+</div>
+<h5 class="texto">{{publicacion.texto}}</h5>
 </div>

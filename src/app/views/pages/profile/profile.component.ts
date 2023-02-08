@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {UserService} from "../../../shared/services/user.service";
+import {PerfilesService} from "../../../shared/services/perfiles.service";
 import {ActivatedRoute} from "@angular/router";
 import {Publicacion} from "../../../shared/models/publicacion/publicacion.response";
+import {Perfil} from "../../../shared/models/perfil/perfil.response";
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +14,10 @@ export class ProfileComponent {
 
   public id: number = -1;
   public publicaciones: Publicacion[] = [];
-  constructor(private readonly userService: UserService, private readonly router: ActivatedRoute) {
+
+  public perfil?:Perfil;
+  constructor(private readonly userService: UserService, private readonly perfilService: PerfilesService,
+              private readonly router: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -24,6 +29,10 @@ export class ProfileComponent {
 
        this.userService.listarPublicacionesPorUsuario(this.id).subscribe((data) => {
          this.publicaciones = data;
+       })
+
+       this.perfilService.PerfilPorId(this.id).subscribe((data)=>{
+         this.perfil=data;
        })
      });
   }

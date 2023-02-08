@@ -14,6 +14,7 @@ import { PublicacionComponent } from './views/components/publicacion/publicacion
 import {RestService} from "./shared/services/rest.service";
 import {UserService} from "./shared/services/user.service";
 import { EditarPerfilComponent } from './views/pages/editar-perfil/editar-perfil.component';
+import {PerfilesService} from "./shared/services/perfiles.service";
 
 const appRoutes:Routes=[
   {path: '', component: HelloComponent},
@@ -43,7 +44,7 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [RestService, UserService],
+  providers: [RestService, UserService, PerfilesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
