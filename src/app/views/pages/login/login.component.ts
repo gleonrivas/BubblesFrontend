@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from "../../../shared/services/auth.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,9 @@ import {AuthService} from "../../../shared/services/auth.service";
 export class LoginComponent {
   email:string = "";
   password:string = "";
+  public loginError: boolean = false;
 
-  constructor(public readonly authService: AuthService) {
+  constructor(public readonly authService: AuthService,  private readonly router: Router) {
   }
   onEmailInput(event: Event){
     const target = event.target as HTMLInputElement;
@@ -26,6 +28,13 @@ export class LoginComponent {
     this.authService.login({
       email: this.email,
       password: this.password,
+    }).subscribe({
+      complete: () => {
+        this.router.navigateByUrl('/home')
+      },
+      error: () => {
+        this.loginError = true
+      }
     })
   }
 

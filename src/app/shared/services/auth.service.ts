@@ -15,9 +15,13 @@ export class AuthService {
   }
 
   login(data: AuthRequest) {
-    return this.restService.post<AuthResponse, AuthRequest>(`${this.url}/api/login`, data).subscribe(
+    const observable = this.restService.post<AuthResponse, AuthRequest>(`${this.url}/api/login`, data)
+
+    observable.subscribe(
       (data) => localStorage.setItem("apiKey", data.token)
     );
+    return observable;
+
   }
 
   logout() {
