@@ -19,6 +19,7 @@ export class AuthService {
 
     observable.subscribe(
       (data) => localStorage.setItem("apiKey", data.token)
+
     );
     return observable;
 

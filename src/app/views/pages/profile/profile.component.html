@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <title>Home</title>
 </head>
-<body class="fStack purple">
+<body class="fStack purple" >
 
-<div class="vStack" *ngIf="perfil">
+<div class="vStack" id="fondoPerfil" *ngIf="perfil">
   <div class="divperfil">
     <div class="inBubble">
       <img class="profileImg" src="{{perfil.fotoPerfil}}"/>
@@ -20,11 +20,11 @@
           <h3>Bubbles</h3>
           <h3>{{publicaciones.length}}</h3>
         </div>
-        <div class="cuantity">
+        <div class="cuantity" (click)="verSeguidos()">
           <h3>Seguidos</h3>
           <h3>194</h3>
         </div>
-        <div class="cuantity">
+        <div class="cuantity" (click)="verSeguidores()">
           <h3>Seguidores</h3>
           <h3>4.589</h3>
         </div>
@@ -32,18 +32,40 @@
       <a class="editarPerfil mouseOnBorder white clearmob" href="/editarperfil">Editar perfil</a>
 
       <div class="btnStack">
-        <a class="profileBtn mouseOnBorder white clearmob" href="#">Tus Bubles</a>
-        <a class="profileBtn mouseOnBorder white clearmob" href="#">Tus Favoritos</a>
-        <a class="profileBtn mouseOnBorder white clearmob" href="#">Guardado</a>
+        <a class="profileBtn mouseOnBorder white clearmob" (click)="verBubbles()">Tus Bubles</a>
+        <a class="profileBtn mouseOnBorder white clearmob" (click)="verfavoritos()">Tus Favoritos</a>
+
       </div>
     </div>
   </div>
-  <div class="public white" id="listaPublicaciones">
-    <div *ngFor="let publicacion of publicaciones">
-      <app-publicacion [publicacion]="publicacion"></app-publicacion>
+
+  <div [ngSwitch]="sideVisibility" class="sideStyle">
+    <div  class="listaPublicaciones" *ngSwitchCase="visibleSection.BUBBLES">
+      <div *ngFor="let publicacion of publicaciones">
+        <app-publicacion [publicacion]="publicacion"></app-publicacion>
+      </div>
+    </div>
+
+    <div  class="listaPublicaciones" *ngSwitchCase="visibleSection.FAVORITES">
+      <p>Esto va a ser favs</p>
+    </div>
+
+    <div  class="listaPublicaciones" *ngSwitchCase="visibleSection.FOLLOWERS" >
+      <div *ngFor="let seguidor of seguidores" class="seguidores">
+        <div class="inLittleBubble">
+          <img class="profileImg" src="{{seguidor.fotoPerfil}}"/>
+        </div>
+        <div class="infoSeguidores">
+          <h2>{{seguidor.username}}</h2>
+          <h3>{{seguidor.descripcion}}</h3>
+        </div>
+      </div>
+    </div>
+
+    <div  class="listaPublicaciones" *ngSwitchCase="visibleSection.FOLLOWING">
+      <p>Esto va a ser Seguidos</p>
     </div>
   </div>
-
 </div>
 </body>
 </html>
