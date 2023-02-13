@@ -18,6 +18,8 @@ import {PerfilesService} from "./shared/services/perfiles.service";
 import {PublicacionService} from "./shared/services/publicacion.service";
 import { BotonSeguidoresComponent } from './views/components/boton-seguidores/boton-seguidores.component';
 import {SeguidorService} from "./shared/services/seguidor.service";
+import { BotonCrearComponent } from './views/components/boton-crear/boton-crear.component';
+import { CrearPublicacionComponent } from './views/pages/crear-publicacion/crear-publicacion.component';
 
 
 const appRoutes:Routes=[
@@ -27,7 +29,8 @@ const appRoutes:Routes=[
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
   {path: 'perfil/:id', component: ProfileComponent},
-  {path: 'editarperfil', component: EditarPerfilComponent}
+  {path: 'editarperfil', component: EditarPerfilComponent},
+  {path: 'crearPublicacion', component: CrearPublicacionComponent}
 ];
 
 @NgModule({
@@ -42,7 +45,9 @@ const appRoutes:Routes=[
     RegistroComponent,
     PublicacionComponent,
     EditarPerfilComponent,
-    BotonSeguidoresComponent
+    BotonSeguidoresComponent,
+    BotonCrearComponent,
+    CrearPublicacionComponent
   ],
   imports: [
     BrowserModule,
