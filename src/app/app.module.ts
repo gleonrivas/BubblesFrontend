@@ -19,6 +19,7 @@ import {PublicacionService} from "./shared/services/publicacion.service";
 import { BotonSeguidoresComponent } from './views/components/boton-seguidores/boton-seguidores.component';
 import {SeguidorService} from "./shared/services/seguidor.service";
 
+
 const appRoutes:Routes=[
   {path: '', component: HelloComponent},
   {path: 'hello', component: HelloComponent},
@@ -37,6 +38,7 @@ const appRoutes:Routes=[
     RegistroComponent,
     HelloComponent,
     ProfileComponent,
+    BotonSeguidoresComponent,
     RegistroComponent,
     PublicacionComponent,
     EditarPerfilComponent,
