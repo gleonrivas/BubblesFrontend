@@ -134,8 +134,8 @@
   }
 
   .profileImg{
-    width: 10rem;
-    height: 10rem;
+    width: 7rem;
+    height: 7rem;
     border-radius: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -221,7 +221,7 @@
     font-size: .7rem;
     text-align: center;
     text-decoration: none;
-    width: 5rem;
+    width: 9rem;
     padding: .3rem;
     font-weight: bold;
     border-radius: 10px;
@@ -246,4 +246,90 @@
     background-color: rgba(255, 255, 255, 0.2);
   }
 
+  .profileView{
+    flex-direction: column;
+  }
+
+  .sideStyle{
+    margin: 1.5rem auto;
+    min-width: 95%;
+    max-width: 23rem;
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+
+  .sideStyle::-webkit-scrollbar{
+    display: none;
+  }
+
+
+  .divperfil{
+    padding-top: 5rem;
+    width: 100%;
+    height: fit-content;
+  }
+  .inStory{
+    justify-content: center;
+    border-radius: 100%;
+    margin: 0 auto;
+    padding: .6rem;
+    width: min-content;
+    height: min-content;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url("../assets/buble.v6.transparent.png");
+
+  }
+
+  .story{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+  }
+
+  .marco{
+    border-radius: 25px;
+    padding: 1rem;
+    width: 4rem;
+    height: 6rem;
+    background-color: rgba(255, 255, 255, 0.43);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: .5rem ;
+  }
+
+  .marco > p{
+    font-size: .5rem;
+    margin: .3rem;
+    text-align: center;
+  }
+
+  .listaPublicaciones{
+    max-width: 23rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 2rem;
+  }
+  .listaPublicaciones > p{
+    width: 21rem;
+    height: fit-content;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    padding: .5rem 0;
+    background-color: rgba(255, 255, 255, 0.43);
+
+  }
 }
