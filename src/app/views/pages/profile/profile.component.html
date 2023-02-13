@@ -2,11 +2,12 @@
 <html lang="es" class="initial">
 <head>
   <meta charset="UTF-8">
-  <title>Home</title>
+  <title>Perfil</title>
 </head>
-<body class="fStack purple" >
+<body class="fStack purple ">
 
-<div class="vStack" id="fondoPerfil" *ngIf="perfil">
+<div class="profileView" *ngIf="perfil">
+
   <div class="divperfil">
     <div class="inBubble">
       <img class="profileImg" src="{{perfil.fotoPerfil}}"/>
@@ -45,6 +46,7 @@
         <h2>"No tienes publicaciones"</h2>
       </div>
       <div *ngIf="publicaciones.length > 0" class="listaPublicaciones">
+        <p>Tus Bubbles</p>
         <div *ngFor="let publicacion of publicaciones">
           <app-publicacion [publicacion]="publicacion"></app-publicacion>
         </div>

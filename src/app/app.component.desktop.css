@@ -153,7 +153,7 @@
   .inBubble{
     justify-content: center;
     border-radius: 100%;
-    margin: 3rem auto 1rem auto;
+    margin: 1rem auto;
     padding: 1.5rem;
     width: min-content;
     height: min-content;
@@ -218,7 +218,7 @@
     text-align: center;
     text-decoration: none;
     margin: 1rem auto;
-    width: 22rem;
+    width: 20rem;
     padding: .3rem;
     font-weight: bold;
     border-radius: 10px;
@@ -229,7 +229,7 @@
     font-size: .7rem;
     text-align: center;
     text-decoration: none;
-    width: 6rem;
+    width: 8.5rem;
     padding: .3rem;
     font-weight: bold;
     border-radius: 10px;
@@ -248,4 +248,91 @@
     justify-content: space-evenly;
     background-color: rgba(255, 255, 255, 0.2);
   }
+
+  .profileView{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .sideStyle{
+    margin: 4rem;
+    width: 50rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow-y: scroll;
+  }
+
+
+  .sideStyle::-webkit-scrollbar{
+    display: none;
+  }
+
+
+  .divperfil{
+    margin: auto 0;
+    height: fit-content;
+    width: 50%;
+  }
+  .inStory{
+    justify-content: center;
+    border-radius: 100%;
+    margin: 0 auto;
+    padding: 1.5rem;
+    width: min-content;
+    height: min-content;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url("../assets/buble.v6.transparent.png");
+
+  }
+  .marco:hover{
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.44);
+
+  }
+  .story{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+  }
+
+  .marco{
+    border-radius: 25px;
+    padding: 1rem;
+    width: 10rem;
+    height: 12rem;
+    background-color: rgba(255, 255, 255, 0.43);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem ;
+  }
+
+  .marco > p{
+    font-size: .8rem;
+    margin: .3rem;
+    text-align: center;
+  }
+
+  .listaPublicaciones{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .listaPublicaciones > p{
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+  }
 }
+
+
