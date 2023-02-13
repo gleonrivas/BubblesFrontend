@@ -40,24 +40,44 @@
   </div>
 
   <div [ngSwitch]="sideVisibility" class="sideStyle">
-    <div  class="listaPublicaciones" *ngSwitchCase="visibleSection.BUBBLES">
-      <div *ngFor="let publicacion of publicaciones">
-        <app-publicacion [publicacion]="publicacion"></app-publicacion>
+    <div   *ngSwitchCase="visibleSection.BUBBLES">
+      <div *ngIf="publicaciones.length == 0" >
+        <h2>"No tienes publicaciones"</h2>
+      </div>
+      <div *ngIf="publicaciones.length > 0" class="listaPublicaciones">
+        <div *ngFor="let publicacion of publicaciones">
+          <app-publicacion [publicacion]="publicacion"></app-publicacion>
+        </div>
       </div>
     </div>
 
-    <div  class="listaPublicaciones" *ngSwitchCase="visibleSection.FAVORITES">
-      <p>Esto va a ser favs</p>
+    <div   *ngSwitchCase="visibleSection.FAVORITES">
+      <div *ngIf="publicacionesporLikes.length == 0" >
+        <h2>"No tienes favoritos"</h2>
+      </div>
+      <div *ngIf="publicacionesporLikes.length > 0"  class="listaPublicaciones">
+        <div *ngFor="let publicacion of publicacionesporLikes">
+          <app-publicacion [publicacion]="publicacion"></app-publicacion>
+        </div>
+      </div>
     </div>
 
-    <div  class="listaPublicaciones" *ngSwitchCase="visibleSection.FOLLOWERS" >
-      <div *ngFor="let seguidor of seguidores" class="seguidores">
-        <div class="inLittleBubble">
-          <img class="profileImg" src="{{seguidor.fotoPerfil}}"/>
-        </div>
-        <div class="infoSeguidores">
-          <h2>{{seguidor.username}}</h2>
-          <h3>{{seguidor.descripcion}}</h3>
+    <div  *ngSwitchCase="visibleSection.FOLLOWERS" >
+      <div class="listaPublicaciones" *ngIf="seguidores.length == 0">
+        <h2>"No tienes seguidores"</h2>
+      </div>
+      <div *ngIf="seguidores.length > 0">
+        <div  *ngFor="let seguidor of seguidores" class="seguidores">
+          <div class="inLittleBubble">
+            <img class="profileImg" src="{{seguidor.fotoPerfil}}"/>
+          </div>
+          <div class="infoSeguidores">
+            <h2>{{seguidor.username}}</h2>
+            <h3>{{seguidor.descripcion}}</h3>
+          </div>
+          <div class="botonSeguir">
+            <app-boton-seguidores [id_seguidor]="seguidor.id" [id_perfil]="perfil.id" ></app-boton-seguidores>
+          </div>
         </div>
       </div>
     </div>

@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+
 
 @Injectable()
 export class RestService {
-  constructor(private http:HttpClient) {
+  constructor(private http: HttpClient) {
 
   }
 
@@ -13,13 +14,13 @@ export class RestService {
     return headers.set("apiKey", apiToken);
   }
 
-  public get<T=Object>(url:string){
+  public get<T = Object>(url: string) {
     return this.http.get<T>(url, {
       headers: this.getHeaders()
     });
   }
 
-  public post<T=Object, K=Object>(url: string, body: K) {
+  public post<T = Object, K = Object>(url: string, body: K) {
     return this.http.post<T>(url, body, {
       headers: this.getHeaders()
     });
@@ -29,8 +30,10 @@ export class RestService {
 
   }
 
-  public delete() {
-
+  public delete<T = Object>(url: string) {
+    return this.http.delete<T>(url, {
+      headers: this.getHeaders()
+    });
   }
 
   public patch() {

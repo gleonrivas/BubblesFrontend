@@ -1,0 +1,22 @@
+.boton{
+  font-family: 'Varela Round', sans-serif;
+  padding: 8%;
+  border-radius: 15px;
+  font-size: .7rem;
+  font-weight: bold;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: solid 0.2rem rgba(0, 0, 0, 0);
+}
+
+.botondisabled{
+  font-family: 'Varela Round', sans-serif;
+  padding: 8%;
+  border-radius: 15px;
+  font-size: .7rem;
+  font-weight: bold;
+  color: rgba(24, 24, 24, 0.78);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: solid 0.2rem rgba(0, 0, 0, 0);
+}
+

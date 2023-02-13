@@ -9,6 +9,6 @@ export type Publicacion = {
   tematica: string;
   fechaPublicacion: Date;
   activa: boolean;
-  usuario: Usuario;
+
 
 }

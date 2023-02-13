@@ -15,6 +15,9 @@ import {RestService} from "./shared/services/rest.service";
 import {UserService} from "./shared/services/user.service";
 import { EditarPerfilComponent } from './views/pages/editar-perfil/editar-perfil.component';
 import {PerfilesService} from "./shared/services/perfiles.service";
+import {PublicacionService} from "./shared/services/publicacion.service";
+import { BotonSeguidoresComponent } from './views/components/boton-seguidores/boton-seguidores.component';
+import {SeguidorService} from "./shared/services/seguidor.service";
 
 const appRoutes:Routes=[
   {path: '', component: HelloComponent},
@@ -36,7 +39,8 @@ const appRoutes:Routes=[
     ProfileComponent,
     RegistroComponent,
     PublicacionComponent,
-    EditarPerfilComponent
+    EditarPerfilComponent,
+    BotonSeguidoresComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,7 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [RestService, UserService, PerfilesService],
+  providers: [RestService, UserService, PerfilesService, PublicacionService, SeguidorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

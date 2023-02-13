@@ -10,4 +10,5 @@ export class PublicacionComponent {
 
   @Input() publicacion?: Publicacion;
 
+
 }

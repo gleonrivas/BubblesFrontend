@@ -5,3 +5,11 @@ export type Perfil = {
   tipoCuenta: string;
   fotoPerfil: string;
 }
+
+export const PerfilVacio: Perfil = {
+  id: -1,
+  descripcion: "",
+  username: "",
+  fotoPerfil: "",
+  tipoCuenta: ""
+}

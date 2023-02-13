@@ -6,15 +6,16 @@
 }
 .divperfil{
   width: 40%;
+  margin-left: 2%;
 }
 .sideStyle{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 58%;
+  width: 80%;
   height: max-content;
   border-radius: 30px;
-  justify-content: space-evenly;
+  text-align: -webkit-center;
   background-color: rgba(255, 255, 255, 0.2);
   font-family: 'Varela Round', sans-serif;
   color: white;
@@ -26,14 +27,16 @@
 .seguidores{
   display: flex;
   flex-flow: row nowrap;
-  width: 80%;
+  width: 250%;
   justify-content: flex-start
 }
 .infoSeguidores{
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  margin-left: 7%;
+  align-items: baseline;
+  margin-left: 2%;
+  width: 15%;
 }
 .inLittleBubble{
   justify-content: center;
@@ -45,4 +48,8 @@
   background-position: center;
   background-size: contain;
   background-image: url("src/assets/buble.v6.transparent.png");
+}
+.botonSeguir{
+  width: 20%;
+  align-self: center;
 }

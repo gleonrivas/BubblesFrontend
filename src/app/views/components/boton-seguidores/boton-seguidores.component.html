@@ -1,0 +1,6 @@
+<button *ngIf="siguiendo == true" class="boton" (click)="seguirDejarDeSeguir()">
+  Eliminar seguidor
+</button>
+<button *ngIf="siguiendo == false" disabled class="botondisabled" (click)="seguirDejarDeSeguir()" >
+  No te sigue
+</button>
