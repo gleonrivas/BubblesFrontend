@@ -15,7 +15,7 @@ export class AuthService {
   }
 
   login(data: AuthRequest) {
-    const observable = this.restService.post<AuthResponse, AuthRequest>(`${this.url}/api/login`, data)
+    const observable = this.restService.post<AuthRequest, AuthResponse>(`${this.url}/api/login`, data)
 
     observable.subscribe(
       (data) => localStorage.setItem("apiKey", data.token)

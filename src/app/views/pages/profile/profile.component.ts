@@ -38,7 +38,7 @@ export class ProfileComponent {
               private readonly publicacionService: PublicacionService,
               private readonly router: ActivatedRoute,
               private readonly seguidorService: SeguidorService) {
-    console.log(this)
+
   }
 
   ngOnInit() {

@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {RestService} from "./rest.service";
 import {Publicacion} from "../models/publicacion/publicacion.response";
+import {PublicacionParaCrear} from "../models/publicacion/PublicacionParaCrear";
 
 @Injectable()
 export class PublicacionService{
@@ -12,5 +13,8 @@ export class PublicacionService{
 
   public publicacionPorLikeDelPerfilId(id_perfil: number) {
     return this.restService.get<Publicacion[]>(`${this.url}/api/likePublicacion/listar/${id_perfil}`)
+  }
+  public crearPublicacion(publicacion:PublicacionParaCrear) {
+    return this.restService.post<PublicacionParaCrear>(`${this.url}/api/publicacion/guardar`, publicacion)
   }
 }

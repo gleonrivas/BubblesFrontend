@@ -27,7 +27,7 @@
         </div>
         <div class="cuantity" (click)="verSeguidores()">
           <h3>Seguidores</h3>
-          <h3>4.589</h3>
+          <h3>{{seguidores.length}}</h3>
         </div>
       </div>
       <a class="editarPerfil mouseOnBorder white clearmob" href="/editarperfil">Editar perfil</a>
@@ -37,7 +37,7 @@
         <a class="profileBtn mouseOnBorder white clearmob" (click)="verfavoritos()">Tus Favoritos</a>
 
       </div>
-      <app-boton-crear></app-boton-crear>
+      <button [routerLink]="['/crearPublicacion', id]">+</button>
     </div>
   </div>
 
