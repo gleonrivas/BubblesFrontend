@@ -43,6 +43,9 @@ export class LoginComponent {
       email: this.email,
       password: this.password,
     }).subscribe({
+      next:(data)=>{
+        localStorage.setItem("apiKey", data.token)
+      },
       complete: () => {
         const token = localStorage.getItem('apiKey') || '';
         const infouser = this.jwtService.decodeToken(token);

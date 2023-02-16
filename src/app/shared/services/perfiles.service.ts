@@ -18,7 +18,7 @@ export class PerfilesService {
   public seguidoresPorId(id: number) {
     return this.restService.get<Seguidor[]>(`${this.url}/api/seguidores/listar/${id}`)
   }
-  public perfilesPorUsuario() {
-    return this.restService.get<Perfil[]>(`${this.url}/api/perfil/listarPorUsuario/`)
+  public perfilesPorUsuario(id_usuario:number) {
+    return this.restService.get<Perfil[]>(`${this.url}/api/perfil/listarPorUsuarioId/${id_usuario}`)
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {Perfil, PerfilVacio} from "../../../shared/models/perfil/perfil.response";
 
 @Component({
@@ -8,6 +8,6 @@ import {Perfil, PerfilVacio} from "../../../shared/models/perfil/perfil.response
 })
 export class PerfilComponent {
 
-  public perfil: Perfil = PerfilVacio;
+  @Input()  perfil?: Perfil = PerfilVacio;
 
 }

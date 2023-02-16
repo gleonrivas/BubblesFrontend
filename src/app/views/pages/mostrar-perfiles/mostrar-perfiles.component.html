@@ -2,10 +2,27 @@
 <html lang="es" class="initial">
 <head>
   <meta charset="UTF-8">
-  <title>Home</title>
+  <title>Perfiles</title>
 </head>
 <body class="fStack purple homeImg">
-<app-perfil></app-perfil>
+
+<form class="vStack">
+
+  <div class="cStack" *ngIf="perfiles.length > 0">
+    <div class="smallTitle">- Perfiles -</div>
+    <div class="listaPerfiles">
+      <div *ngFor="let perfil of perfiles">
+        <app-perfil [perfil]="perfil"></app-perfil>
+      </div>
+    </div>
+  </div>
+
+  <div class="cStack" *ngIf="perfiles.length == 0">
+    <div class="smallTitle">- Crear Perfil -</div>
+
+  </div>
+
+
+</form>
 </body>
 </html>
-

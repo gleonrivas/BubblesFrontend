@@ -34,7 +34,8 @@ export class ProfileComponent {
 
   public perfil: Perfil = PerfilVacio;
 
-  constructor(private readonly userService: UserService, private readonly perfilService: PerfilesService,
+  constructor(private readonly userService: UserService,
+              private readonly perfilService: PerfilesService,
               private readonly publicacionService: PublicacionService,
               private readonly router: ActivatedRoute,
               private readonly seguidorService: SeguidorService) {
