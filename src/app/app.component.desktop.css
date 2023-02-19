@@ -181,12 +181,14 @@
     display: flex;
     flex-direction: column;
     width: auto;
+    justify-content: center;
     gap: 1rem;
   }
 
   .userBio{
     margin: 0 auto;
-    width: 20rem;
+    min-width: auto;
+    max-width: 20rem;
     text-align: justify;
     font-size: .8rem;
   }
@@ -231,6 +233,7 @@
     text-decoration: none;
     width: 8.5rem;
     padding: .3rem;
+    margin: auto 0;
     font-weight: bold;
     border-radius: 10px;
     border:solid .2rem rgba(0, 0, 0, 0);
@@ -332,6 +335,114 @@
     text-align: center;
     font-size: 2rem;
     color: white;
+  }
+
+  .clicMouse{
+    cursor: pointer;
+  }
+
+  .publicationPage{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  }
+
+  .comentarioView{
+    margin: auto;
+    width: 35vw ;
+    height: 90vh;
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255, 0.27);
+  }
+  .publicationScroll{
+    display: flex;
+    flex-flow: column nowrap;
+    margin: auto;
+    width: 40vw ;
+    height: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .publicationScroll::-webkit-scrollbar{
+    display: none;
+  }
+  .publicationView{
+    display: flex;
+    flex-flow: column nowrap;
+    margin: auto;
+    width: 40vw ;
+    height: 90vh;
+    text-align: center;
+  }
+
+  .publication-img{
+    width: 25rem;
+    height: 25rem;
+    margin: 3rem auto;
+    border-radius: 5rem;
+    object-fit: cover;
+    box-shadow: 0 20px 100px rgba(0, 0, 0, 0.49);
+  }
+  .publiP{
+    font-size: .8rem;
+    max-width: 30rem;
+    color: rgba(255, 255, 255, 0.59);
+    padding: .5rem 1rem;
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255, 0.21);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.25);
+    text-align: justify;
+
+  }
+  .publicationView > p{
+    margin: .5rem auto;
+    max-width: 30rem;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255, 0.33);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.25);
+    text-align: justify;
+  }
+  .left{
+    font-size: 2rem;
+    width: fit-content;
+    margin: 0 auto 0 0;
+  }
+  .rigth{
+    font-size: 2rem;
+    width: fit-content;
+    margin: 0 0 0 auto;
+  }
+  .dateHastagBox{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+
+  .followView{
+    margin: 2rem 0 ;
+    background-color: rgba(255, 255, 255, 0.32);
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    align-content: center;
+    align-items: center;
+  }
+  .followView>img{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 5rem;
+    object-fit: cover;
   }
 }
 

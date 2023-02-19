@@ -9,6 +9,5 @@ export type Publicacion = {
   tematica: string;
   fechaPublicacion: Date;
   activa: boolean;
-
-
+  id_perfil: number;
 }

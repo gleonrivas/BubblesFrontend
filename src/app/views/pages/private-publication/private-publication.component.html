@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es" class="initial">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+</head>
+<body class="fStack purple">
+<div class="publicationPage" *ngIf="publicacion">
+  <div class="publicationScroll">
+    <div class="publicationView white" *ngIf="publicacion.tipoPublicacion=='imagen'">
+      <img src="{{publicacion.imagen}}" class="publication-img cover">
+      <p> - {{publicacion.texto}} </p>
+      <div class="dateHastagBox">
+        <p class="publiP">#{{publicacion.tematica}}</p>
+        <p class="publiP">Publicado a {{publicacion.fechaPublicacion.toString() | slice:0:10}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="publicationView" *ngIf="publicacion.tipoPublicacion=='texto'">
+    <img src="{{publicacion.imagen}}" class="publication-img cover">
+  </div>
+
+  <div class="comentarioView">
+
+  </div>
+</div>
+
+
+</body>
+</html>

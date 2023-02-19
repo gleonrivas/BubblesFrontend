@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import { Router } from '@angular/router';
 import {Publicacion} from "../../../shared/models/publicacion/publicacion.response";
 
 @Component({
@@ -9,6 +10,12 @@ import {Publicacion} from "../../../shared/models/publicacion/publicacion.respon
 export class PublicacionComponent {
 
   @Input() publicacion?: Publicacion;
+  constructor(
+    private readonly router: Router,
+  ) {}
+  showPublicacion(id: number){
+    this.router.navigateByUrl('/publicacion/'+id);
+  }
 
 
 }

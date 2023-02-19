@@ -13,8 +13,7 @@
       <img class="profileImg" src="{{perfil.fotoPerfil}}"/>
     </div>
     <div class="userinfo semiWhite">
-      <h3 class="nombre white">{{perfil.username}}</h3>
-      <h3 class="username white">{{perfil.username}}</h3>
+      <h3 class="username white">@{{perfil.username}}</h3>
       <p class="userBio">{{perfil.descripcion}}</p>
       <div class="subInfoStack white">
         <div class="cuantity">
@@ -27,26 +26,26 @@
         </div>
         <div class="cuantity" (click)="verSeguidores()">
           <h3>Seguidores</h3>
-          <h3>4.589</h3>
+          <h3>{{seguidores.length}}</h3>
         </div>
       </div>
       <a class="editarPerfil mouseOnBorder white clearmob" href="/editarperfil">Editar perfil</a>
 
       <div class="btnStack">
-        <a class="profileBtn mouseOnBorder white clearmob" (click)="verBubbles()">Tus Bubles</a>
-        <a class="profileBtn mouseOnBorder white clearmob" (click)="verfavoritos()">Tus Favoritos</a>
+        <a class="profileBtn mouseOnBorder white clearmob" (click)="verBubbles()">Bubbles</a>
+        <a class="profileBtn mouseOnBorder white clearmob" (click)="verfavoritos()">Favoritos</a>
 
       </div>
     </div>
   </div>
 
   <div [ngSwitch]="sideVisibility" class="sideStyle">
-    <div   *ngSwitchCase="visibleSection.BUBBLES">
+    <div   *ngSwitchCase="visibleSection.BUBBLES" class="listaPublicaciones">
       <div *ngIf="publicaciones.length == 0" >
-        <h2>"No tienes publicaciones"</h2>
+        <h2>No hay Bubbles</h2>
       </div>
       <div *ngIf="publicaciones.length > 0" class="listaPublicaciones">
-        <p>Tus Bubbles</p>
+        <p>Bubbles</p>
         <div *ngFor="let publicacion of publicaciones">
           <app-publicacion [publicacion]="publicacion"></app-publicacion>
         </div>
@@ -54,8 +53,8 @@
     </div>
 
     <div   *ngSwitchCase="visibleSection.FAVORITES">
-      <div *ngIf="publicacionesporLikes.length == 0" >
-        <h2>"No tienes favoritos"</h2>
+      <div *ngIf="publicacionesporLikes.length == 0" class="listaPublicaciones">
+        <p>No hay favoritos</p>
       </div>
       <div *ngIf="publicacionesporLikes.length > 0"  class="listaPublicaciones">
         <div *ngFor="let publicacion of publicacionesporLikes">
@@ -66,20 +65,13 @@
 
     <div  *ngSwitchCase="visibleSection.FOLLOWERS" >
       <div class="listaPublicaciones" *ngIf="seguidores.length == 0">
-        <h2>"No tienes seguidores"</h2>
+        <p>No tienes seguidores</p>
       </div>
       <div *ngIf="seguidores.length > 0">
-        <div  *ngFor="let seguidor of seguidores" class="seguidores">
-          <div class="inLittleBubble">
-            <img class="profileImg" src="{{seguidor.fotoPerfil}}"/>
-          </div>
-          <div class="infoSeguidores">
-            <h2>{{seguidor.username}}</h2>
-            <h3>{{seguidor.descripcion}}</h3>
-          </div>
-          <div class="botonSeguir">
+        <div  *ngFor="let seguidor of seguidores" class="followView white" (click)="verPerfil(seguidor.id)">
+            <img class="" src="{{seguidor.fotoPerfil}}"/>
+            <p>@{{seguidor.username | slice:0:10}}... </p>
             <app-boton-seguidores [id_seguidor]="seguidor.id" [id_perfil]="perfil.id" ></app-boton-seguidores>
-          </div>
         </div>
       </div>
     </div>

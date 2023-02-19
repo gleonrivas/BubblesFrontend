@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {UserService} from "../../../shared/services/user.service";
 import {PerfilesService} from "../../../shared/services/perfiles.service";
 import {PublicacionService} from "../../../shared/services/publicacion.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Publicacion} from "../../../shared/models/publicacion/publicacion.response";
 import {Perfil, PerfilVacio} from "../../../shared/models/perfil/perfil.response";
 import {Seguidor} from "../../../shared/models/perfil/perfilSeguidor.response";
@@ -34,9 +34,11 @@ export class ProfileComponent {
 
   public perfil: Perfil = PerfilVacio;
 
-  constructor(private readonly userService: UserService, private readonly perfilService: PerfilesService,
+  constructor(private readonly userService: UserService,
+              private readonly perfilService: PerfilesService,
               private readonly publicacionService: PublicacionService,
               private readonly router: ActivatedRoute,
+              private readonly rt: Router,
               private readonly seguidorService: SeguidorService) {
     console.log(this)
   }
@@ -85,5 +87,11 @@ export class ProfileComponent {
 
   public get visibleSection(): typeof VisibleSection {
     return VisibleSection
+  }
+
+  verPerfil(id:number){
+    this.perfilService.perfilPorId(id);
+    this.rt.navigateByUrl('/perfil/'+id);
+
   }
 }
