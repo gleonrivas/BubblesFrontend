@@ -17,7 +17,7 @@ export class LoginComponent {
   onEmailInput(event: Event){
     const target = event.target as HTMLInputElement;
     this.email = target.value;
-     
+
   }
   onPasswordInput(event:Event){
     const target = event.target as HTMLInputElement;
@@ -30,7 +30,7 @@ export class LoginComponent {
       password: this.password,
     }).subscribe({
       complete: () => {
-        this.router.navigateByUrl('/home')
+        this.router.navigateByUrl('/elegirPerfil')
       },
       error: () => {
         this.loginError = true
