@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from "../../../shared/services/auth.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -17,8 +17,8 @@ export class LoginComponent {
   onEmailInput(event: Event){
     const target = event.target as HTMLInputElement;
     this.email = target.value;
+     
   }
-
   onPasswordInput(event:Event){
     const target = event.target as HTMLInputElement;
     this.password = target.value;
@@ -36,6 +36,11 @@ export class LoginComponent {
         this.loginError = true
       }
     })
+  }
+
+  logout() {
+    localStorage.removeItem("apiKey");
+    this.router.navigateByUrl('/login');
   }
 
 }
