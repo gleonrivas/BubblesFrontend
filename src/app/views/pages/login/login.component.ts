@@ -30,17 +30,11 @@ export class LoginComponent {
       password: this.password,
     }).subscribe({
       complete: () => {
-        this.router.navigateByUrl('/elegirPerfil')
+        this.router.navigateByUrl('/elige_perfil')
       },
       error: () => {
         this.loginError = true
       }
     })
   }
-
-  logout() {
-    localStorage.removeItem("apiKey");
-    this.router.navigateByUrl('/login');
-  }
-
 }

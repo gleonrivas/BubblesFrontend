@@ -20,10 +20,13 @@ import { BotonSeguidoresComponent } from './views/components/boton-seguidores/bo
 import {SeguidorService} from "./shared/services/seguidor.service";
 import { PublicPublicationComponent } from './views/pages/public-publication/public-publication.component';
 import { PrivatePublicationComponent } from './views/pages/private-publication/private-publication.component';
+import { ElegirPerfilComponent } from './views/pages/elegir-perfil/elegir-perfil.component';
+import { LogoutComponent } from './views/pages/logout/logout.component';
 
 
 const appRoutes:Routes=[
-  {path: '', component: HelloComponent},
+  {path: '', component: ElegirPerfilComponent},
+  {path: 'elige_perfil', component: ElegirPerfilComponent},
   {path: 'hello', component: HelloComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
@@ -31,7 +34,7 @@ const appRoutes:Routes=[
   {path: 'perfil/:id', component: ProfileComponent},
   {path: 'editarperfil', component: EditarPerfilComponent},
   {path: 'publicacion/:id', component: PrivatePublicationComponent},
-  {path: 'logout', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent},
 ];
 
 @NgModule({
@@ -50,6 +53,8 @@ const appRoutes:Routes=[
     BotonSeguidoresComponent,
     PublicPublicationComponent,
     PrivatePublicationComponent,
+    ElegirPerfilComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
