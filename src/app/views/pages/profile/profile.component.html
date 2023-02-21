@@ -26,7 +26,8 @@
         </div>
         <div class="cuantity" (click)="verSeguidores()">
           <h3>Seguidores</h3>
-          <h3>{{seguidores.length}}</h3>
+          <h3 *ngIf="seguidores.length != 0">{{seguidores.length}}</h3>
+          <h3 *ngIf="seguidores.length == null">0</h3>
         </div>
       </div>
       <a class="editarPerfil mouseOnBorder white clearmob" href="/editarperfil">Editar perfil</a>
@@ -68,9 +69,9 @@
         <p>No tienes seguidores</p>
       </div>
       <div *ngIf="seguidores.length > 0">
-        <div  *ngFor="let seguidor of seguidores" class="followView white" (click)="verPerfil(seguidor.id)">
+        <div  *ngFor="let seguidor of seguidores" class="followView white">
             <img class="" src="{{seguidor.fotoPerfil}}"/>
-            <p>@{{seguidor.username | slice:0:10}}... </p>
+            <p (click)="verPerfil(seguidor.id)">@{{seguidor.username | slice:0:10}}... </p>
             <app-boton-seguidores [id_seguidor]="seguidor.id" [id_perfil]="perfil.id" ></app-boton-seguidores>
         </div>
       </div>
@@ -80,6 +81,7 @@
       <p>Esto va a ser Seguidos</p>
     </div>
   </div>
+
 </div>
 </body>
 </html>
