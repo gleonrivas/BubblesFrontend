@@ -4,7 +4,7 @@ import {Publicacion} from "../models/publicacion/publicacion.response";
 
 @Injectable()
 export class PublicacionService{
-  private readonly url = 'http://localhost:8000'
+  private readonly url = 'https://localhost:8000'
   private restService: RestService;
   constructor(restService: RestService) {
     this.restService = restService;
@@ -17,5 +17,5 @@ export class PublicacionService{
   public getPublicacionPorId(id: number) {
     return this.restService.get<Publicacion>(`${this.url}/api/publicacion/${id}`)
   }
-  
+
 }
