@@ -31,7 +31,7 @@ const appRoutes:Routes=[
   {path: 'perfil/:id', component: ProfileComponent},
   {path: 'editarperfil', component: EditarPerfilComponent},
   {path: 'publicacion/:id', component: PrivatePublicationComponent},
-  {path: 'publicacion/:id', component: PublicPublicationComponent},
+  {path: 'logout', component: LoginComponent},
 ];
 
 @NgModule({
