@@ -32,7 +32,7 @@ export class ComentarioService{
 
   guardarComentario(json:string):Observable<any>{
     const headers = new HttpHeaders()
-      .set('apiKey', `Bearer ${JSON.stringify(this.apiKey)}`)
+      .set('apiKey', `${this.apiKey.apiKey}`)
       .set('Content-Type', 'application/json');
 
 

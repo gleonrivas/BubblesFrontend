@@ -30,7 +30,7 @@ export class LoginComponent {
       password: this.password,
     }).subscribe({
       complete: () => {
-        this.router.navigateByUrl('/elige_perfil')
+        this.router.navigateByUrl('/perfil/'+1)
       },
       error: () => {
         this.loginError = true
