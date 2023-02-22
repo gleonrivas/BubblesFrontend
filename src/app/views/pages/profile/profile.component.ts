@@ -4,7 +4,7 @@ import {PerfilesService} from "../../../shared/services/perfiles.service";
 import {PublicacionService} from "../../../shared/services/publicacion.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Publicacion} from "../../../shared/models/publicacion/publicacion.response";
-import {Perfil, PerfilVacio} from "../../../shared/models/perfil/perfil.response";
+import {Perfil} from "../../../shared/models/perfil/perfil.response";
 import {Seguidor} from "../../../shared/models/perfil/perfilSeguidor.response";
 import {SeguidorService} from "../../../shared/services/seguidor.service";
 
@@ -32,7 +32,7 @@ export class ProfileComponent {
   public sideVisibility: VisibleSection = VisibleSection.BUBBLES;
 
 
-  public perfil: Perfil = PerfilVacio;
+  public perfil: Perfil |undefined;
 
   constructor(private readonly userService: UserService,
               private readonly perfilService: PerfilesService,

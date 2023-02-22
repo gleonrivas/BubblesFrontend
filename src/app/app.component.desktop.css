@@ -352,12 +352,19 @@
   }
 
   .comentarioView{
+    text-align: left;
+    padding: 1rem 0;
     margin: auto;
-    width: 35vw ;
+    width: 30vw ;
     height: 90vh;
     border-radius: 2rem;
     background-color: rgba(255, 255, 255, 0.27);
+    overflow-y: scroll;
   }
+  .comentarioView::-webkit-scrollbar{
+    display: none;
+  }
+
   .publicationScroll{
     display: flex;
     flex-flow: column nowrap;
@@ -378,6 +385,34 @@
     height: 90vh;
     text-align: center;
   }
+  .inputComentario{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 30vw ;
+    margin: 1rem auto;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .inputComentario>input{
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    width: 70%;
+    border-radius: 3rem;
+    border: none;
+  }
+  .inputComentario>input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  .inputComentario>a{
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+    color: black;
+    font-size: 1.5rem;
+    padding: .7rem 1.5rem;
+    border-radius: 5rem;
+    text-decoration: none;
+  }
 
   .publication-img{
     width: 25rem;
@@ -394,12 +429,11 @@
     padding: .5rem 1rem;
     border-radius: 2rem;
     background-color: rgba(255, 255, 255, 0.21);
-    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.25);
     text-align: justify;
 
   }
   .publicationView > p{
-    margin: .5rem auto;
+    margin:  auto;
     max-width: 30rem;
     padding: 1rem 1.5rem;
     border-radius: 2rem;
@@ -443,6 +477,21 @@
     height: 4rem;
     border-radius: 5rem;
     object-fit: cover;
+  }
+
+  .comentario{
+    width: fit-content;
+    max-width: 75%;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem auto 1rem 2rem;
+    border-radius: 1rem;
+    padding: .5rem 1rem;
+  }
+  .comentario >p{
+    margin: 0;
   }
 }
 
