@@ -18,14 +18,18 @@ import {PerfilesService} from "./shared/services/perfiles.service";
 import {PublicacionService} from "./shared/services/publicacion.service";
 import { BotonSeguidoresComponent } from './views/components/boton-seguidores/boton-seguidores.component';
 import {SeguidorService} from "./shared/services/seguidor.service";
+import { PublicPublicationComponent } from './views/pages/public-publication/public-publication.component';
+import { PrivatePublicationComponent } from './views/pages/private-publication/private-publication.component';
+import { LogoutComponent } from './views/pages/logout/logout.component';
+import { ComentarioComponent } from './views/components/comentario/comentario.component';
 import { CrearPublicacionComponent } from './views/pages/crear-publicacion/crear-publicacion.component';
-import {JwtService} from "./shared/services/jwt.service";
 import { MostrarPerfilesComponent } from './views/pages/mostrar-perfiles/mostrar-perfiles.component';
 import { PerfilComponent } from './views/components/perfil/perfil.component';
+import { JwtService } from './shared/services/jwt.service';
 
 
 const appRoutes:Routes=[
-  {path: '', component: HelloComponent},
+  {path: '', component: LoginComponent},
   {path: 'hello', component: HelloComponent},
   {path: 'home/:id_perfil', component: HomeComponent},
   {path: 'login', component: LoginComponent},
@@ -33,7 +37,10 @@ const appRoutes:Routes=[
   {path: 'perfil/:id', component: ProfileComponent},
   {path: 'editarperfil', component: EditarPerfilComponent},
   {path: 'perfiles/:id_usuario', component: MostrarPerfilesComponent},
-  {path: 'crearPublicacion/:id_perfil', component: CrearPublicacionComponent}
+  {path: 'crearPublicacion/:id_perfil', component: CrearPublicacionComponent},
+  {path: 'editarperfil', component: EditarPerfilComponent},
+  {path: 'publicacion/:id', component: PrivatePublicationComponent},
+  {path: 'logout', component: LogoutComponent},
 ];
 
 @NgModule({
@@ -51,7 +58,13 @@ const appRoutes:Routes=[
     BotonSeguidoresComponent,
     CrearPublicacionComponent,
     MostrarPerfilesComponent,
-    PerfilComponent
+    PerfilComponent,
+    EditarPerfilComponent,
+    BotonSeguidoresComponent,
+    PublicPublicationComponent,
+    PrivatePublicationComponent,
+    LogoutComponent,
+    ComentarioComponent,
   ],
   imports: [
     BrowserModule,

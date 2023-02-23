@@ -14,6 +14,11 @@ export class PublicacionService{
   public publicacionPorLikeDelPerfilId(id_perfil: number) {
     return this.restService.get<Publicacion[]>(`${this.url}/api/likePublicacion/listar/${id_perfil}`)
   }
+
+  public getPublicacionPorId(id: number) {
+    return this.restService.get<Publicacion>(`${this.url}/api/publicacion/${id}`)
+  }
+
   public crearPublicacion(publicacion:PublicacionParaCrear) {
     return this.restService.post<PublicacionParaCrear>(`${this.url}/api/publicacion/guardar`, publicacion)
   }

@@ -87,3 +87,8 @@ body{
   gap: 1rem;
 }
 
+.withShadow{
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+}
+
+

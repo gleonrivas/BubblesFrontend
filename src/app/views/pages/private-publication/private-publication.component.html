@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es" class="initial">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+</head>
+<body class="fStack purple">
+<div class="publicationPage" *ngIf="publicacion">
+  <div class="publicationScroll">
+    <div class="publicationView white" *ngIf="publicacion.tipoPublicacion=='imagen'">
+      <img src="{{publicacion.imagen}}" class="publication-img cover">
+      <p> - {{publicacion.texto}} </p>
+      <div class="dateHastagBox">
+        <p class="publiP">#{{publicacion.tematica}}</p>
+        <p class="publiP">Publicado a {{publicacion.fechaPublicacion.toString() | slice:0:10}}</p>
+      </div>
+    </div>
+    
+    <div class="publicationView white" *ngIf="publicacion.tipoPublicacion=='texto'">
+      <p class="withShadow">- {{publicacion.texto}}</p>
+      <div class="dateHastagBox">
+        <p class="publiP">#{{publicacion.tematica}}</p>
+        <p class="publiP">Publicado a {{publicacion.fechaPublicacion.toString() | slice:0:10}}</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div [ngSwitch]="sideVisibility" class="publicationView white">
+    <h1>Comentarios</h1>
+
+    <div *ngSwitchCase="visibleSection.COMENTARIOS"  class="comentarioView withShadow">
+          <div *ngFor="let comentario of comentarios">
+            <app-comentario [comentario]="comentario"></app-comentario>
+          </div>
+    </div>
+    <div class="inputComentario ">
+      <input class="withShadow" type="text" placeholder="Escribe un comentario ✍️"  [(ngModel)]="texto">
+      <a class="withShadow aniScale" (click)="enviarMensaje()">⏎</a>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
