@@ -22,11 +22,11 @@
     </select>
     <input class="inputfield animated white" type="text" formControlName="tematica" placeholder="Escribe aquí tu #" (select)="this.onTematicaInput($event)" >
     <input class="inputfield animated white" type="text" formControlName="texto" placeholder="Descripción de tu publicación"  (select)="this.onTextoInput($event)" >
-    <input class="inputfield animated white" type="file" formControlName="imagen" placeholder="Imagen" (select)="this.onImageInput($event)">
+    <input class="inputfield animated white" type="file" formControlName="file" placeholder="Imagen" (select)="this.onImageInput($event)" >
 
 
     <div class="group">
-      <button [disabled]="publicationForm.invalid" class="n1buton aniScale" (click)="guardarPublicacion()">Guardar</button>
+      <button [disabled]="publicationForm.invalid" class="n1buton aniScale" >Guardar</button>
     </div>
   </div>
 

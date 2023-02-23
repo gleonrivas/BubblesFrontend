@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {PublicacionService} from "../../../shared/services/publicacion.service";
 import {PublicacionParaCrear} from "../../../shared/models/publicacion/PublicacionParaCrear";
 import {FormBuilder, FormControl, FormGroup, FormsModule, Validators} from '@angular/forms';
+import {Publicacion} from "../../../shared/models/publicacion/publicacion.response";
+
 type TipoPublicacion = "texto" | "imagen" ;
 @Component({
   selector: 'app-crear-publicacion',
@@ -12,31 +14,30 @@ type TipoPublicacion = "texto" | "imagen" ;
 })
 export class CrearPublicacionComponent {
   public readonly TIPOS_DE_PUBLICACION: TipoPublicacion[] = ['texto' , 'imagen' ];
-  public id_perfil: number = -1;
+  public id_Perfil: number = -1;
   public tipo_publicacion: TipoPublicacion = "texto";
   public texto: string = "";
-  public imagen: string = "";
+  public imagen: string  =  "";
   public tematica: string = "";
-  public fecha_publicacion: string = this.fechaFormateada();
+
   public activa: boolean = true;
   public loginError: boolean = false;
   public publicationForm : FormGroup = this.form.group({
 
     texto: ['', [Validators.required, Validators.maxLength(500)]],
-    imagen: ['', [Validators.required]],
+    file: ['', [Validators.required]],
     tematica: ['', [Validators.required]],
     tipo_publicacion: ['', [Validators.required]]
 
   })
 
   private publicacion: PublicacionParaCrear = {
-    tipoPublicacion:this.tipo_publicacion,
-    texto:this.texto,
-    imagen:this.imagen,
-    tematica: this.tematica,
-    fechaPublicacion: this.fecha_publicacion,
+    tipoPublicacion:"",
+    texto:"",
+    file:"",
+    tematica: "",
     activa: this.activa,
-    id_perfil: this.idPerfil(),
+    idPerfil: this.obtenerIdPerfil(),
 
   };
 
@@ -53,13 +54,13 @@ export class CrearPublicacionComponent {
     this.router.paramMap.subscribe((value) => {
       const id = value.get('id_perfil');
       if (id !== null) {
-        this.id_perfil = parseInt(id);
+        this.id_Perfil = parseInt(id);
       }
     });
 
   }
 
-  idPerfil():number{
+  obtenerIdPerfil():number{
     let idDevuelto = -1;
     this.router.paramMap.subscribe((value) => {
       const id = value.get('id_perfil');
@@ -73,15 +74,20 @@ export class CrearPublicacionComponent {
   }
 
   onSubmit(){
-    console.log(this.publicationForm.value)
+
+    this.publicacion = {
+      tipoPublicacion:this.publicationForm.controls['tipo_publicacion'].value,
+      texto:this.publicationForm.controls['texto'].value,
+      file:this.publicationForm.controls['file'].value.replace("C:\\fakepath\\", "private/var/tmp/"),
+      tematica: this.publicationForm.controls['tematica'].value,
+      activa: this.activa,
+      idPerfil: this.obtenerIdPerfil(),
+    }
+    console.log(this.publicacion)
+    this.guardarPublicacion(this.publicacion)
     this.publicationForm.reset()
   }
 
-
-  fechaFormateada(): string {
-    let nuevaFecha = moment();
-    return nuevaFecha.format('YYYY-MM-DD hh:mm:ss')
-  }
 
   onSelected(ev: Event): void {
     const target = ev.target as HTMLSelectElement
@@ -99,13 +105,12 @@ export class CrearPublicacionComponent {
 
     onImageInput(event: Event) {
     const target = event.target as HTMLInputElement;
-    this.imagen = target.value;
+    this.imagen = target.value.replace("C:\\fakepath\\", "");
   }
 
-  guardarPublicacion() {
-    console.log(this.publicacion)
-
-    this.publicacionService.crearPublicacion(this.publicacion).subscribe({
+  guardarPublicacion(publicacion: PublicacionParaCrear) {
+    console.log(publicacion)
+    this.publicacionService.crearPublicacion(publicacion).subscribe({
       complete: () => {
         this.route.navigateByUrl('/home')
       },
@@ -114,5 +119,6 @@ export class CrearPublicacionComponent {
       }
     });
   }
+
 
 }

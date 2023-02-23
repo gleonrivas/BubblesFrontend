@@ -2,13 +2,18 @@ import {Injectable} from "@angular/core";
 import {RestService} from "./rest.service";
 import {Publicacion} from "../models/publicacion/publicacion.response";
 import {PublicacionParaCrear} from "../models/publicacion/PublicacionParaCrear";
+import {PublicacionRespuesta} from "../models/publicacion/Publicacion.respuesta";
+import {FormBuilder} from "@angular/forms";
 
 @Injectable()
 export class PublicacionService{
   private readonly url = 'https://localhost:8000'
   private restService: RestService;
-  constructor(restService: RestService) {
+
+  private form: FormBuilder;
+  constructor(restService: RestService, private formBuilder: FormBuilder) {
     this.restService = restService;
+    this.form = formBuilder;
   }
 
   public publicacionPorLikeDelPerfilId(id_perfil: number) {
@@ -20,6 +25,6 @@ export class PublicacionService{
   }
 
   public crearPublicacion(publicacion:PublicacionParaCrear) {
-    return this.restService.post<PublicacionParaCrear>(`${this.url}/api/publicacion/guardar`, publicacion)
+    return this.restService.post<PublicacionParaCrear, PublicacionRespuesta>(`${this.url}/api/publicacion/guardar`, publicacion)
   }
 }
