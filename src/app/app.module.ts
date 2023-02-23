@@ -4,7 +4,7 @@ import {RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './views/pages/login/login.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RegistroComponent} from "./views/pages/registro/registro.component";
 import { HelloComponent } from './views/pages/hello/hello.component';
 import { HomeComponent } from './views/pages/home/home.component';
@@ -27,10 +27,13 @@ import { ComentarioComponent } from './views/components/comentario/comentario.co
 const appRoutes:Routes=[
   {path: '', component: LoginComponent},
   {path: 'hello', component: HelloComponent},
-  {path: 'home', component: HomeComponent},
+  {path: 'home/:id_perfil', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
   {path: 'perfil/:id', component: ProfileComponent},
+  {path: 'editarperfil', component: EditarPerfilComponent},
+  {path: 'perfiles/:id_usuario', component: MostrarPerfilesComponent},
+  {path: 'crearPublicacion/:id_perfil', component: CrearPublicacionComponent}
   {path: 'editarperfil', component: EditarPerfilComponent},
   {path: 'publicacion/:id', component: PrivatePublicationComponent},
   {path: 'logout', component: LogoutComponent},
@@ -48,6 +51,10 @@ const appRoutes:Routes=[
     RegistroComponent,
     PublicacionComponent,
     EditarPerfilComponent,
+    BotonSeguidoresComponent,
+    CrearPublicacionComponent,
+    MostrarPerfilesComponent,
+    PerfilComponent
     EditarPerfilComponent,
     BotonSeguidoresComponent,
     PublicPublicationComponent,
@@ -59,9 +66,10 @@ const appRoutes:Routes=[
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [RestService, UserService, PerfilesService, PublicacionService, SeguidorService],
+  providers: [RestService, UserService, PerfilesService, PublicacionService, SeguidorService, JwtService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

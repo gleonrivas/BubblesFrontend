@@ -20,7 +20,7 @@ export class RestService {
     });
   }
 
-  public post<T = Object, K = Object>(url: string, body: K) {
+  public post<K, T = Object>(url: string, body: K) {
     return this.http.post<T>(url, body, {
       headers: this.getHeaders()
     });

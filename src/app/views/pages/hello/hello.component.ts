@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {RestService} from "../../../shared/services/rest.service";
 import {Router} from "@angular/router";
+import {JwtService} from "../../../shared/services/jwt.service";
 
 @Component({
   selector: 'app-hello',
@@ -9,23 +10,18 @@ import {Router} from "@angular/router";
 })
 export class HelloComponent {
 
-  localhost:string = "https://127.0.0.1:8000";
-  constructor(private RestService:RestService, private readonly router: Router) { }
-  ngOnInit(): void{
-    this.cargarDatos()
-    const token = localStorage.getItem( 'apiKey');
-   if(token != null){
-     this.router.navigateByUrl('/home')
-   }else{
-     this.router.navigateByUrl('/login')
-   }
+  localhost: string = "https://127.0.0.1:8000";
+
+  constructor(private jwtService: JwtService, private RestService: RestService, private readonly router: Router) {
   }
 
-  public cargarDatos(){
-
-    /*let hola = this.RestService.get('https://api.publicapis.org/entries').subscribe();
-    console.log(hola);*/
-
-    this.RestService.get(this.localhost + '/api/usuario/listar').subscribe(respuesta => {console.log(respuesta)});
+  ngOnInit(): void {
+    const token = localStorage.getItem('apiKey');
+    if (token != null) {
+      const infouser = this.jwtService.decodeToken(token);
+      this.router.navigateByUrl(`/perfiles/${infouser.user_id}`);
+    } else {
+      this.router.navigateByUrl('/login')
+    }
   }
 }

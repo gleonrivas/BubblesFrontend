@@ -1,6 +1,9 @@
 import {Component} from '@angular/core';
 import {AuthService} from "../../../shared/services/auth.service";
-import {ActivatedRoute, Router } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Perfil} from "../../../shared/models/perfil/perfil.response";
+import {PerfilesService} from "../../../shared/services/perfiles.service";
+import {JwtService} from "../../../shared/services/jwt.service";
 
 @Component({
   selector: 'app-login',
@@ -8,18 +11,29 @@ import {ActivatedRoute, Router } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  email:string = "";
-  password:string = "";
+  email: string = "";
+  password: string = "";
+
+
   public loginError: boolean = false;
 
-  constructor(public readonly authService: AuthService,  private readonly router: Router) {
+  public perfiles: Perfil[] = [];
+
+  constructor(public readonly authService: AuthService, private readonly router: Router,
+              private jwtService: JwtService) {
   }
-  onEmailInput(event: Event){
-    const target = event.target as HTMLInputElement;
-    this.email = target.value;
+
+
+  ngOnInit() {
 
   }
-  onPasswordInput(event:Event){
+
+  onEmailInput(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.email = target.value;
+  }
+
+  onPasswordInput(event: Event) {
     const target = event.target as HTMLInputElement;
     this.password = target.value;
   }
@@ -29,12 +43,18 @@ export class LoginComponent {
       email: this.email,
       password: this.password,
     }).subscribe({
+      next:(data)=>{
+        localStorage.setItem("apiKey", data.token)
+      },
       complete: () => {
-        this.router.navigateByUrl('/perfil/'+1)
+        const token = localStorage.getItem('apiKey') || '';
+        const infouser = this.jwtService.decodeToken(token);
+        this.router.navigateByUrl(`/perfiles/${infouser.user_id}`);
       },
       error: () => {
         this.loginError = true
       }
     })
   }
+
 }

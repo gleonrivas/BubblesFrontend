@@ -40,7 +40,7 @@ export class ProfileComponent {
               private readonly router: ActivatedRoute,
               private readonly rt: Router,
               private readonly seguidorService: SeguidorService) {
-    console.log(this)
+
   }
 
   ngOnInit() {
