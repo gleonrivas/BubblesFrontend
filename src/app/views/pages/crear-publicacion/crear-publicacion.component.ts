@@ -31,6 +31,7 @@ export class CrearPublicacionComponent {
 
   })
 
+
   private publicacion: PublicacionParaCrear = {
     tipoPublicacion:"",
     texto:"",
