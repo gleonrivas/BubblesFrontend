@@ -493,6 +493,18 @@
   .comentario >p{
     margin: 0;
   }
+
+  .botonPublicacionPerfil{
+    text-align: center;
+    border-radius: 5rem;
+    width: max-content;
+    height: max-content;
+    font-size: 2rem;
+    padding: 1rem;
+    text-decoration: none;
+    margin: auto;
+
+  }
 }
 
 
