@@ -25,12 +25,12 @@ export class CrearPublicacionComponent {
   public publicationForm : FormGroup = this.form.group({
 
     texto: ['', [Validators.required, Validators.maxLength(500)]],
-    file: ['', [Validators.required]],
+    file: [new FileReader(), [Validators.required]],
     tematica: ['', [Validators.required]],
     tipo_publicacion: ['', [Validators.required]]
 
   })
-
+  private reader = new FileReader();
 
   private publicacion: PublicacionParaCrear = {
     tipoPublicacion:"",
@@ -79,41 +79,35 @@ export class CrearPublicacionComponent {
     this.publicacion = {
       tipoPublicacion:this.publicationForm.controls['tipo_publicacion'].value,
       texto:this.publicationForm.controls['texto'].value,
-      file:this.publicationForm.controls['file'].value.replace("C:\\fakepath\\", "private/var/tmp/"),
+      file:this.publicationForm.controls['file'].value,
       tematica: this.publicationForm.controls['tematica'].value,
       activa: this.activa,
       idPerfil: this.obtenerIdPerfil(),
     }
-    console.log(this.publicacion)
     this.guardarPublicacion(this.publicacion)
     this.publicationForm.reset()
   }
 
 
-  onSelected(ev: Event): void {
-    const target = ev.target as HTMLSelectElement
-    this.tipo_publicacion = target.value as TipoPublicacion;
-  }
 
-  onTematicaInput(event: Event) {
-    const target = event.target as HTMLInputElement;
-    this.tematica = target.value;
-  }
-  onTextoInput(event: Event) {
-    const target = event.target as HTMLInputElement;
-    this.texto = target.value;
-  }
+  readUrl(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
 
-    onImageInput(event: Event) {
-    const target = event.target as HTMLInputElement;
-    this.imagen = target.value.replace("C:\\fakepath\\", "");
-  }
+      reader.onload = (event: ProgressEvent) => {
 
+        this.publicationForm.controls['file'].setValue((<FileReader>event.target).result);
+      }
+
+      reader.readAsDataURL(event.target.files[0]);
+    }
+
+  }
   guardarPublicacion(publicacion: PublicacionParaCrear) {
     console.log(publicacion)
     this.publicacionService.crearPublicacion(publicacion).subscribe({
       complete: () => {
-        this.route.navigateByUrl('/home')
+        this.route.navigateByUrl('/home/'+ this.id_Perfil)
       },
       error: () => {
         this.loginError = true
