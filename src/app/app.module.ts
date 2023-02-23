@@ -22,6 +22,10 @@ import { PublicPublicationComponent } from './views/pages/public-publication/pub
 import { PrivatePublicationComponent } from './views/pages/private-publication/private-publication.component';
 import { LogoutComponent } from './views/pages/logout/logout.component';
 import { ComentarioComponent } from './views/components/comentario/comentario.component';
+import { CrearPublicacionComponent } from './views/pages/crear-publicacion/crear-publicacion.component';
+import { MostrarPerfilesComponent } from './views/pages/mostrar-perfiles/mostrar-perfiles.component';
+import { PerfilComponent } from './views/components/perfil/perfil.component';
+import { JwtService } from './shared/services/jwt.service';
 
 
 const appRoutes:Routes=[
@@ -33,7 +37,7 @@ const appRoutes:Routes=[
   {path: 'perfil/:id', component: ProfileComponent},
   {path: 'editarperfil', component: EditarPerfilComponent},
   {path: 'perfiles/:id_usuario', component: MostrarPerfilesComponent},
-  {path: 'crearPublicacion/:id_perfil', component: CrearPublicacionComponent}
+  {path: 'crearPublicacion/:id_perfil', component: CrearPublicacionComponent},
   {path: 'editarperfil', component: EditarPerfilComponent},
   {path: 'publicacion/:id', component: PrivatePublicationComponent},
   {path: 'logout', component: LogoutComponent},
@@ -54,7 +58,7 @@ const appRoutes:Routes=[
     BotonSeguidoresComponent,
     CrearPublicacionComponent,
     MostrarPerfilesComponent,
-    PerfilComponent
+    PerfilComponent,
     EditarPerfilComponent,
     BotonSeguidoresComponent,
     PublicPublicationComponent,
