@@ -6,27 +6,29 @@
 </head>
 <body class="fStack purple homeImg">
 
-<form class="vStack" [formGroup]="publicationForm"  (ngSubmit)="onSubmit()">
-  <div class="cStack" >
+<form class="vStack" [formGroup]="publicationForm" (ngSubmit)="onSubmit()">
+  <div class="cStack">
     <div class="smallTitle">- Crear Publicación -</div>
     <label for="tipo_publicacion" class="labelDate">¿Cómo va a ser tu publicación?</label>
-    <select  class="inputfield animated white"  label="Tipo de publicación" id="tipo_publicacion"
-            placeholder="¿Cómo va a ser tu publicación?" (select)="this.onSelected($event)" >
+    <select class="inputfield animated white" label="Tipo de publicación" id="tipo_publicacion"
+            placeholder="¿Cómo va a ser tu publicación?" formControlName="tipo_publicacion">
       <optgroup class="purpleLetter" label="Tipo de publicación">
         <option value="" disabled selected hidden>Tipo de publicación</option>
-        <option *ngFor="let tp of this.TIPOS_DE_PUBLICACION" [ngValue]="tipo_publicacion" >
+        <option *ngFor="let tp of this.TIPOS_DE_PUBLICACION" [ngValue]="tipo_publicacion">
           {{tp}}
         </option>
       </optgroup>
 
     </select>
-    <input class="inputfield animated white" type="text" formControlName="tematica" placeholder="Escribe aquí tu #"  >
-    <input class="inputfield animated white" type="text" formControlName="texto" placeholder="Descripción de tu publicación"   >
-    <input class="inputfield animated white" type="file" formControlName="imagen" placeholder="Imagen" >
+    <input class="inputfield animated white" type="text" formControlName="tematica" placeholder="Escribe aquí tu #">
+    <input class="inputfield animated white" type="text" formControlName="texto"
+           placeholder="Descripción de tu publicación">
+    <input class="inputfield animated white" type="file" formControlName="file" placeholder="Imagen"
+           (change)="readUrl($event)">
 
 
     <div class="group">
-      <button [disabled]="publicationForm.invalid" class="n1buton aniScale" (click)="guardarPublicacion()">Guardar</button>
+      <button [disabled]="publicationForm.invalid" class="n1buton aniScale">Guardar</button>
     </div>
   </div>
 

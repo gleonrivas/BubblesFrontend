@@ -4,21 +4,10 @@ export type PublicacionParaCrear = {
 
   tipoPublicacion: string;
   texto: string;
-  imagen: string;
+  file: string;
   tematica: string;
-  fechaPublicacion: string;
   activa: boolean;
-  id_perfil: number;
+  idPerfil: number;
 
 }
-export type PublicacionParaCrearVacia = {
 
-  tipoPublicacion: "";
-  texto: "";
-  imagen: "";
-  tematica: "";
-  fechaPublicacion: "";
-  activa: true;
-  id_perfil: -1;
-
-}

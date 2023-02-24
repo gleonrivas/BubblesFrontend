@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {PerfilesService} from "../../../shared/services/perfiles.service";
+import {PublicacionService} from "../../../shared/services/publicacion.service";
+import {Publicacion} from "../../../shared/models/publicacion/publicacion.response";
 
 @Component({
   selector: 'app-home',
@@ -9,8 +11,16 @@ import {PerfilesService} from "../../../shared/services/perfiles.service";
 })
 export class HomeComponent {
   public id_perfil: number =-1;
+  public publicacionesGlobales : Publicacion[] = [];
 
-  constructor(private readonly route: ActivatedRoute) {
+  public tematica:string = "personal";
+
+  public publicacionesTematicas : Publicacion[] = [];
+
+  public publicacionesTipo : Publicacion[] = [];
+  public tipo:string = "imagen";
+
+  constructor(private readonly route: ActivatedRoute, private readonly publicacionService: PublicacionService,) {
   }
 
   ngOnInit() {
@@ -19,6 +29,18 @@ export class HomeComponent {
       if (id !== null) {
         this.id_perfil = parseInt(id);
       }
+    })
+
+    this.publicacionService.listarTodasPublicaciones().subscribe((data) => {
+      this.publicacionesGlobales = data
+    })
+
+    this.publicacionService.listarPublicacionesPorTematica(this.tematica).subscribe((data) => {
+      this.publicacionesTematicas = data
+    })
+
+    this.publicacionService.listarPublicacionesPorTipo(this.tipo).subscribe((data) => {
+      this.publicacionesTipo = data
     })
 
 

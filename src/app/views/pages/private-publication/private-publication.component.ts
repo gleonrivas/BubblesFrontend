@@ -124,6 +124,14 @@ export class PrivatePublicationComponent {
     }
   }
 
+  eliminarPublicacion(){
+    this.publicacionService.eliminarPublicacion(this.id).subscribe({
+      next: (data) => {
+      },
+      error: console.error
+    })
+  }
+  
   borrarComentario(comentario:Comentario){
     if (this.perfil!.id == comentario.id_perfil!.id){
       
