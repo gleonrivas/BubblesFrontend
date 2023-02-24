@@ -9,6 +9,7 @@ import { PublicacionService } from 'src/app/shared/services/publicacion.service'
 import { ComentarioComponent } from '../../components/comentario/comentario.component';
 import { FormsModule } from '@angular/forms';
 import { HttpHeaders } from '@angular/common/http';
+import { JwtService } from 'src/app/shared/services/jwt.service';
 
 export enum VisibleSection {
   COMENTARIOS,
@@ -21,30 +22,29 @@ export enum VisibleSection {
 export class PrivatePublicationComponent {
 
   public id: number=0;
-  public id_perfil:number=0;
+  public id_perfil = parseInt(localStorage.getItem('id_perfil')||'');
   public id_publicacion?: number;
   public publicacion?: Publicacion;
   public perfil?: Perfil;
-  public comentarios?: Comentario[];
+  public comentarios: Comentario[] = new Array;
   public sideVisibility: VisibleSection = VisibleSection.COMENTARIOS;
-  public mapaComentario?: Map<Comentario, Perfil>
   texto?: string;
+  public comentario?: Comentario;
 
   constructor(
     private readonly router:ActivatedRoute,
     private readonly rt: Router,
-    private readonly activeRoute: ActivatedRoute,
     private readonly publicacionService: PublicacionService,
     private readonly perfilService: PerfilesService,
     private readonly comentarioService: ComentarioService,
-    private dataService: ComentarioService
+    private jwt: JwtService
   ) {
     console.log(this)
   }
 
 
   ngOnInit(){
-    this.activeRoute.paramMap.subscribe((value) => {
+    this.router.paramMap.subscribe((value) => {
       const id = value.get('id');
       if (id != null) {
         this.id = parseInt(id);
@@ -82,7 +82,7 @@ export class PrivatePublicationComponent {
 
     const comentarioJSON = {
       texto: this.texto,
-      id_perfil: 2,
+      id_perfil: this.id_perfil,
       id_publicacion: this.id
     };
 
@@ -91,7 +91,6 @@ export class PrivatePublicationComponent {
       response => {
         // Manejar la respuesta de la petición
         console.log('Respuesta del servidor:', response);
-        this.rt.navigate(['/publicacion/'+this.id]);
       },
       error => {
         // Manejar el error de la petición
@@ -99,8 +98,14 @@ export class PrivatePublicationComponent {
       }
     );
 
-    console.log(JSON.stringify(comentarioJSON));
-    this.rt.navigate(['/publicacion/'+this.id]);
+
+    const rutaActual = this.router.snapshot.url.join('/');
+    this.rt.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.rt.navigate([rutaActual]);
+    });
+
+    this.texto='';
+
   }
 
 
