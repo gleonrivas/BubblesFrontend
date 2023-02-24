@@ -4,14 +4,36 @@
   <meta charset="UTF-8">
   <title>Home</title>
 </head>
-<body class="fStack purple homeImg">
+<body class=" purple homeImg">
 
 
-    <div class="smallTitle">HOME</div>
+    <div class="smallTitle titulo">HOME</div>
+    <div class="listasHorizontales">
+    <div *ngFor="let publicacion of publicacionesGlobales">
+      <app-publicacion [publicacion]="publicacion"></app-publicacion>
+    </div>
+    </div>
+    <h2 class="titulospequenos">{{tematica}}</h2>
+
+    <div class="listasHorizontales">
+      <div *ngFor="let publicacion of publicacionesTematicas">
+        <app-publicacion [publicacion]="publicacion"></app-publicacion>
+      </div>
+    </div>
+    <h2 class="titulospequenos">{{tipo}}</h2>
+
+    <div class="listasHorizontales">
+      <div *ngFor="let publicacion of publicacionesTipo">
+        <app-publicacion [publicacion]="publicacion"></app-publicacion>
+      </div>
+    </div>
+
     <div class="botones">
       <a [routerLink]="['/perfil', id_perfil]" >Perfil</a>
       <a [routerLink]="['/crearPublicacion', id_perfil]">Crear Publicación</a>
     </div>
+
+
 
 </body>
 </html>

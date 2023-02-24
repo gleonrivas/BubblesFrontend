@@ -27,4 +27,19 @@ export class PublicacionService{
   public crearPublicacion(publicacion:PublicacionParaCrear) {
     return this.restService.post<PublicacionParaCrear, PublicacionRespuesta>(`${this.url}/api/publicacion/guardar`, publicacion)
   }
+
+  public listarTodasPublicaciones() {
+    return this.restService.get<Publicacion[]>(`${this.url}/api/publicacion/listar`)
+  }
+  public listarPublicacionesPorTematica(tematica:string) {
+    return this.restService.get<Publicacion[]>(`${this.url}/api/publicacion/listar/tematica/${tematica}`)
+  }
+  public listarPublicacionesPorTipo(tipo:string) {
+    return this.restService.get<Publicacion[]>(`${this.url}/api/publicacion/listar/tipo/${tipo}`)
+  }
+
+  public eliminarPublicacion(id: number) {
+    return this.restService.delete<Publicacion>(`${this.url}/api/publicacion/${id}`)
+  }
+
 }

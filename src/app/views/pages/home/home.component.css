@@ -3,6 +3,7 @@
   width: 35%;
   justify-content: space-between;
   margin: auto;
+  padding-bottom: 2%;
 
 }
 a{
@@ -14,3 +15,21 @@ a{
   padding: 1%;
   text-decoration: none;
 }
+.listasHorizontales{
+  display: flex;
+  flex-flow: row nowrap;
+  width: fit-content;
+  margin: 5% 1% 4% 3%;
+
+}
+.titulo{
+  text-align: center;
+}
+.titulospequenos{
+  width: auto;
+  text-align: center;
+  font-family: 'Righteous', cursive;
+  font-size: 3rem;
+  color: white;
+}
+

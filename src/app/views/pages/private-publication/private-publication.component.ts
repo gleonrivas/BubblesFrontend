@@ -103,5 +103,11 @@ export class PrivatePublicationComponent {
     this.rt.navigate(['/publicacion/'+this.id]);
   }
 
-
+  eliminarPublicacion(){
+    this.publicacionService.eliminarPublicacion(this.id).subscribe({
+      next: (data) => {
+      },
+      error: console.error
+    })
+  }
 }

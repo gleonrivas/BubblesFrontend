@@ -9,13 +9,18 @@
   <div class="publicationScroll">
     <div class="publicationView white" *ngIf="publicacion.tipoPublicacion=='imagen'">
       <img src="{{publicacion.imagen}}" class="publication-img cover">
+
       <p> - {{publicacion.texto}} </p>
       <div class="dateHastagBox">
         <p class="publiP">#{{publicacion.tematica}}</p>
         <p class="publiP">Publicado a {{publicacion.fechaPublicacion.toString() | slice:0:10}}</p>
       </div>
+      <div class="botones">
+        <button >Eliminar</button>
+        <button>Editar</button>
+      </div>
     </div>
-    
+
     <div class="publicationView white" *ngIf="publicacion.tipoPublicacion=='texto'">
       <p class="withShadow">- {{publicacion.texto}}</p>
       <div class="dateHastagBox">
