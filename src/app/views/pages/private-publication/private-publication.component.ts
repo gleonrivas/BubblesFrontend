@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Perfil } from 'src/app/shared/models/perfil/perfil.response';
 import { Publicacion } from 'src/app/shared/models/publicacion/publicacion.response';
-import {Comentario } from 'src/app/shared/models/comentario/comentario.response';
+import {Comentario, ComentarioSinID } from 'src/app/shared/models/comentario/comentario.response';
 import { ComentarioService } from 'src/app/shared/services/comentario.service';
 import { PerfilesService } from 'src/app/shared/services/perfiles.service';
 import { PublicacionService } from 'src/app/shared/services/publicacion.service';
@@ -29,7 +29,6 @@ export class PrivatePublicationComponent {
   public comentarios: Comentario[] = new Array;
   public sideVisibility: VisibleSection = VisibleSection.COMENTARIOS;
   texto?: string;
-  public comentario?: Comentario;
 
   constructor(
     private readonly router:ActivatedRoute,
@@ -80,33 +79,55 @@ export class PrivatePublicationComponent {
 
   public enviarMensaje() {
 
+    //este comentario se sube a la bbdd
     const comentarioJSON = {
       texto: this.texto,
       id_perfil: this.id_perfil,
       id_publicacion: this.id
     };
 
-
-    this.comentarioService.guardarComentario(JSON.stringify(comentarioJSON)).subscribe(
-      response => {
-        // Manejar la respuesta de la petición
-        console.log('Respuesta del servidor:', response);
-      },
-      error => {
-        // Manejar el error de la petición
-        console.error('Error al enviar JSON', error);
-      }
-    );
+    //este comentario se añade a la lista local
+    var comentarioLocal:Comentario = {
+      id:0,
+      texto:comentarioJSON.texto||'',
+      id_perfil:this.perfil,
+      id_publicacion:this.id_publicacion,
+    }
 
 
-    const rutaActual = this.router.snapshot.url.join('/');
-    this.rt.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.rt.navigate([rutaActual]);
-    });
+    if (this.texto!=''||undefined){
 
-    this.texto='';
+      this.comentarios.unshift(comentarioLocal);
+      this.comentarioService.guardarComentario(JSON.stringify(comentarioJSON)).subscribe(
+        response => {
+          // Manejar la respuesta de la petición
+          console.log('Respuesta del servidor:', response);
+        },
+        error => {
+          // Manejar el error de la petición
+          console.error('Error al enviar JSON', error);
+        }
+      );
 
+
+      /*const rutaActual = this.router.snapshot.url.join('/');
+      this.rt.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.rt.navigate([rutaActual]);
+      });*/
+
+      this.texto='';
+
+
+
+    } else {
+      console.log('No se ha escrito un mensaje')
+    }
   }
 
+  borrarComentario(comentario:Comentario){
+    if (this.perfil!.id == comentario.id_perfil!.id){
+      
+    }
+  }
 
 }
