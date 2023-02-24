@@ -13,10 +13,9 @@ export class ComentarioService{
 
   private readonly url = 'https://localhost:8000'
   private restService: RestService;
-  private comentarios?: Comentario[] = [];
   private id_publicacion?: number;
 
-  private apiKey = {
+  private token = {
     apiKey: localStorage.getItem('apiKey')
   };
 
@@ -32,7 +31,7 @@ export class ComentarioService{
 
   guardarComentario(json:string):Observable<any>{
     const headers = new HttpHeaders()
-      .set('apiKey', `${this.apiKey.apiKey}`)
+      .set('apiKey', `${this.token.apiKey}`)
       .set('Content-Type', 'application/json');
 
 
