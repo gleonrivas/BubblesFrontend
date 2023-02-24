@@ -1,3 +1,7 @@
-<div *ngIf="comentario" class="comentario">
-  <p>{{comentario.texto}}</p>
+<div *ngIf="comentario" class="comentario animate__animated animate__fadeInTopLeft">
+  {{comentario.texto}}
+  <div *ngIf="perfil">
+    <p>{{perfil.username}}</p>
+  </div>
 </div>
+

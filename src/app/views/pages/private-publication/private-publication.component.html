@@ -5,8 +5,8 @@
   <title>Home</title>
 </head>
 <body class="fStack purple">
-<div class="publicationPage" *ngIf="publicacion">
-  <div class="publicationScroll">
+<div class="publicationPage animate__animated" *ngIf="publicacion">
+  <div class="publicationScroll animate__animated animate__fadeInLeft">
     <div class="publicationView white" *ngIf="publicacion.tipoPublicacion=='imagen'">
       <img src="{{publicacion.imagen}}" class="publication-img cover">
       <p> - {{publicacion.texto}} </p>
@@ -15,7 +15,7 @@
         <p class="publiP">Publicado a {{publicacion.fechaPublicacion.toString() | slice:0:10}}</p>
       </div>
     </div>
-    
+
     <div class="publicationView white" *ngIf="publicacion.tipoPublicacion=='texto'">
       <p class="withShadow">- {{publicacion.texto}}</p>
       <div class="dateHastagBox">
@@ -27,7 +27,7 @@
 
 
 
-  <div [ngSwitch]="sideVisibility" class="publicationView white">
+  <div [ngSwitch]="sideVisibility" class="publicationView white animate__animated animate__fadeInRight">
     <h1>Comentarios</h1>
 
     <div *ngSwitchCase="visibleSection.COMENTARIOS"  class="comentarioView withShadow">
@@ -35,6 +35,17 @@
             <app-comentario [comentario]="comentario"></app-comentario>
           </div>
     </div>
+
+<!--  RECORRIENDO EL MAPA DE COMENTARIOS Y PERFILES...
+    <div *ngSwitchCase="visibleSection.COMENTARIOS"  class="comentarioView withShadow">
+      <div *ngFor="let comentario of comentarios">
+        <div *ngFor="let perfil of comentario.id_perfil | keyvalue">
+          <app-comentario [comentario]="comentario" [perfil]="perfil.value"></app-comentario>
+        </div>
+      </div>
+    </div>
+-->
+
     <div class="inputComentario ">
       <input class="withShadow" type="text" placeholder="Escribe un comentario ✍️"  [(ngModel)]="texto">
       <a class="withShadow aniScale" (click)="enviarMensaje()">⏎</a>
