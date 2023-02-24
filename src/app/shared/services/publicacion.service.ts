@@ -2,8 +2,8 @@ import {Injectable} from "@angular/core";
 import {RestService} from "./rest.service";
 import {Publicacion} from "../models/publicacion/publicacion.response";
 import {PublicacionParaCrear} from "../models/publicacion/PublicacionParaCrear";
-import {PublicacionRespuesta} from "../models/publicacion/Publicacion.respuesta";
 import {FormBuilder} from "@angular/forms";
+import { PublicacionRespuesta } from "../models/publicacion/publicacion.respuesta";
 
 @Injectable()
 export class PublicacionService{
