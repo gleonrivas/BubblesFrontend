@@ -5,10 +5,19 @@ export type Comentario = {
 
   id:number;
   texto:string;
-  id_perfil:number;
-  id_publicacion:number;
+  id_perfil?:Perfil;
+  id_publicacion?:number;
 
 }
+
+export type ComentarioSinID = {
+
+  texto:string;
+  id_perfil:string;
+  id_publicacion:string;
+
+}
+
 
 export class ModelComentario {
   private _id: number |undefined;
