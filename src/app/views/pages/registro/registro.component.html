@@ -10,18 +10,18 @@
   <div class="cStack">
     <div class="smallTitle">- Registro -</div>
 
-      <input class="inputfield animated white" type="text" name="" placeholder="Nombre">
-      <input class="inputfield animated white" type="text" name="" placeholder="Apellidos">
-      <input class="inputfield animated white" type="text" name="" placeholder="Email">
-      <input class="inputfield animated white" type="text" name="" placeholder="Teléfono">
-      <input class="inputfield animated white" type="password" name="" placeholder="Contraseña">
+      <input class="inputfield animated white" type="text" name="nombre" placeholder="Nombre" [(ngModel)]="nombre" required>
+      <input class="inputfield animated white" type="text" name="apellidos" placeholder="Apellidos" [(ngModel)]="apellidos" required>
+      <input class="inputfield animated white" type="text" name="email" placeholder="Email" [(ngModel)]="email" required>
+      <input class="inputfield animated white" type="text" name="telefono" placeholder="Teléfono" [(ngModel)]="telefono" required>
+      <input class="inputfield animated white" type="password" name="contrasena" placeholder="Contraseña" [(ngModel)]="contrasena" required>
       <div class="inputfield animated white">
         <label for="fecha" class="labelDate">Fecha de nacimiento</label>
-        <input class="inputfieldDate animated white date" type="date" name="" id="fecha" placeholder="Fecha de nacimiento">
+        <input class="inputfieldDate animated white date" type="date" name="fecha" placeholder="Fecha de nacimiento" [(ngModel)]="fechaNacimiento" required>
       </div>
 
     <div class="group">
-      <a class="n1buton aniScale" href="/login">Guardar</a>
+      <a type="submit" (click)="enviarUsuario()" class="n1buton aniScale">Guardar</a>
       <a class="n1link animated" href="/login">¿Ya tienes cuenta?</a>
     </div>
   </div>
