@@ -1,5 +1,5 @@
 <div class="divperfil2" *ngIf="perfil" [routerLink]="['/home', perfil.id]">
-  <div class="inBubble">
+  <div class="inBubble" (click)="setIdPerfilEnLocalStorage()">
     <img class="profileImg" src="{{perfil.fotoPerfil}}"/>
   </div>
   <div class="userinfo semiWhite">

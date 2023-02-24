@@ -10,4 +10,8 @@ export class PerfilComponent {
 
   @Input()  perfil?: Perfil = PerfilVacio;
 
+  setIdPerfilEnLocalStorage(){
+    localStorage.setItem('id_perfil', this.perfil!.id.toString())
+  }
+  
 }
