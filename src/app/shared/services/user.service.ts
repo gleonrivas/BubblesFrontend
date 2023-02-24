@@ -8,7 +8,8 @@ import { HttpClient, HttpHeaders}  from "@angular/common/http";
 export class UserService {
   private readonly url = 'https://localhost:8000'
   private restService: RestService;
-  constructor(restService: RestService) {
+  constructor(restService: RestService,
+              private http: HttpClient) {
     this.restService = restService;
   }
 
@@ -23,7 +24,7 @@ export class UserService {
         'Content-Type':  'application/json'
       })
     };
-
+    
     return this.http.post(`${this.url}/api/usuario/guardar`, json, httpOptions)
       .pipe(
         catchError((error: any) => {
