@@ -4,3 +4,5 @@
 @import "app/app.component.mobile.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Varela+Round&display=swap');
+
+@import '~node_modules/animate.css/animate.min.css';
