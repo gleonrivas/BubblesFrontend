@@ -8,22 +8,24 @@
 <div class="cStack jCenter toHomePosition">
   <div class="smallTitle">- Perfil -</div>
 </div>
-<div class="row-content">
-  <input type="file" class="circle">
-  <div class="column-content">
-    <h2 class="white">- Elige tu nombre de usuario -</h2>
-    <input class="inputfield animated white" type="text" name="" >
-  </div>
-</div>
-<div class="cStack jCenter toHomePosition">
-  <h2 class="white ">- Descríbete -</h2>
-</div>
-<div class="cStack jCenter toHomePosition">
-  <input type="text" max="800" class="inputfield animated white">
-</div>
-<div class="group">
-  <a class="n1buton aniScale" href="">Entrar</a>
-</div>
+
+  <form  [formGroup]="perfilForm" (ngSubmit)="onSubmit()">
+    <div class="row-content">
+    <div class="espacioImagen">
+      <img class="circle" src="{{perfil.fotoPerfil}}">
+      <input type="file" class="n1buton aniScale" placeholder="" formControlName="file" (change)="readUrl($event)">
+    </div>
+    <div class="column-content">
+      <h2 class="white">- Elige tu nombre de usuario -</h2>
+      <input class="inputfield animated white" type="text" [value]="perfil.username" formControlName="username">
+      <h2 class="white ">- Descríbete -</h2>
+      <input type="text" max="800" class="inputfield animated white margeninferior" [value]="perfil.descripcion"
+             formControlName="descripcion">
+      <button class="n1buton aniScale" >Editar</button>
+    </div>
+    </div>
+  </form>
+
 
 </body>
 </html>

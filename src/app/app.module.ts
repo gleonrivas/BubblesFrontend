@@ -37,7 +37,7 @@ const appRoutes:Routes=[
   {path: 'perfil/:id', component: ProfileComponent},
   {path: 'perfiles/:id_usuario', component: MostrarPerfilesComponent},
   {path: 'crearPublicacion/:id_perfil', component: CrearPublicacionComponent},
-  {path: 'editarperfil', component: EditarPerfilComponent},
+  {path: 'editarperfil/:id_perfil', component: EditarPerfilComponent},
   {path: 'publicacion/:id', component: PrivatePublicationComponent},
   {path: 'logout', component: LogoutComponent},
 ];

@@ -1,16 +1,26 @@
 @media (min-device-width: 1201px) {
 
+  .espacioImagen{
+    display: flex;
+    flex-flow: column wrap;
 
+  }
   .row-content{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    width: 70%;
+    margin: auto;
   }
   .column-content{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
 
+  }
+  .margeninferior{
+    margin-bottom: 2%;
   }
 
   .circle::before {
@@ -37,6 +47,7 @@
     border-radius: 100px;
     background-color:rebeccapurple;
     color: rebeccapurple;
+    margin-bottom: 5%;
   }
 
   .circle input[type="file"] {

@@ -10,15 +10,20 @@ import {Publicacion} from "../../../shared/models/publicacion/publicacion.respon
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  public id_perfil: number =-1;
-  public publicacionesGlobales : Publicacion[] = [];
+  public id_perfil: number = -1;
+  public publicacionesGlobales: Publicacion[] = [];
 
-  public tematica:string = "personal";
+  public listaTematica: string[] = [];
 
-  public publicacionesTematicas : Publicacion[] = [];
+  public tematica: string = "";
 
-  public publicacionesTipo : Publicacion[] = [];
-  public tipo:string = "imagen";
+  public publicacionesTematicas: Publicacion[] = [];
+
+  public publicacionesTipo: Publicacion[] = [];
+  public tipo: string[] = ["imagen", "texto"];
+
+  public tipoRandom: string = "";
+
 
   constructor(private readonly route: ActivatedRoute, private readonly publicacionService: PublicacionService,) {
   }
@@ -30,21 +35,32 @@ export class HomeComponent {
         this.id_perfil = parseInt(id);
       }
     })
-
+    this.publicacionService.listaDeTematicasSeguidas(this.id_perfil).subscribe((data) => {
+      console.log(this.listaTematica = data);
+      this.cambiotematica();
+      this.publicacionService.listarPublicacionesPorTematica(this.tematica).subscribe((data) => {
+        this.publicacionesTematicas = data
+      })
+    })
     this.publicacionService.listarTodasPublicaciones().subscribe((data) => {
       this.publicacionesGlobales = data
     })
-
-    this.publicacionService.listarPublicacionesPorTematica(this.tematica).subscribe((data) => {
-      this.publicacionesTematicas = data
-    })
-
-    this.publicacionService.listarPublicacionesPorTipo(this.tipo).subscribe((data) => {
+    this.cambiotipo()
+    this.publicacionService.listarPublicacionesPorTipo(this.tipoRandom).subscribe((data) => {
       this.publicacionesTipo = data
     })
 
 
   }
+
+  cambiotematica() {
+    this.tematica = this.listaTematica[Math.floor(Math.random() * this.listaTematica.length)];
+  }
+  cambiotipo() {
+    this.tipoRandom = this.tipo[Math.floor(Math.random() * this.tipo.length)];
+  }
+
+
 
 
 }

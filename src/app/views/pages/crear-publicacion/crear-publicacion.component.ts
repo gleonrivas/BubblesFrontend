@@ -104,7 +104,6 @@ export class CrearPublicacionComponent {
 
   }
   guardarPublicacion(publicacion: PublicacionParaCrear) {
-    console.log(publicacion)
     this.publicacionService.crearPublicacion(publicacion).subscribe({
       complete: () => {
         this.route.navigateByUrl('/home/'+ this.id_Perfil)

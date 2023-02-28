@@ -2,6 +2,8 @@ import {Injectable} from "@angular/core";
 import {RestService} from "./rest.service";
 import {Perfil} from "../models/perfil/perfil.response";
 import {Seguidor} from "../models/perfil/perfilSeguidor.response";
+import {PublicacionRespuesta} from "../models/publicacion/publicacion.respuesta";
+import {PerfilEditarRespuesta} from "../models/perfil/perfileditar.respuesta";
 
 @Injectable()
 export class PerfilesService {
@@ -13,6 +15,9 @@ export class PerfilesService {
 
   public perfilPorId(id: number) {
     return this.restService.get<Perfil>(`${this.url}/api/perfil/${id}`)
+  }
+  public editarPerfil(perfil:Perfil) {
+    return this.restService.post<Perfil, PerfilEditarRespuesta>(`${this.url}/api/perfil/editar/`, perfil )
   }
 
   public seguidoresPorId(id: number) {

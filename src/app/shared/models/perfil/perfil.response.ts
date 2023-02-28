@@ -14,8 +14,11 @@ export const PerfilVacio: Perfil = {
   tipoCuenta: ""
 }
 
+
+
+
 export class ModelPerfil{
-  
+
   private _id: number | undefined;
   private _descripcion: string | undefined;
   private _username: string | undefined;

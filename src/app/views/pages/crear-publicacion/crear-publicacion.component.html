@@ -6,7 +6,7 @@
 </head>
 <body class="fStack purple homeImg">
 
-<form class="vStack" [formGroup]="publicationForm" (ngSubmit)="onSubmit()">
+<form class="column-content" [formGroup]="publicationForm" (ngSubmit)="onSubmit()">
   <div class="cStack">
     <div class="smallTitle">- Crear Publicación -</div>
     <label for="tipo_publicacion" class="labelDate">¿Cómo va a ser tu publicación?</label>
@@ -30,9 +30,8 @@
     <div class="group">
       <button [disabled]="publicationForm.invalid" class="n1buton aniScale">Guardar</button>
     </div>
+
   </div>
-
-
 </form>
 
 </body>
