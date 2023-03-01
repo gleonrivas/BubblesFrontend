@@ -26,4 +26,8 @@ export class PerfilesService {
   public perfilesPorUsuario(id_usuario:number) {
     return this.restService.get<Perfil[]>(`${this.url}/api/perfil/listarPorUsuarioId/${id_usuario}`)
   }
+
+  public eliminarPerfil(id_perfil:number) {
+    return this.restService.delete(`${this.url}/api/perfil/eliminar/${id_perfil}`)
+  }
 }

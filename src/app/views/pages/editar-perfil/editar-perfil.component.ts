@@ -63,16 +63,20 @@ export class EditarPerfilComponent {
   }
 
   onSubmit() {
-
-    this.perfil = {
-      id: this.perfil.id,
-      descripcion: this.perfilForm.controls['descripcion'].value,
-      fotoPerfil: this.perfilForm.controls['file'].value,
-      username: this.perfilForm.controls['username'].value,
-      tipoCuenta: this.perfil.tipoCuenta,
-
+     if(this.perfilForm.controls['descripcion'].value != ""){
+       this.perfil.descripcion = this.perfilForm.controls['descripcion'].value
+     }
+    if(this.perfilForm.controls['file'].value != ""){
+      this.perfil.fotoPerfil = this.perfilForm.controls['file'].value
     }
+    if(this.perfilForm.controls['username'].value != ""){
+      this.perfil.username = this.perfilForm.controls['username'].value
+    }
+   console.log(this.perfil)
     this.editarPerfil(this.perfil)
+  }
+  eliminarPerfil(id_perfil:number){
+    this.perfilService.eliminarPerfil(id_perfil)
   }
 
   editarPerfil(perfil: Perfil) {

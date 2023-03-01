@@ -1,3 +1,13 @@
+.borrar{
+  background-color: white;
+  width: 3%;
+  padding: 0.5%;
+  margin-left: 80%;
+  border-radius: 50px;
+}
+.borrar:hover{
+  background-color: rebeccapurple;
+}
 @media (min-device-width: 1201px) {
 
   .espacioImagen{
