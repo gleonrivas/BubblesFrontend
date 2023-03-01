@@ -82,7 +82,9 @@ export class PrivatePublicationComponent {
       'esto es id publicacion pagina '+this.id_publicacion_pagina,
       'esto es id localstg '+this.id_perfil_localStg,
       'esto es publicacion pagina '+this.publicacion_pagina.id,
-      'esto es pefil local '+this.perfil_localStg!.id
+      'esto es pefil local '+this.perfil_localStg!.id,
+      this.comentarios[0].username
+
     )
 
     //este comentario se sube a la bbdd

@@ -7,6 +7,9 @@ export type Comentario = {
   texto:string;
   id_perfil:number;
   id_publicacion?:number;
+  
+  username?:string;
+  urlImagen?:string;
 
 }
 

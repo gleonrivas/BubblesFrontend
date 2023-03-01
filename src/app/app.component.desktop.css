@@ -501,17 +501,37 @@
   .comentario{
     width: fit-content;
     max-width: 75%;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.6);
     color: black;
     display: flex;
     flex-wrap: wrap;
     margin: 1rem auto 1rem 2rem;
-    border-radius: 1rem;
-    padding: .5rem 1rem;
+    border-radius: 2rem;
+    padding: 1rem 1rem;
     border: 3px solid transparent;
   }
   .comentario >p{
     margin: 0;
+    width: 100%;
+  }
+  .comentarioUserData{
+    display: flex;
+    width: fit-content;
+    align-content: center;
+    margin: .5rem 0 1rem 0;
+    background-color: black;
+    border-radius: 2rem;
+    padding: .5rem;
+    color: white;
+  }
+  .comentarioUserData>img{
+    border-radius: 1rem;
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+  }
+  .comentarioUserData>p{
+    margin: auto 1rem;
   }
 
   .comentarioPropio:hover{
