@@ -30,7 +30,8 @@
           <h3 *ngIf="seguidores.length == null">0</h3>
         </div>
       </div>
-      <a class="editarPerfil mouseOnBorder white clearmob" [routerLink]="['/editarperfil', id]">Editar perfil</a>
+      <a *ngIf="id_perfil_localStg == id" class="editarPerfil mouseOnBorder white clearmob" [routerLink]="['/editarperfil', id]" >Editar perfil</a>
+      <a *ngIf="id_perfil_localStg != id" class="editarPerfil mouseOnBorder white clearmob" >Seguir</a>
 
       <div class="btnStack">
         <a class="profileBtn mouseOnBorder white clearmob" (click)="verBubbles()">Bubbles</a>

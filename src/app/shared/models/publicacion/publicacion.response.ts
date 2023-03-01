@@ -1,3 +1,4 @@
+import { Perfil } from "../perfil/perfil.response";
 import {Usuario} from "../usuario/usuario.response";
 
 
@@ -7,7 +8,7 @@ export type Publicacion = {
   texto: string;
   imagen: string;
   tematica: string;
-  fechaPublicacion: Date;
+  fechaPublicacion: string;
   activa: boolean;
-  id_perfil: number;
+  id_perfil: Perfil;
 }

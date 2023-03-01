@@ -7,7 +7,7 @@ import { PublicacionRespuesta } from "../models/publicacion/publicacion.respuest
 
 @Injectable()
 export class PublicacionService{
-  private readonly url = 'https://localhost:8000'
+  private readonly url = 'http://localhost:8000'
   private restService: RestService;
 
   private form: FormBuilder;
@@ -38,7 +38,7 @@ export class PublicacionService{
   }
 
   public eliminarPublicacion(id: number) {
-    return this.restService.delete<Publicacion>(`${this.url}/api/publicacion/${id}`)
+    return this.restService.delete(`${this.url}/api/publicacion/eliminar/${id}`)
   }
 
   public listaDeTematicasSeguidas(id_perfil: number) {

@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {RestService} from "./rest.service";
-import {Perfil} from "../models/perfil/perfil.response";
+import {ModelPerfil, Perfil} from "../models/perfil/perfil.response";
 import {Seguidor} from "../models/perfil/perfilSeguidor.response";
 import {PublicacionRespuesta} from "../models/publicacion/publicacion.respuesta";
 import {PerfilEditarRespuesta} from "../models/perfil/perfileditar.respuesta";

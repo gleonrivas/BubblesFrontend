@@ -5,16 +5,17 @@ export type Comentario = {
 
   id:number;
   texto:string;
-  id_perfil?:Perfil;
+  id_perfil:number;
   id_publicacion?:number;
 
 }
 
-export type ComentarioSinID = {
+export type ComentarioPublicacion = {
 
+  id:number;
   texto:string;
-  id_perfil:string;
-  id_publicacion:string;
+  id_perfil:Perfil;
+  id_publicacion:Publicacion;
 
 }
 
