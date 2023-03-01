@@ -30,7 +30,8 @@
           <h3 *ngIf="seguidores.length == null">0</h3>
         </div>
       </div>
-      <a class="editarPerfil mouseOnBorder white clearmob" href="/editarperfil">Editar perfil</a>
+      <a *ngIf="id_perfil_localStg == id" class="editarPerfil mouseOnBorder white clearmob" href="/editarperfil">Editar perfil</a>
+      <a *ngIf="id_perfil_localStg != id" class="editarPerfil mouseOnBorder white clearmob" >Seguir</a>
 
       <div class="btnStack">
         <a class="profileBtn mouseOnBorder white clearmob" (click)="verBubbles()">Bubbles</a>
@@ -71,8 +72,10 @@
       </div>
       <div *ngIf="seguidores.length > 0">
         <div  *ngFor="let seguidor of seguidores" class="followView white">
-            <img class="" src="{{seguidor.fotoPerfil}}"/>
-            <p (click)="verPerfil(seguidor.id)">@{{seguidor.username | slice:0:10}}... </p>
+          <div>
+            <img src="{{seguidor.fotoPerfil}}"/>
+            <p (click)="verPerfil(seguidor.id)">@{{seguidor.username | slice:0:20}} </p>
+          </div>
             <app-boton-seguidores [id_seguidor]="seguidor.id" [id_perfil]="perfil.id" ></app-boton-seguidores>
         </div>
       </div>
@@ -82,6 +85,7 @@
       <p>Esto va a ser Seguidos</p>
     </div>
   </div>
+
 </div>
 </body>
 </html>

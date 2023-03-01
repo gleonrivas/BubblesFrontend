@@ -5,28 +5,29 @@
   <title>Home</title>
 </head>
 <body class="fStack purple">
-<div class="publicationPage animate__animated" *ngIf="publicacion">
+<div class="publicationPage animate__animated" *ngIf="publicacion_pagina">
   <div class="publicationScroll animate__animated animate__fadeInLeft">
-    <div class="publicationView white" *ngIf="publicacion.tipoPublicacion=='imagen'">
-      <img src="{{publicacion.imagen}}" class="publication-img cover">
+    <div class="publicationView white" *ngIf="publicacion_pagina.tipoPublicacion=='imagen'">
+      <img src="{{publicacion_pagina.imagen}}" class="publication-img cover">
 
-      <p> - {{publicacion.texto}} </p>
+      <p> - {{publicacion_pagina.texto}} </p>
       <div class="dateHastagBox">
-        <p class="publiP">#{{publicacion.tematica}}</p>
-        <p class="publiP">Publicado a {{publicacion.fechaPublicacion.toString() | slice:0:10}}</p>
-      </div>
-      <div class="botones">
-        <button >Eliminar</button>
-        <button>Editar</button>
+        <p class="publiP">#{{publicacion_pagina.tematica}}</p>
+        <p class="publiP">Publicado a {{publicacion_pagina.fechaPublicacion.toString() | slice:0:10}}</p>
+        <img src="https://icons.veryicon.com/png/o/miscellaneous/small-face-icon/trash-111.png" class="btnSecondary aniScale " *ngIf="publicacion_pagina.id_perfil.id == id_perfil_localStg" (click)="eliminarPublicacion(publicacion_pagina.id_perfil.id)">
       </div>
     </div>
 
-    <div class="publicationView white" *ngIf="publicacion.tipoPublicacion=='texto'">
-      <p class="withShadow">- {{publicacion.texto}}</p>
+    <div class="publicationView white" *ngIf="publicacion_pagina.tipoPublicacion=='texto'">
+      <p class="withShadow">- {{publicacion_pagina.texto}}</p>
       <div class="dateHastagBox">
-        <p class="publiP">#{{publicacion.tematica}}</p>
-        <p class="publiP">Publicado a {{publicacion.fechaPublicacion.toString() | slice:0:10}}</p>
+        <p class="publiP">#{{publicacion_pagina.tematica}}</p>
+        <p class="publiP">Publicado a {{publicacion_pagina.fechaPublicacion.toString() | slice:0:10}}</p>
+        <img src="https://icons.veryicon.com/png/o/miscellaneous/small-face-icon/trash-111.png" class="btnSecondary aniScale " *ngIf="publicacion_pagina.id_perfil.id == id_perfil_localStg" (click)="eliminarPublicacion(publicacion_pagina.id_perfil.id)">
       </div>
+    </div>
+
+    <div class="botones">
     </div>
   </div>
 
@@ -37,7 +38,7 @@
 
     <div *ngSwitchCase="visibleSection.COMENTARIOS"  class="comentarioView withShadow">
           <div *ngFor="let comentario of comentarios">
-            <app-comentario [comentario]="comentario"></app-comentario>
+            <app-comentario [comentario]="comentario" [id_perfil_publicacion]="publicacion_pagina.id_perfil.id" [id_perfil_localStg]="id_perfil_localStg" ></app-comentario>
           </div>
     </div>
 

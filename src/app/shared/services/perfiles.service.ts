@@ -1,11 +1,12 @@
 import {Injectable} from "@angular/core";
 import {RestService} from "./rest.service";
-import {Perfil} from "../models/perfil/perfil.response";
+import {ModelPerfil, Perfil} from "../models/perfil/perfil.response";
 import {Seguidor} from "../models/perfil/perfilSeguidor.response";
+import {map, Observable } from "rxjs";
 
 @Injectable()
 export class PerfilesService {
-  private readonly url = 'https://localhost:8000'
+  private readonly url = 'http://localhost:8000'
   private restService: RestService;
   constructor(restService: RestService) {
     this.restService = restService;

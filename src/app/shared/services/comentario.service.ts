@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Comentario } from "../models/comentario/comentario.response";
+import { Comentario, ComentarioPublicacion } from "../models/comentario/comentario.response";
 import { RestService } from "./rest.service";
 
 @Injectable({
@@ -11,7 +11,7 @@ import { RestService } from "./rest.service";
 })
 export class ComentarioService{
 
-  private readonly url = 'https://localhost:8000'
+  private readonly url = 'http://localhost:8000'
   private restService: RestService;
   private id_publicacion?: number;
 
@@ -44,6 +44,10 @@ export class ComentarioService{
         })
       );
 
+  }
+
+  borrarComentario(id:number){
+    return this.restService.delete(`${this.url}/api/comentario/eliminar/${id}`)
   }
 
 

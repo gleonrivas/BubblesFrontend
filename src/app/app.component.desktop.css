@@ -458,21 +458,40 @@
     width: fit-content;
     margin: 0 auto;
   }
+  .dateHastagBox>img{
+    height: 2.5rem;
+    padding: .5rem;
+    margin: auto 0;
+    width: 2.5rem;
+    object-fit: contain;
+    border-radius: 5rem;
+    background-color: #ff3636;
+  }
 
 
   .followView{
     margin: 2rem 0 ;
     background-color: rgba(255, 255, 255, 0.32);
-    padding: 1rem 2rem;
+    padding: 1rem ;
     border-radius: 2rem;
-    width: 100%;
+    width: 110%;
     display: flex;
     flex-flow: row nowrap;
     gap: 1rem;
     align-content: center;
     align-items: center;
   }
-  .followView>img{
+  .followView>div{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+
+  }
+  .followView>div>img{
     width: 4rem;
     height: 4rem;
     border-radius: 5rem;
@@ -489,9 +508,16 @@
     margin: 1rem auto 1rem 2rem;
     border-radius: 1rem;
     padding: .5rem 1rem;
+    border: 3px solid transparent;
   }
   .comentario >p{
     margin: 0;
+  }
+
+  .comentarioPropio:hover{
+    background-color: rgb(196, 2, 2);
+    color: white;
+    border: 3px solid white;
   }
 
   .botonPublicacionPerfil{

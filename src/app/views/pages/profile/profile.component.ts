@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, SimpleChanges} from '@angular/core';
 import {UserService} from "../../../shared/services/user.service";
 import {PerfilesService} from "../../../shared/services/perfiles.service";
 import {PublicacionService} from "../../../shared/services/publicacion.service";
@@ -7,12 +7,15 @@ import {Publicacion} from "../../../shared/models/publicacion/publicacion.respon
 import {Perfil} from "../../../shared/models/perfil/perfil.response";
 import {Seguidor} from "../../../shared/models/perfil/perfilSeguidor.response";
 import {SeguidorService} from "../../../shared/services/seguidor.service";
+import { ComentarioService } from 'src/app/shared/services/comentario.service';
+import { Comentario, ComentarioPublicacion } from 'src/app/shared/models/comentario/comentario.response';
 
 export enum VisibleSection {
   FOLLOWERS,
   BUBBLES,
   FOLLOWING,
   FAVORITES,
+  TUSCOMENTARIOS
 }
 
 @Component({
@@ -24,6 +27,7 @@ export enum VisibleSection {
 export class ProfileComponent {
 
   public id: number = -1;
+  public id_perfil_localStg = parseInt(localStorage.getItem('id_perfil')!);
   public publicaciones: Publicacion[] = [];
 
   public publicacionesporLikes: Publicacion[] = [];
@@ -39,7 +43,8 @@ export class ProfileComponent {
               private readonly publicacionService: PublicacionService,
               private readonly router: ActivatedRoute,
               private readonly rt: Router,
-              private readonly seguidorService: SeguidorService) {
+              private readonly seguidorService: SeguidorService,
+              ) {
 
   }
 
