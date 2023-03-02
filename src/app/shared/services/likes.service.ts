@@ -17,7 +17,12 @@ export class LikesService {
   }
 
   public crearLikeaPublicacion(id_publicacion?:number, id_perfil?:number) {
-    return this.restService.post<{}>(`${this.url}/api/likepublicacion/guardar/${id_publicacion}/${id_perfil}`, {} )
+    return this.restService.post<{}>(`${this.url}/api/likepublicacion/guardar/${id_publicacion}/${id_perfil}`, {} ).subscribe({
+      error(err) {
+        console.error(err)
+
+      }
+    })
   }
 
 
