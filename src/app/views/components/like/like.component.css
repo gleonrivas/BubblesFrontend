@@ -1,0 +1,29 @@
+
+[id='toggle-heart'] {
+  position: absolute;
+  left: -100vw;
+}
+[for='toggle-heart'] {
+  color: #aab8c2;
+}
+
+[id='toggle-heart']:checked + label {
+  color: #e2264d;
+}
+[for='toggle-heart'] {
+  font-size: 2em;
+  cursor: pointer;
+}
+body {
+  display: flex;
+  justify-content: center; /* horizontal alignment */
+  margin: 0;
+  height: 100vh; /* the viewport height */
+}
+
+/* vertical alignment, needs the height of
+   the body to be equal to that of the
+   viewport if we want it in the middle */
+[for='toggle-heart'] {
+  align-self: center;
+}

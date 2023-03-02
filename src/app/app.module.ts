@@ -26,6 +26,7 @@ import { CrearPublicacionComponent } from './views/pages/crear-publicacion/crear
 import { MostrarPerfilesComponent } from './views/pages/mostrar-perfiles/mostrar-perfiles.component';
 import { PerfilComponent } from './views/components/perfil/perfil.component';
 import { JwtService } from './shared/services/jwt.service';
+import { LikeComponent } from './views/components/like/like.component';
 
 
 const appRoutes:Routes=[
@@ -63,6 +64,7 @@ const appRoutes:Routes=[
     PrivatePublicationComponent,
     LogoutComponent,
     ComentarioComponent,
+    LikeComponent,
   ],
   imports: [
     BrowserModule,

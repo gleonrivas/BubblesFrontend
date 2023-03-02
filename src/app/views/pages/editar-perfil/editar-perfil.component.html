@@ -9,13 +9,13 @@
   <div class="smallTitle">- Perfil -</div>
 </div>
 <div>
-  <img class="borrar" src="https://img.icons8.com/pulsar-color/256/trash.png" (click)="eliminarPerfil(perfil.id)">
+  <img class="borrar" src="https://img.icons8.com/pulsar-color/256/trash.png" (click)="eliminarPerfil()">
 
   <form  [formGroup]="perfilForm" (ngSubmit)="onSubmit()">
     <div class="row-content">
     <div class="espacioImagen">
-      <img class="circle" src="{{perfil.fotoPerfil}}">
-      <input type="file" class="n1buton aniScale" placeholder="" formControlName="file" (change)="readUrl($event)">
+      <img class="circle" src="{{perfil.file || perfil.fotoPerfil }}">
+      <input type="file" class="n1buton aniScale"  placeholder="" formControlName="file" (change)="readUrl($event)">
     </div>
     <div class="column-content">
       <h2 class="white">- Elige tu nombre de usuario -</h2>
@@ -23,7 +23,7 @@
       <h2 class="white ">- Descríbete -</h2>
       <input type="text" max="800" class="inputfield animated white margeninferior" [value]="perfil.descripcion"
              formControlName="descripcion">
-      <button class="n1buton aniScale" >Editar</button>
+      <button class="n1buton aniScale" (click)="editarPerfil(perfil)">Editar</button>
     </div>
     </div>
   </form>
