@@ -10,6 +10,7 @@ import { ComentarioComponent } from '../../components/comentario/comentario.comp
 import { FormsModule } from '@angular/forms';
 import { HttpHeaders } from '@angular/common/http';
 import { JwtService } from 'src/app/shared/services/jwt.service';
+import {LikesService} from "../../../shared/services/likes.service";
 
 export enum VisibleSection {
   COMENTARIOS,
@@ -29,13 +30,14 @@ export class PrivatePublicationComponent {
   public comentarios: Comentario[] = new Array;
   public sideVisibility: VisibleSection = VisibleSection.COMENTARIOS;
   texto?: string;
-
+  public lista_perfiles: Perfil[] = [];
   constructor(
     private readonly router:ActivatedRoute,
     private readonly rt: Router,
     private readonly publicacionService: PublicacionService,
     private readonly perfilService: PerfilesService,
     private readonly comentarioService: ComentarioService,
+    private readonly likesService: LikesService,
     private jwt: JwtService
   ) {
   }
@@ -58,6 +60,10 @@ export class PrivatePublicationComponent {
 
       this.comentarioService.listarComentarioPorIdPublicacion(this.id_publicacion_pagina).subscribe((data) =>{
         this.comentarios = data;
+      })
+
+      this.likesService.perfilesPorLikesPublicacion(this.id_publicacion_pagina).subscribe((data)=>{
+        this.lista_perfiles = data
       })
 
 

@@ -11,7 +11,10 @@
       <img src="{{publicacion_pagina.imagen}}" class="publication-img cover">
       <div>
         <p> - {{publicacion_pagina.texto}} </p>
-        <app-like></app-like>
+        <div class="likes">
+          <app-like  [id_perfil]="id_publicacion_pagina" [id_publicacion]="publicacion_pagina.id" ></app-like>
+          <p>  {{lista_perfiles.length}} likes</p>
+        </div>
       </div>
 
       <div class="dateHastagBox">

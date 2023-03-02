@@ -20,6 +20,11 @@ body {
   margin: 0;
   height: 100vh; /* the viewport height */
 }
+button{
+  background-color: transparent;
+  border-color: white;
+  border-radius: 50px;
+}
 
 /* vertical alignment, needs the height of
    the body to be equal to that of the

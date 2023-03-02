@@ -27,6 +27,7 @@ import { MostrarPerfilesComponent } from './views/pages/mostrar-perfiles/mostrar
 import { PerfilComponent } from './views/components/perfil/perfil.component';
 import { JwtService } from './shared/services/jwt.service';
 import { LikeComponent } from './views/components/like/like.component';
+import {LikesService} from "./shared/services/likes.service";
 
 
 const appRoutes:Routes=[
@@ -73,7 +74,7 @@ const appRoutes:Routes=[
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [RestService, UserService, PerfilesService, PublicacionService, SeguidorService, JwtService],
+  providers: [RestService, UserService, PerfilesService, PublicacionService, SeguidorService, JwtService, LikesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
