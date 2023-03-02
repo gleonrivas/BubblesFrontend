@@ -3,7 +3,7 @@
   <div *ngIf="comentario" (click)="borrarComentario(comentario.id)" class="animated comentario comentarioPropio animate__animated animate__fadeInTopLeft">
     <div class="comentarioUserData">
       <img src="{{comentario.urlImagen}}" alt="">
-      <p>@{{comentario.username | slice:0:20}}</p>
+      <p (click)="verPerfil(comentario.id_perfil_usuario)">@{{comentario.username | slice:0:20}}</p>
     </div>
 
     <p>{{comentario.texto}}</p>
