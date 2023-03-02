@@ -1,6 +1,8 @@
-.listaPerfiles{
-  display: flex;
-  flex-flow: row nowrap;
-  width: 90%;
+@media (min-device-width: 1201px) {
+  .listaPerfiles {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 90%;
 
+  }
 }

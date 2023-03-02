@@ -249,6 +249,11 @@
   .profileView{
     flex-direction: column;
   }
+  .listaPerfiles{
+    display: flex;
+    flex-direction: column;
+
+  }
 
   .sideStyle{
     margin: 1.5rem auto;
@@ -332,4 +337,18 @@
     background-color: rgba(255, 255, 255, 0.43);
 
   }
+
+  .botonPublicacionPerfil{
+    text-align: center;
+    border-radius: 5rem;
+    width: 20%;
+    height: max-content;
+    font-size: 2rem;
+    padding: 1rem;
+    text-decoration: none;
+    margin: auto;
+
+  }
+
+
 }
