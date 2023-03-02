@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Publicacion} from "../../../shared/models/publicacion/publicacion.response";
+
 import {LikesService} from "../../../shared/services/likes.service";
 
 @Component({
@@ -9,12 +9,8 @@ import {LikesService} from "../../../shared/services/likes.service";
 })
 
 export class LikeComponent {
-  constructor( private readonly likesService: LikesService,) {
+  constructor(private readonly likesService: LikesService) {
   }
-  @Input() id_perfil?: number;
-  @Input() id_publicacion?: number;
 
-crearlike(){
-  this.likesService.crearLikeaPublicacion(this.id_publicacion, this.id_perfil);
-}
+
 }

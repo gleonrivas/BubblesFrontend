@@ -44,11 +44,13 @@ export class PrivatePublicationComponent {
 
 
   ngOnInit(){
+
     this.router.paramMap.subscribe((value) => {
       const id = value.get('id');
       if (id != null) {
         this.id_publicacion_pagina = parseInt(id);
       }
+      this.listaDeLikes();
 
       this.publicacionService.getPublicacionPorId(this.id_publicacion_pagina).subscribe((data) => {
         this.publicacion_pagina = data;
@@ -62,15 +64,23 @@ export class PrivatePublicationComponent {
         this.comentarios = data;
       })
 
-      this.likesService.perfilesPorLikesPublicacion(this.id_publicacion_pagina).subscribe((data)=>{
-        this.lista_perfiles = data
-      })
+
 
 
     });
 
   }
 
+  listaDeLikes(){
+    this.likesService.perfilesPorLikesPublicacion(this.id_publicacion_pagina).subscribe((data)=>{
+      this.lista_perfiles = data;
+
+    })
+  }
+  crearlike() {
+    this.likesService.crearLikeaPublicacion(this.publicacion_pagina.id, this.id_perfil_localStg);
+
+  }
   public get visibleSection(): typeof VisibleSection {
     return VisibleSection
   }

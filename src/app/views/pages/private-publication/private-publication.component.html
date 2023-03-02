@@ -12,7 +12,9 @@
       <div>
         <p> - {{publicacion_pagina.texto}} </p>
         <div class="likes">
-          <app-like  [id_perfil]="id_publicacion_pagina" [id_publicacion]="publicacion_pagina.id" ></app-like>
+          <button (click)="crearlike()">
+            <app-like></app-like>
+          </button>
           <p>  {{lista_perfiles.length}} likes</p>
         </div>
       </div>

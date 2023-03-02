@@ -13,11 +13,11 @@ export class LikesService {
   }
 
   public perfilesPorLikesPublicacion(id_publicacion: number) {
-    return this.restService.get<Perfil[]>(`${this.url}api/like/listar/publicacion/${id_publicacion}`)
+    return this.restService.get<Perfil[]>(`${this.url}/api/like/listar/publicacion/${id_publicacion}`)
   }
 
   public crearLikeaPublicacion(id_publicacion?:number, id_perfil?:number) {
-    return this.restService.post<null>(`${this.url}/api/perfil/editar/${id_publicacion}/${id_perfil}`, null )
+    return this.restService.post<{}>(`${this.url}/api/likepublicacion/guardar/${id_publicacion}/${id_perfil}`, {} )
   }
 
 
