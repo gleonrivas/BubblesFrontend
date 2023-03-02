@@ -100,6 +100,9 @@ export class PrivatePublicationComponent {
       texto:comentarioJSON.texto||'',
       id_perfil:this.id_perfil_localStg,
       id_publicacion:this.id_publicacion_pagina,
+      id_perfil_usuario:0,
+      username: this.perfil_localStg!.username,
+      urlImagen: this.perfil_localStg!.fotoPerfil,
     }
 
 
