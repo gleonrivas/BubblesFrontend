@@ -12,7 +12,9 @@
 
   .espacioImagen{
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
 
   }
   .row-content{
@@ -33,21 +35,6 @@
     margin-bottom: 2%;
   }
 
-  .circle::before {
-    background-color: rgb(58,6,80);
-    border-style: dashed;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100px;
-    content: 'Selecciona tu foto de perfil'; /* testo por defecto */
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  }
 
   .circle{
     position: relative;
@@ -91,6 +78,24 @@
 }
 @media (max-device-width: 1200px) {
 
+  .circle{
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color:rebeccapurple;
+    color: rebeccapurple;
+    margin-bottom: 15%;
+  }
+
+  .espacioImagen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+
+  }
 
   .row-content{
     display: flex;
@@ -159,6 +164,17 @@
     border-style: solid;
     border-color: white;
 
+  }
+
+  .borrar{
+    background-color: white;
+    width: 10%;
+    padding: 0.5%;
+    margin-left: 80%;
+    border-radius: 50px;
+  }
+  .borrar:hover{
+    background-color: rebeccapurple;
   }
 
 

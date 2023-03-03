@@ -4,9 +4,10 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: auto;
+    height: 100vh;
     margin: 0;
     padding: 0;
+
   }
   .btnPrincipal{
     border-radius: 50px;
@@ -105,22 +106,28 @@
 
   .labelDate{
     color: rgba(240, 248, 255, 0.55);
+    margin-left: 20%;
   }
 
+
+
   .n1buton{
-    width: 5rem;
+    width: auto;
     font-size: 1rem;
     text-align: center;
-    padding: .7rem 1.2rem;
-    margin: auto;
+    padding: 10px;
     text-decoration: none;
     border-radius: 15px;
     background-color: white;
     color: black;
   }
+
+
+
   .n1link{
     width:auto;
     text-align: center;
+    justify-content: center;
     padding: .5rem 1rem;
     margin: auto;
     text-decoration: none;
@@ -131,14 +138,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
     margin: 2rem auto;
     gap: .5rem;
   }
   .smallTitle{
     width: auto;
-    margin: 1rem auto;
+    margin: 2rem auto;
     font-family: 'Righteous', cursive;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     color: white;
   }
 
