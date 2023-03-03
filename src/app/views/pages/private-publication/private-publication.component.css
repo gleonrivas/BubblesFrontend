@@ -23,3 +23,8 @@ button{
   justify-content: space-evenly;
   margin: auto;
 }
+.botonlikes{
+  background-color: transparent;
+  border-color: white;
+  border-radius: 50px;
+}

@@ -10,7 +10,7 @@
 
   <div class="divperfil animate__animated animate__fadeInLeft">
     <div class="inBubble">
-      <img class="profileImg" src="{{perfil.file}}"/>
+      <img class="profileImg" src="{{perfil.fotoPerfil}}"/>
     </div>
     <div class="userinfo semiWhite">
       <h3 class="username white">@{{perfil.username}}</h3>
@@ -50,7 +50,7 @@
       <div *ngIf="publicaciones.length > 0" class="listaPublicaciones">
         <p>Bubbles</p>
         <div *ngFor="let publicacion of publicaciones">
-          <app-publicacion [publicacion]="publicacion"></app-publicacion>
+          <app-publicacion [publicacion]="publicacion" [id_perfil]="perfil.id" [id_publicacion]="publicacion.id"></app-publicacion>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
       </div>
       <div *ngIf="publicacionesporLikes.length > 0"  class="listaPublicaciones">
         <div *ngFor="let publicacion of publicacionesporLikes">
-          <app-publicacion [publicacion]="publicacion"></app-publicacion>
+          <app-publicacion [publicacion]="publicacion" [id_perfil]="perfil.id" [id_publicacion]="publicacion.id" ></app-publicacion>
         </div>
       </div>
     </div>

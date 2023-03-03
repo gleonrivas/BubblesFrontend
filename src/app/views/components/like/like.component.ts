@@ -12,5 +12,16 @@ export class LikeComponent {
   constructor(private readonly likesService: LikesService) {
   }
 
+  @Input()public leGusta: boolean = false;
+
+  @Input() public crearEliminarlike: (event: Event) => void = () => null
+
+  ngOnInit(){
+
+  }
+  toggleActive() {
+    this.leGusta = !this.leGusta;
+  }
+
 
 }

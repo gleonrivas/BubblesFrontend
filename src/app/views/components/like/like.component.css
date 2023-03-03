@@ -32,3 +32,12 @@ button{
 [for='toggle-heart'] {
   align-self: center;
 }
+
+[id='isred']{
+  position: absolute;
+  left: -100vw;
+}
+[for='isred'] {
+  color:#e2264d;
+  font-size: 2em;
+}

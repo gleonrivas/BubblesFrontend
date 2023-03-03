@@ -12,9 +12,7 @@
       <div>
         <p> - {{publicacion_pagina.texto}} </p>
         <div class="likes">
-          <button (click)="crearlike()">
-            <app-like></app-like>
-          </button>
+          <app-like [leGusta]="legusta" [crearEliminarlike]="crearEliminarlike"></app-like>
           <p>  {{lista_perfiles.length}} likes</p>
         </div>
       </div>
