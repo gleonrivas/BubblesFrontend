@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders}  from "@angular/common/http";
 
 @Injectable()
 export class UserService {
-  private readonly url = 'https://localhost:8000'
+  private readonly url = 'http://localhost:8000'
   private restService: RestService;
   constructor(restService: RestService,
               private http: HttpClient) {

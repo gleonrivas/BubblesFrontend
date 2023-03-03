@@ -7,7 +7,7 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Injectable()
 export class LikesService {
-  private readonly url = 'https://localhost:8000'
+  private readonly url = 'http://localhost:8000'
   private restService: RestService;
   constructor(restService: RestService) {
     this.restService = restService;

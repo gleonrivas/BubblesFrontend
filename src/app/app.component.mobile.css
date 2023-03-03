@@ -75,6 +75,10 @@
     transition: all .25s ease;
   }
 
+  .addPublication{
+    width: 7rem;
+  }
+
   .inputfield{
     font-family: 'Varela Round', sans-serif;
     background-color: rgba(255, 255, 255, 0.4);
@@ -299,8 +303,8 @@
     border-radius: 100%;
     margin: 0 auto;
     padding: .6rem;
-    width: min-content;
-    height: min-content;
+    width: max-content;
+    height: max-content;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -309,8 +313,8 @@
   }
 
   .story{
-    width: 3rem;
-    height: 3rem;
+    width: 14rem;
+    height: 14rem;
     border-radius: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -320,8 +324,8 @@
   .marco{
     border-radius: 25px;
     padding: 1rem;
-    width: 4rem;
-    height: 6rem;
+    width: 20rem;
+    height: 25rem;
     background-color: rgba(255, 255, 255, 0.43);
     display: flex;
     flex-direction: column;
@@ -330,8 +334,8 @@
   }
 
   .marco > p{
-    font-size: .5rem;
-    margin: .3rem;
+    font-size: 1.5rem;
+    margin: 1rem;
     text-align: center;
   }
 
@@ -572,6 +576,371 @@
     height: 100vh;
     margin: 0;
     padding: 0;
+  }
+
+  .aniScale{
+    transition: all .25s ease;
+  }
+  .aniScale:hover{
+    z-index: 2;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.30);
+    transform: scale(1.1);
+  }
+
+  .navegador{
+    font-size: 1rem;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    height: fit-content;
+  }
+  .navegador>nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: fit-content;
+    justify-content: space-around;
+    padding: .25rem;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5rem;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+
+  }
+  .navegador>nav>input::placeholder{
+    color: white;
+  }
+  .navegador>nav>input:focus::placeholder{
+    color: rgba(0, 0, 0, 0.6);
+  }
+  .navegador>nav>input:focus{
+    color: black;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 10rem;
+    border: solid 3px black ;
+    outline: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  .navegador>nav>a{
+    text-align: center;
+    margin: .25rem .5rem;
+    background-color: black;
+    border-radius: 5rem;
+    padding: .7rem 1.3rem;
+    color: white;
+    border: solid 3px black ;
+    min-width: 4rem;
+    width: fit-content;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  .navegador>nav>input{
+    text-align: center;
+    margin: .25rem .5rem;
+    background-color: black;
+    border-radius: 5rem;
+    padding: .7rem 1.3rem;
+    color: white;
+    border: solid 3px black ;
+    width: 4rem;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+
+
+  .toProfile>img{
+    margin: auto;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 5rem;
+    object-fit: cover;
+    border: solid 5px rgba(255, 255, 255, 0.5);
+  }
+
+  .toProfile{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: auto;
+    border-radius: 5rem;
+  }
+  .toProfile:hover{
+    width: auto;
+    height: fit-content;
+    padding: .25rem;
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 5rem;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+
+  .toProfile a{
+    width: 0;
+    height: 0;
+    font-size: 0;
+    text-decoration: none;
+  }
+
+
+  .toProfile:hover a{
+    height: fit-content;
+    position: relative;
+    text-align: center;
+    font-size: 1rem;
+    margin: .25rem .5rem;
+    border-radius: 5rem;
+    padding: .7rem 1.3rem;
+    width: 7rem;
+    border: solid 3px rgba(0, 0, 0, 0);
+  }
+
+  .toProfile:hover img{
+    width: 0;
+    height: 0;
+    margin: 0;
+    border: none;
+  }
+
+
+
+
+  .resultadoBuscador {
+    z-index: 4;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5%;
+    left: 50%;
+    gap: 1rem;
+    transform: translate(-50%, 0);
+    width: 50vh;
+    height: auto;
+    max-height: 70vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 2rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  .resultadoBuscador>div{
+    width: available;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 1rem;
+
+  }
+  .resultadoBuscador>div::-webkit-scrollbar{
+    display: none;
+  }
+
+  .buscado {
+    z-index: 4;
+    position: static;
+    display: flex;
+    flex-direction: row;
+    height: 3rem;
+    margin: 1rem auto;
+    background-color: black;
+    width: 40vh;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    border-radius: 3rem;
+    padding: .7rem;
+    color: white;
+    gap: 1rem;
+  }
+  .buscado img{
+    border-radius: 2rem;
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+  }
+
+  .errorPerfil{
+    font-size: 1.3rem;
+    padding: 2rem;
+    margin: auto;
+  }
+
+  .publicationArray{
+    justify-content: center;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .toProfile>img{
+    margin: auto;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 5rem;
+    object-fit: cover;
+    border: solid 5px rgba(255, 255, 255, 0.5);
+  }
+
+  .toProfile{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: auto;
+    border-radius: 5rem;
+  }
+  .toProfile:hover{
+    width: auto;
+    height: fit-content;
+    padding: .25rem;
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 5rem;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+
+  .toProfile a{
+    width: 0;
+    height: 0;
+    font-size: 0;
+    text-decoration: none;
+  }
+
+
+  .toProfile:hover a{
+    height: fit-content;
+    position: relative;
+    text-align: center;
+    font-size: 1rem;
+    margin: .25rem .5rem;
+    border-radius: 5rem;
+    padding: .7rem 1.3rem;
+    width: 7rem;
+    border: solid 3px rgba(0, 0, 0, 0);
+  }
+
+  .toProfile:hover img{
+    width: 0;
+    height: 0;
+    margin: 0;
+    border: none;
+  }
+
+
+
+
+  .resultadoBuscador {
+    z-index: 4;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5%;
+    left: 50%;
+    gap: 1rem;
+    transform: translate(-50%, 0);
+    width: 50vh;
+    height: auto;
+    max-height: 70vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 2rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  .resultadoBuscador>div{
+    width: available;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 1rem;
+
+  }
+  .resultadoBuscador>div::-webkit-scrollbar{
+    display: none;
+  }
+
+  .buscado {
+    z-index: 4;
+    position: static;
+    display: flex;
+    flex-direction: row;
+    height: 3rem;
+    margin: 1rem auto;
+    background-color: black;
+    width: 40vh;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    border-radius: 3rem;
+    padding: .7rem;
+    color: white;
+    gap: 1rem;
+  }
+  .buscado img{
+    border-radius: 2rem;
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+  }
+
+  .errorPerfil{
+    font-size: 1.3rem;
+    padding: 2rem;
+    margin: auto;
+  }
+
+  .publicationArray{
+    justify-content: center;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .comentario{
+    width: fit-content;
+    max-width: 75%;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem auto 1rem 2rem;
+    border-radius: 2rem;
+    padding:  .5rem .5rem 1rem .5rem;
+    border: 3px solid transparent;
+  }
+  .comentario >p{
+    margin: 0 0 0 .5rem;
+    width: 100%;
+  }
+  .comentarioUserData{
+    display: flex;
+    width: fit-content;
+    align-content: center;
+    margin: 0 0 .5rem 0;
+    background-color: black;
+    border-radius: 2rem;
+    padding: .5rem;
+    color: white;
+  }
+  .comentarioUserData>img{
+    border-radius: 1rem;
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+  }
+  .comentarioUserData>p{
+    margin: auto 1rem;
+  }
+
+  .comentarioPropio:hover{
+    background-color: rgb(196, 2, 2);
+    color: white;
+    border: 3px solid white;
   }
 
 

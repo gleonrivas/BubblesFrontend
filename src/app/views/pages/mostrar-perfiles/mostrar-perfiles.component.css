@@ -1,8 +1,9 @@
 @media (min-device-width: 1201px) {
   .listaPerfiles {
     display: flex;
+    justify-items: center;
+    justify-content: center;
     flex-flow: row nowrap;
-    width: 90%;
 
   }
 }
