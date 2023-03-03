@@ -27,6 +27,7 @@
       <div class="dateHastagBox">
         <p class="publiP">#{{publicacion_pagina.tematica}}</p>
         <p class="publiP">Publicado a {{publicacion_pagina.fechaPublicacion.toString() | slice:0:10}}</p>
+
         <img src="https://icons.veryicon.com/png/o/miscellaneous/small-face-icon/trash-111.png" class="btnSecondary aniScale " *ngIf="publicacion_pagina.id_perfil.id == id_perfil_localStg" (click)="eliminarPublicacion(publicacion_pagina.id_perfil.id)">
       </div>
     </div>
@@ -36,6 +37,10 @@
       <div class="dateHastagBox">
         <p class="publiP">#{{publicacion_pagina.tematica}}</p>
         <p class="publiP">Publicado a {{publicacion_pagina.fechaPublicacion.toString() | slice:0:10}}</p>
+        <div class="likes">
+          <app-like [leGusta]="legusta" [crearEliminarlike]="crearEliminarlike"></app-like>
+          <p>  {{lista_perfiles.length}} likes</p>
+        </div>
         <img src="https://icons.veryicon.com/png/o/miscellaneous/small-face-icon/trash-111.png" class="btnSecondary aniScale " *ngIf="publicacion_pagina.id_perfil.id == id_perfil_localStg" (click)="eliminarPublicacion(publicacion_pagina.id_perfil.id)">
       </div>
     </div>
