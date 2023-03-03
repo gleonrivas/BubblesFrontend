@@ -1,18 +1,23 @@
 <div *ngIf="id_perfil_publicacion == id_perfil_localStg">
+
   <div *ngIf="comentario" (click)="borrarComentario(comentario.id)" class="animated comentario comentarioPropio animate__animated animate__fadeInTopLeft">
-    {{comentario.texto}}
-    <div *ngIf="perfil">
-      <p>{{perfil.username}}</p>
+    <div class="comentarioUserData">
+      <img src="{{comentario.urlImagen}}" alt="">
+      <p (click)="verPerfil(comentario.id_perfil_usuario)">@{{comentario.username | slice:0:20}}</p>
     </div>
+
+    <p>{{comentario.texto}}</p>
   </div>
 </div>
 
 <div *ngIf="id_perfil_publicacion != id_perfil_localStg">
-  <div *ngIf="comentario" class="comentario animate__animated animate__fadeInTopLeft" (click)="borrarComentario(comentario.id)">
-    {{comentario.texto}}
-    <div *ngIf="perfil">
-      <p>{{perfil.username}}</p>
+  <div *ngIf="comentario" (click)="borrarComentario(comentario.id)" class="animated comentario animate__animated animate__fadeInTopLeft">
+    <div class="comentarioUserData">
+      <img src="{{comentario.urlImagen}}" alt="">
+      <p>@{{comentario.username | slice:0:20}}</p>
     </div>
+
+    <p>{{comentario.texto}}</p>
   </div>
 </div>
 

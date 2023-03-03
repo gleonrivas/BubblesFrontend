@@ -1,0 +1,33 @@
+<div class="navegador animated">
+  <nav class="aniScale animated">
+    <a class=" animated aniScale addPublication " [routerLink]="['/crearPublicacion', id_perfil]">Crear Bubble</a>
+  </nav>
+  <nav class="aniScale animated">
+    <a class="animated aniScale" [routerLink]="['/home', id_perfil]">Para ti</a>
+    <a class="animated aniScale" [routerLink]="['/homeSeguidos', id_perfil]">Seguidos</a>
+    <input class="animated" type="text" placeholder="Buscar" [(ngModel)]="buscando" (input)="buscar()">
+  </nav>
+  <div class="toProfile">
+    <img class="animated" src="https://i.pinimg.com/236x/40/98/fd/4098fd64d1847f65a2eb5e4017078f9b.jpg" alt="">
+    <a class="animated aniScale dark" [routerLink]="['/perfil', id_perfil]">Ver perfil</a>
+    <a class="animated aniScale dark" [routerLink]="['/perfiles', id_usuario]">Cambiar perfil</a>
+    <a class="animated aniScale red" href="/logout">Cerrar sesión</a>
+  </div>
+</div>
+
+
+<div class="resultadoBuscador" *ngIf="lista_perfiles.length != 0">
+  <div>
+    <div *ngFor="let perfil of lista_perfiles" class="buscado animated aniScale"  (click)="verPerfil(perfil.id)">
+      <img src="{{perfil.fotoPerfil}}" alt="">
+      <p>@{{perfil.username}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="resultadoBuscador" *ngIf="lista_perfiles.length == 0 && buscando!=''">
+  <p class="errorPerfil">No hay ningun perfil así. ☹️</p>
+</div>
+
+
+

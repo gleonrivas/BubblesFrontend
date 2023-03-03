@@ -22,6 +22,7 @@ export class MostrarPerfilesComponent {
   ngOnInit(): void {
     this.router.paramMap.subscribe((value) => {
       const id = value.get('id_usuario');
+      localStorage.setItem('id_usuario', value.get('id_usuario')!)
       if (id !== null) {
         this.id_usuario = parseInt(id);
       }

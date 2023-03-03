@@ -16,7 +16,6 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
 export enum VisibleSection {
   COMENTARIOS,
 }
-
 @Component({
   selector: 'app-private-publication',
   templateUrl: './private-publication.component.html',
@@ -24,8 +23,8 @@ export enum VisibleSection {
 })
 export class PrivatePublicationComponent {
 
-  public id_publicacion_pagina: number = 0;
-  public id_perfil_localStg = parseInt(localStorage.getItem('id_perfil') || '');
+  public id_publicacion_pagina: number=0;
+  public id_perfil_localStg = parseInt(localStorage.getItem('id_perfil')||'');
   public publicacion_pagina!: Publicacion;
   //public id_perfil_publicacion_pagina = this.publicacion_pagina!.id_perfil;
   public perfil_localStg?: Perfil;
@@ -36,7 +35,7 @@ export class PrivatePublicationComponent {
   public lista_perfiles: Perfil[] = [];
 
   constructor(
-    private readonly router: ActivatedRoute,
+    private readonly router:ActivatedRoute,
     private readonly rt: Router,
     private readonly publicacionService: PublicacionService,
     private readonly perfilService: PerfilesService,
@@ -47,8 +46,7 @@ export class PrivatePublicationComponent {
   }
 
 
-  ngOnInit() {
-
+  ngOnInit(){
     this.router.paramMap.subscribe((value) => {
       const id = value.get('id');
       if (id != null) {
@@ -64,7 +62,7 @@ export class PrivatePublicationComponent {
         this.perfil_localStg = data;
       })
 
-      this.comentarioService.listarComentarioPorIdPublicacion(this.id_publicacion_pagina).subscribe((data) => {
+      this.comentarioService.listarComentarioPorIdPublicacion(this.id_publicacion_pagina).subscribe((data) =>{
         this.comentarios = data;
       })
 
@@ -113,12 +111,6 @@ export class PrivatePublicationComponent {
 
   public enviarMensaje() {
 
-    console.log(
-      'esto es id publicacion pagina ' + this.id_publicacion_pagina,
-      'esto es id localstg ' + this.id_perfil_localStg,
-      'esto es publicacion pagina ' + this.publicacion_pagina.id,
-      'esto es pefil local ' + this.perfil_localStg!.id
-    )
 
     //este comentario se sube a la bbdd
     const comentarioJSON = {
@@ -128,15 +120,18 @@ export class PrivatePublicationComponent {
     };
 
     //este comentario se añade a la lista local
-    var comentarioLocal: Comentario = {
-      id: 0,
-      texto: comentarioJSON.texto || '',
-      id_perfil: this.id_perfil_localStg,
-      id_publicacion: this.id_publicacion_pagina,
+    var comentarioLocal:Comentario = {
+      id:0,
+      texto:comentarioJSON.texto||'',
+      id_perfil:this.id_perfil_localStg,
+      id_publicacion:this.id_publicacion_pagina,
+      id_perfil_usuario:0,
+      username: this.perfil_localStg!.username,
+      urlImagen: this.perfil_localStg!.fotoPerfil,
     }
 
 
-    if (this.texto != '' || null) {
+    if (this.texto!=''||null){
 
       this.comentarios.unshift(comentarioLocal);
       this.comentarioService.guardarComentario(JSON.stringify(comentarioJSON)).subscribe(
@@ -150,22 +145,22 @@ export class PrivatePublicationComponent {
         }
       );
 
-      this.texto = '';
+      this.texto='';
 
     } else {
       console.log('No se ha escrito un mensaje')
     }
   }
 
-  eliminarPublicacion(id_perfil_publicacion: number) {
-    if (id_perfil_publicacion == this.id_perfil_localStg) {
+  eliminarPublicacion(id_perfil_publicacion:number){
+    if (id_perfil_publicacion == this.id_perfil_localStg){
       this.publicacionService.eliminarPublicacion(this.id_publicacion_pagina).subscribe({
         next: (data) => {
         },
         error: console.error
       })
 
-      this.rt.navigate(['/perfil/', this.id_perfil_localStg])
+      this.rt.navigate(['/perfil/',this.id_perfil_localStg])
 
     }
 

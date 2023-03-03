@@ -7,7 +7,7 @@ import {PerfilEditarRespuesta} from "../models/perfil/perfileditar.respuesta";
 
 @Injectable()
 export class PerfilesService {
-  private readonly url = 'https://localhost:8000'
+  private readonly url = 'http://localhost:8000'
   private restService: RestService;
   constructor(restService: RestService) {
     this.restService = restService;
@@ -30,4 +30,9 @@ export class PerfilesService {
   public eliminarPerfil(id_perfil:number) {
     return this.restService.delete(`${this.url}/api/perfil/eliminar/${id_perfil}`)
   }
+
+  public perfilPorUsername(username: string) {
+    return this.restService.get<Perfil[]>(`${this.url}/api/buscandoPerfil/${username}`)
+  }
+
 }
