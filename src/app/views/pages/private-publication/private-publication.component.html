@@ -4,13 +4,21 @@
   <meta charset="UTF-8">
   <title>Home</title>
 </head>
-<body class="fStack purple">
-<div class="publicationPage animate__animated" *ngIf="publicacion_pagina">
-  <div class="publicationScroll animate__animated animate__fadeInLeft">
-    <div class="publicationView white" *ngIf="publicacion_pagina.tipoPublicacion=='imagen'">
-      <img src="{{publicacion_pagina.imagen}}" class="publication-img cover">
+<body class="vStack purple">
 
-      <p> - {{publicacion_pagina.texto}} </p>
+<app-navegador></app-navegador>
+
+<div class="publicationPage animate__animated" *ngIf="publicacion_pagina">
+
+  <div class="publicationScroll animate__animated animate__fadeInLeft">
+
+    <div class="publicationView white animated " *ngIf="publicacion_pagina.tipoPublicacion=='imagen'">
+      <div class="card">
+        <img src="{{publicacion_pagina.imagen}}" class="publication-img animated cover" alt="">
+        <div class="card-p animated">
+          <p > - {{publicacion_pagina.texto}} </p>
+        </div>
+      </div>
       <div class="dateHastagBox">
         <p class="publiP">#{{publicacion_pagina.tematica}}</p>
         <p class="publiP">Publicado a {{publicacion_pagina.fechaPublicacion.toString() | slice:0:10}}</p>
@@ -19,7 +27,7 @@
     </div>
 
     <div class="publicationView white" *ngIf="publicacion_pagina.tipoPublicacion=='texto'">
-      <p class="withShadow">- {{publicacion_pagina.texto}}</p>
+      <p >- {{publicacion_pagina.texto}}</p>
       <div class="dateHastagBox">
         <p class="publiP">#{{publicacion_pagina.tematica}}</p>
         <p class="publiP">Publicado a {{publicacion_pagina.fechaPublicacion.toString() | slice:0:10}}</p>
@@ -27,8 +35,6 @@
       </div>
     </div>
 
-    <div class="botones">
-    </div>
   </div>
 
 

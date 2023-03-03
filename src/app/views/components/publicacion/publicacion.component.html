@@ -1,6 +1,6 @@
-<div (click)="showPublicacion(publicacion.id)" *ngIf="publicacion" class="marco white aniScale clicMouse">
-  <div class="inStory">
-  <img class="story" src="{{publicacion.imagen}}" />
+<div (click)="showPublicacion(publicacion.id)" *ngIf="publicacion" class="marco animated white clicMouse">
+  <div class="inStory animated ">
+  <img class="story  animated" src="{{publicacion.imagen}}" />
 </div>
-<p>{{publicacion.texto | slice:0:20}}...</p>
+<p class="animated">{{publicacion.texto | slice:0:13}}...</p>
 </div>

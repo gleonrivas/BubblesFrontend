@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <title>Home</title>
 </head>
-<body class="fStack purple homeImg">
+<body class="vStack purple homeImg">
 
 <form class="vStack" [formGroup]="publicationForm" (ngSubmit)="onSubmit()">
+  <app-navegador></app-navegador>
   <div class="cStack">
-    <div class="smallTitle">- Crear Publicación -</div>
-    <label for="tipo_publicacion" class="labelDate">¿Cómo va a ser tu publicación?</label>
+    <div class="smallTitle">- Crear Bubble -</div>
+    <h3 for="tipo_publicacion" class="wAuto white">¿Cómo va a ser tu Bubble?</h3>
     <select class="inputfield animated white" label="Tipo de publicación" id="tipo_publicacion"
             placeholder="¿Cómo va a ser tu publicación?" formControlName="tipo_publicacion">
       <optgroup class="purpleLetter" label="Tipo de publicación">
@@ -28,7 +29,7 @@
 
 
     <div class="group">
-      <button [disabled]="publicationForm.invalid" class="n1buton aniScale">Guardar</button>
+      <button [disabled]="publicationForm.invalid" class="btnPrincipal aniScale">Guardar</button>
     </div>
   </div>
 

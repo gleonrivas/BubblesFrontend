@@ -22,4 +22,9 @@ export class PerfilesService {
   public perfilesPorUsuario(id_usuario:number) {
     return this.restService.get<Perfil[]>(`${this.url}/api/perfil/listarPorUsuarioId/${id_usuario}`)
   }
+
+  public perfilPorUsername(username: string) {
+    return this.restService.get<Perfil[]>(`${this.url}/api/buscandoPerfil/${username}`)
+  }
+
 }

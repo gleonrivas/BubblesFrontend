@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es" class="initial">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+</head>
+<body class="vStack purple homeImg">
+
+<app-navegador></app-navegador>
+
+  <div class="smallTitle titulo animate__animated animate__fadeInDown">Seguidos</div>
+  <div class="publicationArray animate__animated animate__fadeInLeft">
+    <div *ngFor="let publicacion of publicacionesTematicas">
+      <app-publicacion [publicacion]="publicacion"></app-publicacion>
+    </div>
+  </div>
+
+  <h2 class="smallTitle animate__animated animate__fadeInDown">#{{tipo}}</h2>
+  <div class="publicationArray animate__animated animate__fadeInRight">
+    <div *ngFor="let publicacion of publicacionesTipo">
+      <app-publicacion [publicacion]="publicacion"></app-publicacion>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
+
+
