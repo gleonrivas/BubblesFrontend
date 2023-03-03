@@ -317,6 +317,7 @@
     flex-direction: column;
     justify-content: center;
     margin: 1rem ;
+    
     -webkit-backdrop-filter: blur(10px);
   }
 
@@ -327,10 +328,7 @@
   }
 
   .marco:hover {
-    padding: 0;
-    width: 9rem;
-    height: 9rem;
-    margin: 3rem ;
+    transform: scale(.5);
   }
   .marco:hover p{
     font-size: 0;
@@ -340,7 +338,10 @@
   }
   .marco:hover .inStory{
     margin: auto;
-    transform: scale(1.5);
+    transform: scale(3.5);
+  }
+  .marco:hover .like{
+    display: none;
   }
 
   .listaPublicaciones{

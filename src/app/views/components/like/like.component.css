@@ -17,8 +17,8 @@
 body {
   display: flex;
   justify-content: center; /* horizontal alignment */
-  margin: 0;
-  height: 100vh; /* the viewport height */
+  height: available;
+  margin: auto;
 }
 button{
   background-color: transparent;

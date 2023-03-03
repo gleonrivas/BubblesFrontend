@@ -11,7 +11,7 @@ import { RestService } from "./rest.service";
 })
 export class ComentarioService{
 
-  private readonly url = 'https://localhost:8000'
+  private readonly url = 'http://localhost:8000'
   private restService: RestService;
   private id_publicacion?: number;
 
