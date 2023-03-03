@@ -17,11 +17,10 @@
         <img src="{{publicacion_pagina.imagen}}" class="publication-img animated cover" alt="">
         <div class="card-p animated">
           <p > - {{publicacion_pagina.texto}} </p>
-          <div class="likes">
-            <app-like [leGusta]="legusta" [crearEliminarlike]="crearEliminarlike"></app-like>
-            <p>  {{lista_perfiles.length}} likes</p>
-          </div>
-
+        </div>
+        <div class="likes">
+          <app-like [leGusta]="legusta" [crearEliminarlike]="crearEliminarlike"></app-like>
+          <p>  {{lista_perfiles.length}} likes</p>
         </div>
       </div>
       <div class="dateHastagBox">
