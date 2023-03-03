@@ -1,15 +1,17 @@
-import { Component, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import {ModelPerfil, Perfil, PerfilVacio } from 'src/app/shared/models/perfil/perfil.response';
-import { Publicacion } from 'src/app/shared/models/publicacion/publicacion.response';
-import {Comentario } from 'src/app/shared/models/comentario/comentario.response';
-import { ComentarioService } from 'src/app/shared/services/comentario.service';
-import { PerfilesService } from 'src/app/shared/services/perfiles.service';
-import { PublicacionService } from 'src/app/shared/services/publicacion.service';
-import { ComentarioComponent } from '../../components/comentario/comentario.component';
-import { FormsModule } from '@angular/forms';
-import { HttpHeaders } from '@angular/common/http';
-import { JwtService } from 'src/app/shared/services/jwt.service';
+import {Component, Input} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ModelPerfil, Perfil, PerfilVacio} from 'src/app/shared/models/perfil/perfil.response';
+import {Publicacion} from 'src/app/shared/models/publicacion/publicacion.response';
+import {Comentario} from 'src/app/shared/models/comentario/comentario.response';
+import {ComentarioService} from 'src/app/shared/services/comentario.service';
+import {PerfilesService} from 'src/app/shared/services/perfiles.service';
+import {PublicacionService} from 'src/app/shared/services/publicacion.service';
+import {ComentarioComponent} from '../../components/comentario/comentario.component';
+import {FormsModule} from '@angular/forms';
+import {HttpHeaders} from '@angular/common/http';
+import {JwtService} from 'src/app/shared/services/jwt.service';
+import {LikesService} from "../../../shared/services/likes.service";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 export enum VisibleSection {
   COMENTARIOS,
@@ -29,6 +31,8 @@ export class PrivatePublicationComponent {
   public comentarios: Comentario[] = new Array;
   public sideVisibility: VisibleSection = VisibleSection.COMENTARIOS;
   texto?: string;
+  public legusta: boolean = false;
+  public lista_perfiles: Perfil[] = [];
 
   constructor(
     private readonly router:ActivatedRoute,
@@ -36,6 +40,7 @@ export class PrivatePublicationComponent {
     private readonly publicacionService: PublicacionService,
     private readonly perfilService: PerfilesService,
     private readonly comentarioService: ComentarioService,
+    private readonly likesService: LikesService,
     private jwt: JwtService
   ) {
   }
@@ -47,6 +52,7 @@ export class PrivatePublicationComponent {
       if (id != null) {
         this.id_publicacion_pagina = parseInt(id);
       }
+      this.comprobarListaYCheckLike();
 
       this.publicacionService.getPublicacionPorId(this.id_publicacion_pagina).subscribe((data) => {
         this.publicacion_pagina = data;
@@ -60,30 +66,51 @@ export class PrivatePublicationComponent {
         this.comentarios = data;
       })
 
-
     });
 
+  }
+
+  comprobarListaYCheckLike() {
+    this.listaDeLikes();
+    this.checklike();
+  }
+
+  listaDeLikes() {
+    this.likesService.perfilesPorLikesPublicacion(this.id_publicacion_pagina).subscribe((data) => {
+      this.lista_perfiles = data;
+
+    })
+  }
+
+  crearEliminarlike = (event: Event) => {
+    if (!this.legusta) {
+      this.likesService.crearLikeaPublicacion(this.publicacion_pagina.id, this.id_perfil_localStg).subscribe(complete => {
+        this.comprobarListaYCheckLike()
+      })
+    } else {
+
+      this.likesService.eliminarLikePublicacion(this.id_publicacion_pagina, this.id_perfil_localStg).subscribe(complete => {
+        this.comprobarListaYCheckLike()
+      })
+
+    }
+
+
+  }
+
+  checklike() {
+    this.likesService.comprobarlikes(this.id_publicacion_pagina, this.id_perfil_localStg).subscribe((data) => {
+      this.legusta = data;
+    })
   }
 
   public get visibleSection(): typeof VisibleSection {
     return VisibleSection
   }
 
-/*
-  likeDislike(id_publicacion:number, id_perfil:number){
-    if (true){
-      this.
-    }
-  }*/
 
   public enviarMensaje() {
 
-    console.log(
-      'esto es id publicacion pagina '+this.id_publicacion_pagina,
-      'esto es id localstg '+this.id_perfil_localStg,
-      'esto es publicacion pagina '+this.publicacion_pagina.id,
-      'esto es pefil local '+this.perfil_localStg!.id
-    )
 
     //este comentario se sube a la bbdd
     const comentarioJSON = {
@@ -98,6 +125,9 @@ export class PrivatePublicationComponent {
       texto:comentarioJSON.texto||'',
       id_perfil:this.id_perfil_localStg,
       id_publicacion:this.id_publicacion_pagina,
+      id_perfil_usuario:0,
+      username: this.perfil_localStg!.username,
+      urlImagen: this.perfil_localStg!.fotoPerfil,
     }
 
 

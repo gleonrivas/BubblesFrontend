@@ -8,6 +8,10 @@ export type Comentario = {
   id_perfil:number;
   id_publicacion?:number;
 
+  username?:string;
+  urlImagen?:string;
+  id_perfil_usuario:number;
+
 }
 
 export type ComentarioPublicacion = {

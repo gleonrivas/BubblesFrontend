@@ -1,0 +1,10 @@
+<button class="botonlikes" (click)="crearEliminarlike($event)">
+<div *ngIf="leGusta == true">
+  <input id="isred" (click)="$event.stopPropagation()" type="checkbox"/>
+  <label for="isred" >❤</label>
+</div>
+<div *ngIf="leGusta == false">
+  <input id="toggle-heart" (click)="$event.stopPropagation()"  type="checkbox"/>
+  <label for="toggle-heart" >❤</label>
+</div>
+</button>

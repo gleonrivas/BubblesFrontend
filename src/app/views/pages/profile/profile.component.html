@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <title>Perfil</title>
 </head>
-<body class="fStack purple ">
+<body class="vStack purple ">
+<app-navegador></app-navegador>
 
 <div class="profileView" *ngIf="perfil">
 
@@ -50,7 +51,7 @@
       <div *ngIf="publicaciones.length > 0" class="listaPublicaciones">
         <p>Bubbles</p>
         <div *ngFor="let publicacion of publicaciones">
-          <app-publicacion [publicacion]="publicacion"></app-publicacion>
+          <app-publicacion [publicacion]="publicacion" [id_perfil]="perfil.id" [id_publicacion]="publicacion.id"></app-publicacion>
         </div>
       </div>
     </div>
@@ -61,7 +62,7 @@
       </div>
       <div *ngIf="publicacionesporLikes.length > 0"  class="listaPublicaciones">
         <div *ngFor="let publicacion of publicacionesporLikes">
-          <app-publicacion [publicacion]="publicacion"></app-publicacion>
+          <app-publicacion [publicacion]="publicacion" [id_perfil]="perfil.id" [id_publicacion]="publicacion.id" ></app-publicacion>
         </div>
       </div>
     </div>
@@ -82,7 +83,9 @@
     <div  class="listaPublicaciones" *ngSwitchCase="visibleSection.FOLLOWING">
       <p>Esto va a ser Seguidos</p>
     </div>
+
   </div>
 </div>
+
 </body>
 </html>

@@ -3,6 +3,7 @@ export type Perfil = {
   descripcion: string;
   username: string;
   tipoCuenta: string;
+  file: string;
   fotoPerfil: string;
 }
 
@@ -10,8 +11,9 @@ export const PerfilVacio: Perfil = {
   id: -1,
   descripcion: "",
   username: "",
+  file: "",
+  tipoCuenta: "",
   fotoPerfil: "",
-  tipoCuenta: ""
 }
 
 

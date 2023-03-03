@@ -4,6 +4,7 @@ import { Comentario } from 'src/app/shared/models/comentario/comentario.response
 import { Perfil } from 'src/app/shared/models/perfil/perfil.response';
 import { Publicacion } from 'src/app/shared/models/publicacion/publicacion.response';
 import { ComentarioService } from 'src/app/shared/services/comentario.service';
+import { PerfilesService } from 'src/app/shared/services/perfiles.service';
 
 @Component({
   selector: 'app-comentario',
@@ -20,7 +21,8 @@ export class ComentarioComponent {
   @Input() id_perfil_localStg?: number;
 
   constructor(private comentarioService:ComentarioService,
-              private route:Router) {
+              private route:Router,
+              private perfilService:PerfilesService) {
   }
 
   borrarComentario(id_comentario:number){
@@ -42,6 +44,12 @@ export class ComentarioComponent {
 
     }
     
+  }
+
+  verPerfil(id:number){
+    this.perfilService.perfilPorId(id);
+    this.route.navigateByUrl('/perfil/'+id);
+
   }
 
 }

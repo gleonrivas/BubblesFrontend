@@ -4,13 +4,26 @@
   <meta charset="UTF-8">
   <title>Home</title>
 </head>
-<body class="fStack purple">
-<div class="publicationPage animate__animated" *ngIf="publicacion_pagina">
-  <div class="publicationScroll animate__animated animate__fadeInLeft">
-    <div class="publicationView white" *ngIf="publicacion_pagina.tipoPublicacion=='imagen'">
-      <img src="{{publicacion_pagina.imagen}}" class="publication-img cover">
+<body class="vStack purple">
 
-      <p> - {{publicacion_pagina.texto}} </p>
+<app-navegador></app-navegador>
+
+<div class="publicationPage animate__animated" *ngIf="publicacion_pagina">
+
+  <div class="publicationScroll animate__animated animate__fadeInLeft">
+
+    <div class="publicationView white animated " *ngIf="publicacion_pagina.tipoPublicacion=='imagen'">
+      <div class="card">
+        <img src="{{publicacion_pagina.imagen}}" class="publication-img animated cover" alt="">
+        <div class="card-p animated">
+          <p > - {{publicacion_pagina.texto}} </p>
+          <div class="likes">
+            <app-like [leGusta]="legusta" [crearEliminarlike]="crearEliminarlike"></app-like>
+            <p>  {{lista_perfiles.length}} likes</p>
+          </div>
+
+        </div>
+      </div>
       <div class="dateHastagBox">
         <p class="publiP">#{{publicacion_pagina.tematica}}</p>
         <p class="publiP">Publicado a {{publicacion_pagina.fechaPublicacion.toString() | slice:0:10}}</p>
@@ -27,8 +40,6 @@
       </div>
     </div>
 
-    <div class="botones">
-    </div>
   </div>
 
 
@@ -42,15 +53,7 @@
           </div>
     </div>
 
-<!--  RECORRIENDO EL MAPA DE COMENTARIOS Y PERFILES...
-    <div *ngSwitchCase="visibleSection.COMENTARIOS"  class="comentarioView withShadow">
-      <div *ngFor="let comentario of comentarios">
-        <div *ngFor="let perfil of comentario.id_perfil | keyvalue">
-          <app-comentario [comentario]="comentario" [perfil]="perfil.value"></app-comentario>
-        </div>
-      </div>
-    </div>
--->
+
 
     <div class="inputComentario ">
       <input class="withShadow" type="text" placeholder="Escribe un comentario ✍️"  [(ngModel)]="texto">

@@ -2,9 +2,10 @@ import {Component} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {PublicacionService} from "../../../shared/services/publicacion.service";
 import {PerfilesService} from "../../../shared/services/perfiles.service";
-import {Perfil} from "../../../shared/models/perfil/perfil.response";
+import {Perfil, PerfilVacio} from "../../../shared/models/perfil/perfil.response";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PublicacionParaCrear} from "../../../shared/models/publicacion/PublicacionParaCrear";
+import {JwtService} from "../../../shared/services/jwt.service";
 
 @Component({
   selector: 'app-editar-perfil',
@@ -13,13 +14,7 @@ import {PublicacionParaCrear} from "../../../shared/models/publicacion/Publicaci
 })
 export class EditarPerfilComponent {
   public id_perfil: number = -1;
-  public perfil: Perfil = {
-    id: -1,
-    descripcion: '',
-    username: '',
-    tipoCuenta: '',
-    fotoPerfil: '',
-  }
+  public perfil: Perfil = PerfilVacio;
   public perfilForm: FormGroup = this.form.group({
 
     file: [new FileReader()],
@@ -29,7 +24,7 @@ export class EditarPerfilComponent {
   })
 
   constructor(private readonly route: ActivatedRoute, private readonly perfilService: PerfilesService,
-              private form: FormBuilder, private readonly router: Router,) {
+              private form: FormBuilder, private readonly router: Router, private jwtService: JwtService) {
   }
 
   ngOnInit() {
@@ -40,7 +35,6 @@ export class EditarPerfilComponent {
       }
       this.perfilService.perfilPorId(this.id_perfil).subscribe((data) => {
         this.perfil = data;
-        console.log(this.perfil)
 
       })
 
@@ -55,28 +49,47 @@ export class EditarPerfilComponent {
       reader.onload = (event: ProgressEvent) => {
 
         this.perfilForm.controls['file'].setValue((<FileReader>event.target).result);
+        this.perfil.file = (<FileReader>event.target).result as string;
       }
 
       reader.readAsDataURL(event.target.files[0]);
+
     }
 
   }
+
+
 
   onSubmit() {
      if(this.perfilForm.controls['descripcion'].value != ""){
        this.perfil.descripcion = this.perfilForm.controls['descripcion'].value
      }
+
     if(this.perfilForm.controls['file'].value != ""){
-      this.perfil.fotoPerfil = this.perfilForm.controls['file'].value
+      this.perfil.file = this.perfilForm.controls['file'].value
     }
+
     if(this.perfilForm.controls['username'].value != ""){
       this.perfil.username = this.perfilForm.controls['username'].value
     }
-   console.log(this.perfil)
     this.editarPerfil(this.perfil)
   }
-  eliminarPerfil(id_perfil:number){
-    this.perfilService.eliminarPerfil(id_perfil)
+  eliminarPerfil(){
+    if (window.confirm('Se perderán todos los datos del perfil ¿quiere continuar?')) {
+      this.perfilService.eliminarPerfil(this.perfil.id).subscribe({complete: ()=>{
+          this.navegarPerfiles();
+        }})
+    }
+  }
+
+  navegarPerfiles(){
+    const token = localStorage.getItem('apiKey');
+    if (token != null) {
+      const infouser = this.jwtService.decodeToken(token);
+      this.router.navigateByUrl(`/perfiles/${infouser.user_id}`);
+    } else {
+      this.router.navigateByUrl('/login')
+    }
   }
 
   editarPerfil(perfil: Perfil) {
