@@ -4,7 +4,7 @@ import {Publicacion} from "../models/publicacion/publicacion.response";
 
 @Injectable()
 export class SeguidorService {
-  private readonly url = 'http://localhost:8000'
+  private readonly url = 'https://localhost:8000'
   private restService: RestService;
 
   constructor(restService: RestService) {
