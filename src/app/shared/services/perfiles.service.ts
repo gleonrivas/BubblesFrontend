@@ -17,7 +17,7 @@ export class PerfilesService {
     return this.restService.get<Perfil>(`${this.url}/api/perfil/${id}`)
   }
   public editarPerfil(perfil:Perfil) {
-    return this.restService.post<Perfil>(`${this.url}/api/perfil/editar/`, perfil )
+    return this.restService.post<Perfil>(`${this.url}/api/perfil/editar`, perfil )
   }
 
   public seguidoresPorId(id: number) {

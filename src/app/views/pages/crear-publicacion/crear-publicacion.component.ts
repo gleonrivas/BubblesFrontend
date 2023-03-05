@@ -5,6 +5,7 @@ import {PublicacionService} from "../../../shared/services/publicacion.service";
 import {PublicacionParaCrear} from "../../../shared/models/publicacion/PublicacionParaCrear";
 import {FormBuilder, FormControl, FormGroup, FormsModule, Validators} from '@angular/forms';
 import {Publicacion} from "../../../shared/models/publicacion/publicacion.response";
+import {Timestamp} from "rxjs";
 
 type TipoPublicacion = "texto" | "imagen" ;
 @Component({
@@ -16,10 +17,10 @@ export class CrearPublicacionComponent {
   public readonly TIPOS_DE_PUBLICACION: TipoPublicacion[] = ['texto' , 'imagen' ];
   public id_Perfil: number = -1;
   public tipo_publicacion: TipoPublicacion = "texto";
+  public tipo_publicacion2: string = "";
   public texto: string = "";
   public imagen: string  =  "";
   public tematica: string = "";
-
   public activa: boolean = true;
   public loginError: boolean = false;
   public publicationForm : FormGroup = this.form.group({
@@ -38,8 +39,7 @@ export class CrearPublicacionComponent {
     file:"",
     tematica: "",
     activa: this.activa,
-    idPerfil: this.obtenerIdPerfil(),
-
+    idPerfil: this.obtenerIdPerfil()
   };
 
 
@@ -75,15 +75,16 @@ export class CrearPublicacionComponent {
   }
 
   onSubmit(){
-
+   console.log(this.tipo_publicacion)
     this.publicacion = {
       tipoPublicacion:this.publicationForm.controls['tipo_publicacion'].value,
       texto:this.publicationForm.controls['texto'].value,
       file:this.publicationForm.controls['file'].value,
       tematica: this.publicationForm.controls['tematica'].value,
       activa: this.activa,
-      idPerfil: this.obtenerIdPerfil(),
+      idPerfil: this.obtenerIdPerfil()
     }
+    console.log(this.publicacion)
     this.guardarPublicacion(this.publicacion)
     this.publicationForm.reset()
   }
@@ -114,5 +115,8 @@ export class CrearPublicacionComponent {
     });
   }
 
-
+  onTipoPubliInput(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.tipo_publicacion2 = target.value;
+  }
 }

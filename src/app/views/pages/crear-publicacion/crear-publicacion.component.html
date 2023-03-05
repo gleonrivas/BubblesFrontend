@@ -12,10 +12,10 @@
     <div class="smallTitle">- Crear Bubble -</div>
     <h3 for="tipo_publicacion" class="wAuto white">¿Cómo va a ser tu Bubble?</h3>
     <select class="inputfield animated white" label="Tipo de publicación" id="tipo_publicacion"
-            placeholder="¿Cómo va a ser tu publicación?" formControlName="tipo_publicacion">
-      <optgroup class="purpleLetter" label="Tipo de publicación">
+            placeholder="¿Cómo va a ser tu publicación?" formControlName="tipo_publicacion" (input)="onTipoPubliInput($event)">
+      <optgroup class="purpleLetter" label="Tipo de publicación"  >
         <option value="" disabled selected hidden>Tipo de publicación</option>
-        <option *ngFor="let tp of this.TIPOS_DE_PUBLICACION" [ngValue]="tipo_publicacion">
+        <option *ngFor="let tp of this.TIPOS_DE_PUBLICACION" [ngValue]="tipo_publicacion" >
           {{tp}}
         </option>
       </optgroup>

@@ -61,6 +61,7 @@ export class EditarPerfilComponent {
 
 
   onSubmit() {
+    console.log(this.perfil)
      if(this.perfilForm.controls['descripcion'].value != ""){
        this.perfil.descripcion = this.perfilForm.controls['descripcion'].value
      }
