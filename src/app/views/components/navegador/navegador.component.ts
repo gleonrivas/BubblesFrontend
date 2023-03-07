@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Perfil } from 'src/app/shared/models/perfil/perfil.response';
+import {Perfil, PerfilVacio} from 'src/app/shared/models/perfil/perfil.response';
 import { PerfilesService } from 'src/app/shared/services/perfiles.service';
 
 
@@ -15,6 +15,7 @@ export class NavegadorComponent {
   public id_usuario = localStorage.getItem('id_usuario');
   public id_perfil = localStorage.getItem('id_perfil');
 
+  public perfil!:Perfil;
   public lista_perfiles:Perfil[] = new Array;
   public buscando:string = '';
 
@@ -22,6 +23,12 @@ export class NavegadorComponent {
     private perfilService:PerfilesService,
     private router:Router,
   ) {
+  }
+  
+  ngOnInit(){
+    this.perfilService.perfilPorId(parseInt(this.id_perfil!)).subscribe((data) =>{
+      this.perfil = data;
+    })
   }
 
   buscar(){

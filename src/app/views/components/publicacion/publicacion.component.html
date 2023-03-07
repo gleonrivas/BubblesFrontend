@@ -1,9 +1,9 @@
 <div (click)="showPublicacion(publicacion.id)" *ngIf="publicacion" class="marco animated white clicMouse">
   <div class="inStory animated ">
-  <img class="story  animated" src="{{publicacion.imagen}}" />
+  <img class="story  " src="{{publicacion.imagen}}" />
 </div>
 <p class="animated">{{publicacion.texto | slice:0:13}}...</p>
-  <div>
+  <div class="like">
     <app-like [leGusta]="legusta"></app-like>
   </div>
 </div>

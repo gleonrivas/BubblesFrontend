@@ -9,6 +9,7 @@ import {Seguidor} from "../../../shared/models/perfil/perfilSeguidor.response";
 import {SeguidorService} from "../../../shared/services/seguidor.service";
 import { ComentarioService } from 'src/app/shared/services/comentario.service';
 import { Comentario, ComentarioPublicacion } from 'src/app/shared/models/comentario/comentario.response';
+import { Lesigues } from 'src/app/shared/models/le-sigues/lesigues.response';
 
 export enum VisibleSection {
   FOLLOWERS,
@@ -33,7 +34,11 @@ export class ProfileComponent {
   public publicacionesporLikes: Publicacion[] = [];
 
   public seguidores: Seguidor[] = [];
+  public seguidos: Seguidor[] = [];
   public sideVisibility: VisibleSection = VisibleSection.BUBBLES;
+
+
+  public followState: Lesigues = {};
 
 
   public perfil: Perfil |undefined;
@@ -69,7 +74,14 @@ export class ProfileComponent {
       this.publicacionService.publicacionPorLikeDelPerfilId(this.id).subscribe((data) => {
         this.publicacionesporLikes = data
       })
-
+      this.perfilService.seguidosPorId(this.id).subscribe((data) => {
+        this.seguidos = data;
+      })
+      if (this.id != this.id_perfil_localStg){
+        this.seguidorService.leSigues(this.id_perfil_localStg, this.id).subscribe((data) =>{
+          this.followState = data;
+        });
+      }
     });
 
   }
@@ -99,4 +111,20 @@ export class ProfileComponent {
     this.rt.navigateByUrl('/perfil/'+id);
 
   }
+
+  seguir(){
+   this.seguidorService.seguir(this.id_perfil_localStg, this.id).subscribe((data)=> {
+     console.log(data)
+   });
+    this.followState.mensaje = 'true';
+
+  }
+  dejarDeSeguir(){
+    this.seguidorService.eliminarSeguido(this.id_perfil_localStg, this.id).subscribe((data)=> {
+      console.log(data)
+    });
+    this.followState.mensaje = 'false';
+
+  }
+
 }
