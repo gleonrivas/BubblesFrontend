@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Perfil } from 'src/app/shared/models/perfil/perfil.response';
+import {Perfil, PerfilVacio} from 'src/app/shared/models/perfil/perfil.response';
 import { PerfilesService } from 'src/app/shared/services/perfiles.service';
 
 
