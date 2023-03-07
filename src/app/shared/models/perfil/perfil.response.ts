@@ -16,6 +16,20 @@ export const PerfilVacio: Perfil = {
   fotoPerfil: "",
 }
 
+export type PerfilDTO = {
+  descripcion: string,
+  username: string,
+  file: string,
+  tipoCuenta: string
+}
+
+export const PerfilDTOVacio = {
+  descripcion: "",
+  username: "",
+  file: "",
+  tipoCuenta: ""
+}
+
 
 
 

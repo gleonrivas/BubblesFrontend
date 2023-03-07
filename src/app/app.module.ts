@@ -29,6 +29,7 @@ import { NavegadorComponent } from './views/components/navegador/navegador.compo
 import { HomeSeguidosComponent } from './views/pages/home-seguidos/home-seguidos.component';
 import { LikeComponent } from './views/components/like/like.component';
 import {LikesService} from "./shared/services/likes.service";
+import { CrearPerfilComponent } from './views/pages/crear-perfil/crear-perfil.component';
 
 
 const appRoutes:Routes=[
@@ -44,6 +45,7 @@ const appRoutes:Routes=[
   {path: 'editarperfil/:id_perfil', component: EditarPerfilComponent},
   {path: 'publicacion/:id', component: PrivatePublicationComponent},
   {path: 'logout', component: LogoutComponent},
+  {path: 'crearPerfil', component: CrearPerfilComponent},
 ];
 
 @NgModule({
@@ -69,6 +71,7 @@ const appRoutes:Routes=[
     LikeComponent,
     NavegadorComponent,
     HomeSeguidosComponent,
+    CrearPerfilComponent,
   ],
   imports: [
     BrowserModule,

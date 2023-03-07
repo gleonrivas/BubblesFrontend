@@ -8,19 +8,25 @@
 
 <form class="vStack">
 
-  <div class="cStack" *ngIf="perfiles.length > 0">
+  <div class="cStack" >
     <div class="smallTitle">- Perfiles -</div>
     <div class="listaPerfiles">
       <div *ngFor="let perfil of perfiles">
         <app-perfil [perfil]="perfil"></app-perfil>
       </div>
+     <div style="height: fit-content; margin: auto 0">
+       <div class="divperfil2"  [routerLink]="['/crearPerfil']">
+         <div class="inBubble">
+           <img src="assets/icons8-más-96.png">
+         </div>
+         <div class="userinfo semiWhite">
+           <h3 class="nombre white">Nuevo perfil</h3>
+         </div>
+       </div>
+     </div>
     </div>
   </div>
 
-  <div class="cStack" *ngIf="perfiles.length == 0">
-    <div class="smallTitle">- Crear Perfil -</div>
-
-  </div>
 
 
 </form>
