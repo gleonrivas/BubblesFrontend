@@ -16,7 +16,7 @@ type TipoPublicacion = "texto" | "imagen" ;
 export class CrearPublicacionComponent {
   public readonly TIPOS_DE_PUBLICACION: TipoPublicacion[] = ['texto' , 'imagen' ];
   public id_Perfil: number = -1;
-  public tipo_publicacion: TipoPublicacion = "texto";
+  public tipo_publicacion: TipoPublicacion = "imagen";
   public tipo_publicacion2: string = "";
   public texto: string = "";
   public imagen: string  =  "";
