@@ -15,6 +15,7 @@ export class NavegadorComponent {
   public id_usuario = localStorage.getItem('id_usuario');
   public id_perfil = localStorage.getItem('id_perfil');
 
+  public perfil!:Perfil;
   public lista_perfiles:Perfil[] = new Array;
   public buscando:string = '';
 
@@ -22,6 +23,12 @@ export class NavegadorComponent {
     private perfilService:PerfilesService,
     private router:Router,
   ) {
+  }
+  
+  ngOnInit(){
+    this.perfilService.perfilPorId(parseInt(this.id_perfil!)).subscribe((data) =>{
+      this.perfil = data;
+    })
   }
 
   buscar(){

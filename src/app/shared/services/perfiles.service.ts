@@ -34,5 +34,8 @@ export class PerfilesService {
   public perfilPorUsername(username: string) {
     return this.restService.get<Perfil[]>(`${this.url}/api/buscandoPerfil/${username}`)
   }
+  public seguidosPorId(id: number) {
+    return this.restService.get<Seguidor[]>(`${this.url}/api/seguidos/listar/${id}`)
+  }
 
 }

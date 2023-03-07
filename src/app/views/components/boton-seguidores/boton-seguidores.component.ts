@@ -28,7 +28,7 @@ export class BotonSeguidoresComponent {
       this.siguiendo = true;
 
     } else {
-      this.seguidorService.dejarDeSeguir(this.id_perfil, this.id_seguidor).subscribe({
+      this.seguidorService.eliminarSeguidor(this.id_perfil, this.id_seguidor).subscribe({
         next: (data) => {
           console.log(data)
           this.siguiendo = false;

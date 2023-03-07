@@ -17,36 +17,38 @@
       <h3 class="username white">@{{perfil.username}}</h3>
       <p class="userBio">{{perfil.descripcion}}</p>
       <div class="subInfoStack white">
-        <div class="cuantity">
+        <div class="cuantity clicMouse" (click)="verBubbles()">
           <h3>Bubbles</h3>
           <h3>{{publicaciones.length}}</h3>
         </div>
-        <div class="cuantity" (click)="verSeguidos()">
-          <h3>Seguidos</h3>
-          <h3>194</h3>
-        </div>
-        <div class="cuantity" (click)="verSeguidores()">
+        <div class="cuantity clicMouse" (click)="verSeguidos()">
           <h3>Seguidores</h3>
+          <h3 *ngIf="seguidos.length != 0">{{seguidos.length}}</h3>
+          <h3 *ngIf="seguidos.length == null">0</h3>
+        </div>
+        <div class="cuantity clicMouse" (click)="verSeguidores()">
+          <h3>Siguiendo</h3>
           <h3 *ngIf="seguidores.length != 0">{{seguidores.length}}</h3>
           <h3 *ngIf="seguidores.length == null">0</h3>
         </div>
       </div>
       <a *ngIf="id_perfil_localStg == id" class="editarPerfil mouseOnBorder white clearmob" [routerLink]="['/editarperfil', id]" >Editar perfil</a>
-      <a *ngIf="id_perfil_localStg != id" class="editarPerfil mouseOnBorder white clearmob" >Seguir</a>
+      <a *ngIf="id_perfil_localStg != id && followState.mensaje == 'false'" class="editarPerfil mouseOnBorder white clearmob" (click)="seguir()">Seguir</a>
+      <a *ngIf="id_perfil_localStg != id && followState.mensaje == 'true' " class="editarPerfil mouseOnBorder white clearmob" (click)="dejarDeSeguir()">Dejar de seguir</a>
 
       <div class="btnStack">
-        <a class="profileBtn mouseOnBorder white clearmob" (click)="verBubbles()">Bubbles</a>
-        <a class="profileBtn mouseOnBorder white clearmob" (click)="verfavoritos()">Favoritos</a>
+        <a class="profileBtn mouseOnBorder white clearmob clicMouse" (click)="verBubbles()">Bubbles</a>
+        <a class="profileBtn mouseOnBorder white clearmob clicMouse" (click)="verfavoritos()">Favoritos</a>
 
       </div>
-      <a [routerLink]="['/crearPublicacion', id]" class="botonPublicacionPerfil aniScale clear">+</a>
+      <a [routerLink]="['/crearPublicacion', id]" class="botonPublicacionPerfil aniScale clear clicMouse">+</a>
     </div>
   </div>
 
   <div [ngSwitch]="sideVisibility" class="sideStyle animate__animated animate__fadeInRight">
     <div   *ngSwitchCase="visibleSection.BUBBLES" class="listaPublicaciones animate__animated animate__fadeIn">
       <div *ngIf="publicaciones.length == 0" >
-        <h2>No hay Bubbles</h2>
+        <h2 class="white">No hay Bubbles</h2>
       </div>
       <div *ngIf="publicaciones.length > 0" class="listaPublicaciones">
         <p>Bubbles</p>
@@ -69,19 +71,28 @@
 
     <div  *ngSwitchCase="visibleSection.FOLLOWERS" class="listaPublicaciones animate__animated animate__fadeIn">
       <div *ngIf="seguidores.length == 0">
-        <p>No tienes seguidores</p>
+        <p>No tiene seguidores</p>
       </div>
       <div *ngIf="seguidores.length > 0">
         <div  *ngFor="let seguidor of seguidores" class="followView white">
             <img class="" src="{{seguidor.fotoPerfil}}"/>
-            <p (click)="verPerfil(seguidor.id)">@{{seguidor.username | slice:0:10}}... </p>
+            <p (click)="verPerfil(seguidor.id)">@{{seguidor.username | slice:0:15}}... </p>
             <app-boton-seguidores [id_seguidor]="seguidor.id" [id_perfil]="perfil.id" ></app-boton-seguidores>
         </div>
       </div>
     </div>
 
-    <div  class="listaPublicaciones" *ngSwitchCase="visibleSection.FOLLOWING">
-      <p>Esto va a ser Seguidos</p>
+    <div *ngSwitchCase="visibleSection.FOLLOWING" class="listaPublicaciones animate__animated animate__fadeIn" >
+      <div *ngIf="seguidos.length == 0">
+        <p>No sigue a nadie.</p>
+      </div>
+      <div *ngIf="seguidos.length > 0">
+        <div  *ngFor="let seguido of seguidos" class="followView white">
+          <img class="" src="{{seguido.fotoPerfil}}"/>
+          <p (click)="verPerfil(seguido.id)">@{{seguido.username | slice:0:15}}... </p>
+          <app-boton-seguidores [id_seguidor]="seguido.id" [id_perfil]="perfil.id" ></app-boton-seguidores>
+        </div>
+      </div>
     </div>
 
   </div>

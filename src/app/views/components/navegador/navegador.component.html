@@ -6,11 +6,12 @@
     <a class="animated aniScale" [routerLink]="['/home', id_perfil]">Para ti</a>
     <a class="animated aniScale" [routerLink]="['/homeSeguidos', id_perfil]">Seguidos</a>
     <input class="animated" type="text" placeholder="Buscar" [(ngModel)]="buscando" (input)="buscar()">
+    <a class="animated aniScale" [routerLink]="['/home', id_perfil]">Chats</a>
   </nav>
   <div class="toProfile">
-    <img class="animated" src="https://i.pinimg.com/236x/40/98/fd/4098fd64d1847f65a2eb5e4017078f9b.jpg" alt="">
-    <a class="animated aniScale dark" [routerLink]="['/perfil', id_perfil]">Ver perfil</a>
+    <img class="animated" src="{{perfil.fotoPerfil}}" alt="">
     <a class="animated aniScale dark" [routerLink]="['/perfiles', id_usuario]">Cambiar perfil</a>
+    <a class="animated aniScale dark" [routerLink]="['/perfil', id_perfil]">Ver perfil</a>
     <a class="animated aniScale red" href="/logout">Cerrar sesión</a>
   </div>
 </div>

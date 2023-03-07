@@ -25,7 +25,7 @@ export class PublicacionService{
   }
 
   public crearPublicacion(publicacion:PublicacionParaCrear) {
-    return this.restService.post<PublicacionParaCrear, PublicacionRespuesta>(`${this.url}/api/publicacion/guardar`, publicacion)
+    return this.restService.post(`${this.url}/api/publicacion/guardar`, publicacion)
   }
   public listarTodasPublicaciones() {
     return this.restService.get<Publicacion[]>(`${this.url}/api/publicacion/listar`)
