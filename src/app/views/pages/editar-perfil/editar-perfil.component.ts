@@ -36,7 +36,6 @@ export class EditarPerfilComponent {
       }
       this.perfilService.perfilPorId(this.id_perfil).subscribe((data) => {
         this.perfil = data;
-        console.log(this.perfil)
 
       })
 
@@ -63,7 +62,6 @@ export class EditarPerfilComponent {
 
 
   onSubmit() {
-    console.log(this.perfil)
      if(this.perfilForm.controls['descripcion'].value != ""){
        this.perfil.descripcion = this.perfilForm.controls['descripcion'].value
      }
@@ -77,7 +75,7 @@ export class EditarPerfilComponent {
     if(this.perfilForm.controls['username'].value != ""){
       this.perfil.username = this.perfilForm.controls['username'].value
     }
-    console.log(this.perfil)
+
     this.editarPerfil(this.perfil)
   }
   eliminarPerfil(){

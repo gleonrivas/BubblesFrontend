@@ -88,9 +88,8 @@ export class CrearPerfilComponent {
         // hay que buscar el id dl perfil
         this.perfilService.perfilPorAtributos(perfil.username, perfil.descripcion, perfil.tipoCuenta).subscribe((data)=>{
           this.perfilCreado = data;
-          this.router.navigateByUrl('/home/' + this.perfilCreado.id)
         });
-
+        this.router.navigateByUrl('/perfiles/' +localStorage.getItem('id_usuario'))
       }
     });
   }
