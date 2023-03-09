@@ -41,7 +41,7 @@
         <a class="profileBtn mouseOnBorder white clearmob clicMouse" (click)="verfavoritos()">Favoritos</a>
 
       </div>
-      <a [routerLink]="['/crearPublicacion', id]" class="botonPublicacionPerfil aniScale clear clicMouse">+</a>
+      <a *ngIf="id_perfil_localStg==id" [routerLink]="['/crearPublicacion', id]" class="botonPublicacionPerfil aniScale clear clicMouse">+</a>
     </div>
   </div>
 
@@ -77,7 +77,7 @@
         <div  *ngFor="let seguidor of seguidores" class="followView white">
             <img class="" src="{{seguidor.fotoPerfil}}"/>
             <p (click)="verPerfil(seguidor.id)">@{{seguidor.username | slice:0:15}}... </p>
-            <app-boton-seguidores [id_seguidor]="seguidor.id" [id_perfil]="perfil.id" ></app-boton-seguidores>
+            <app-boton-seguidores [id_seguidor]="seguidor.id" [id_perfil]="perfil.id" *ngIf="id_perfil_localStg==id" ></app-boton-seguidores>
         </div>
       </div>
     </div>
@@ -90,7 +90,7 @@
         <div  *ngFor="let seguido of seguidos" class="followView white">
           <img class="" src="{{seguido.fotoPerfil}}"/>
           <p (click)="verPerfil(seguido.id)">@{{seguido.username | slice:0:15}}... </p>
-          <app-boton-seguidores [id_seguidor]="seguido.id" [id_perfil]="perfil.id" ></app-boton-seguidores>
+          <app-boton-seguidores [id_seguidor]="seguido.id" [id_perfil]="perfil.id" *ngIf="id_perfil_localStg==id"  ></app-boton-seguidores>
         </div>
       </div>
     </div>
